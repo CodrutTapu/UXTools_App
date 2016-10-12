@@ -1,0 +1,26 @@
+<div class="scale-chart-module white-brd" [style.background]="gE.bgColor"><!-- Scale Chart Module -->
+    <div class="module-buttons">
+        <ul class="no-pad">
+            <li class="add" (click)=addScale(gE) title="Add Scale"><i class="fa fa-plus fa-lg" aria-hidden="true"></i></li>
+            <li class="delete" (click)="deleteScaleChartModule(gE)" title="Delete Module"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></li>
+            <bgColor-module [gE]="gE"></bgColor-module>
+        </ul>
+    </div>
+    <div class="editable-scale-title cEditable" [innerHTML]="gE.moduleType.title" (click)="updateScaleTitle(gE)"></div>
+    <div *ngFor="let scale of gE.moduleType.scales">
+        <div class="slide-wrapper">
+            <div class="slide-header clearfix">
+                <div class="side-left">
+                    <p class="editable-sideA cEditable" (click)="updateScaleSideA(scale,gE)" [innerHTML]="scale.sideA"></p>
+                </div>
+                <div class="side-right">
+                    <p class="editable-sideB cEditable" (click)="updateScaleSideB(scale,gE)" [innerHTML]="scale.sideB"></p>
+                </div>
+            </div>
+            <input class="tst" type="range" value="{{scale.value}}" (click)="updateScaleValue($event,scale)">
+            <div class="delete-slide" (click)=deleteScale(gE,scale) title="Delete Scale">
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+</div>

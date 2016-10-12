@@ -1,0 +1,22 @@
+<div class="container grid">
+    <div class="row sortable">
+        <div *ngFor="let gE of gridElements; let i = index" class="grid-block col-md-{{gE.dim}}" id="{{gE.id}}">
+            <div [ngSwitch]="gE.moduleType.id">
+                    <view-text-module *ngSwitchCase="1" [gE]="gE"></view-text-module>
+                    <view-image-module *ngSwitchCase="2" [gE]="gE"></view-image-module>
+                    <view-bar-graph-module *ngSwitchCase="3" [gE]="gE"></view-bar-graph-module>
+                    <view-social-media-module *ngSwitchCase="4" [gE]="gE"></view-social-media-module>
+                    <view-tag-module *ngSwitchCase="5" [gE]="gE"></view-tag-module>
+                    <view-email-module *ngSwitchCase="6" [gE]="gE"></view-email-module>
+                    <view-scale-chart-module *ngSwitchCase="7" [gE]="gE"></view-scale-chart-module>
+                    <view-pie-chart-module *ngSwitchCase="8" [gE]="gE"></view-pie-chart-module>
+                    <view-accordion-module *ngSwitchCase="9" [gE]="gE"></view-accordion-module>
+                    <view-tabs-module *ngSwitchCase="10" [gE]="gE"></view-tabs-module>
+                    <!-- <embed-module *ngSwitchCase="11" [gE]="gE"></embed-module> -->
+                    <view-devices-platforms-module *ngSwitchCase="12" [gE]="gE"></view-devices-platforms-module>
+                    <view-about-module *ngSwitchCase="13" [gE]="gE"></view-about-module>
+                    <view-counting-module *ngSwitchCase="14" [gE]="gE"></view-counting-module>
+            </div>
+        </div>
+    </div>
+</div>

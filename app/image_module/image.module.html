@@ -1,0 +1,15 @@
+<div class="image-module white-brd"><!-- Image Module -->
+    <div class="module-buttons">
+        <ul class="no-pad">
+            <li class="add" title="Add Image"><i class="fa fa-plus fa-lg" aria-hidden="true"></i></li>
+            <li class="delete" (click)="deleteImageModule(gE)" title="Delete Module"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></li>
+        </ul>
+    </div>
+    <img src="{{gE.moduleType.url}}" alt="profile-image" id="image-result"/>
+    <div class="add-image">
+        <h2>Image Upload by URL</h2>
+        <input type="url" class="image-input-value" [(ngModel)]="imageUrl">
+        <button type="button" name="button" class="image-input-set-button btn btn-primary" (click)="changeImageUrl(gE)">Upload</button>
+    </div>
+    <div class="image-module-item-delete" (click)="deleteImageUrl(gE)" title="Delete Image"><i class="fa fa-times" aria-hidden="true"></i></div>
+</div>

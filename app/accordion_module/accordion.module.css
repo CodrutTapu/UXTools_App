@@ -1,0 +1,38 @@
+/*
+==================================
+    Accordion Module
+==================================
+*/
+.accordion-module {
+    padding: 10px;
+}
+.accordion-module:hover {
+    border: 2px solid #001926;
+}
+.accordion-module .panel-group {
+    margin-bottom: 2px;
+}
+.accordion-module .panel {
+    border-radius: 0;
+}
+.accordion-module .panel-heading {
+    position: relative;
+    background: #fff;
+}
+.accordion-module .delete-accordion-item {
+    position: absolute;
+    right: 0px;
+    top: 0;
+    height: 18px;
+    width: 18px;
+    background: red;
+    text-align: center;
+    line-height: 19px;
+    font-size: 12px;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+}
+.editable-accordion-title {
+    margin-left: 10px;
+}

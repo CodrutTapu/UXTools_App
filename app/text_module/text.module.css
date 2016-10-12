@@ -1,0 +1,14 @@
+/*
+==================================
+    Text Module
+==================================
+*/
+.text-module {
+    padding: 10px;
+}
+.text-module:hover {
+    border: 2px solid #001926;
+}
+.text-module p {
+    text-align: justify;
+}

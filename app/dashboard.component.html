@@ -1,0 +1,64 @@
+<h1>Projects</h1>
+<div class="row">
+    <h3>Active</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Type</th>
+                <th>Author</th>
+                <th>Ceated</th>
+                <th>Modified</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let project of projects">
+                    <td *ngIf="project.archived == 0" >{{ project.project_name }}</td>
+                    <td *ngIf="project.archived == 0" >{{ project.project_type }}</td>
+                    <td *ngIf="project.archived == 0" >{{ project.author_id }}</td>
+                    <td *ngIf="project.archived == 0" >{{ project.date_created}}</td>
+                    <td *ngIf="project.archived == 0" >{{ project.date_modified }}</td>
+                    <td *ngIf="project.archived == 0" >
+                        <a class="btn btn-success" routerLink="/view/{{ project.author_id }}/{{ project.project_type }}/{{ project.project_id }}/{{ project.project_name }}">View</a>
+                        <a class="btn btn-info" routerLink="/edit/{{ project.author_id }}/{{ project.project_type }}/{{ project.project_id }}/{{ project.project_name }}">Edit</a>
+                        <button class="btn btn-warning" type="button" name="button" (click)="archiveProject(project.author_id, project.project_id)">Archive</button>
+                        <button class="btn btn-danger" type="button" name="button" (click)="deleteProject(project.author_id, project.project_id)">Delete</button>
+                    </td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-success" type="button" name="button" routerLink="/new/persona/{{ author_id }}">New Persona</button>
+</div>
+
+
+<div class="row">
+    <h3>Archived</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Type</th>
+                <th>Author</th>
+                <th>Ceated</th>
+                <th>Modified</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let project of projects">
+                    <td *ngIf="project.archived == 1" >{{ project.project_name }}</td>
+                    <td *ngIf="project.archived == 1" >{{ project.project_type }}</td>
+                    <td *ngIf="project.archived == 1" >{{ project.author_id }}</td>
+                    <td *ngIf="project.archived == 1" >{{ project.date_created}}</td>
+                    <td *ngIf="project.archived == 1" >{{ project.date_modified }}</td>
+                    <td *ngIf="project.archived == 1" >
+                        <a class="btn btn-success" routerLink="/view/{{ project.author_id }}/{{ project.project_type }}/{{ project.project_id }}/{{ project.project_name }}">View</a>
+                        <a class="btn btn-info" href="/edit/{{ project.author_id }}/{{ project.project_type }}/{{ project.project_id }}/{{ project.project_name }}">Edit</a>
+                        <button class="btn btn-warning" type="button" name="button" (click)="archiveProject(project.author_id, project.project_id)">Unarchive</button>
+                        <button class="btn btn-danger" type="button" name="button" (click)="deleteProject(project.author_id, project.project_id)">Delete</button>
+                    </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

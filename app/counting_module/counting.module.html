@@ -1,0 +1,10 @@
+<div class="counting-module white-brd" [style.background]="gE.bgColor"><!-- Counting Module -->
+    <div class="module-buttons">
+        <ul class="no-pad">
+            <li (click)="deleteCountingModule(gE)" class="delete" title="Delete Module"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></li>
+            <bgColor-module [gE]="gE"></bgColor-module>
+        </ul>
+    </div>
+    <p class="editable-counting-value cEditable" [innerHTML]="gE.moduleType.content[0]" (click)="updateCountingValue(gE)"></p>
+    <p class="editable-counting-description cEditable" [innerHTML]="gE.moduleType.content[1]" (click)="updateCountingDescription(gE)"></p>
+</div>

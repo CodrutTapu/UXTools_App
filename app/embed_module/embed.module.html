@@ -1,0 +1,18 @@
+<div class="embed-module white-brd" [style.background]="gE.bgColor"><!-- Embed Module -->
+    <div class="module-buttons">
+        <ul class="no-pad">
+            <li class="add" title="Edit Link"><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i></li>
+            <li (click)="deleteEmbedModule(gE)" class="delete" title="Delete Module"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></li>
+            <bgColor-module [gE]="gE"></bgColor-module>
+        </ul>
+    </div>
+    <div class="editable-embed-title cEditable" [innerHTML]="gE.moduleType.title" (click)="updateEmbedTitle(gE)"></div>
+    <div class="embed-responsive embed-responsive-16by9">
+      <iframe class="embed-responsive-item" [src]="url"></iframe>
+    </div>
+    <div class="add-embed">
+        <h2>Add URL</h2>
+        <input type="url" class="embed-input-value" [(ngModel)]="embedUrl">
+        <button type="button" name="button" class="embed-input-set-button btn btn-primary" (click)="changeEmbedUrl(gE)">Add</button>
+    </div>
+</div>

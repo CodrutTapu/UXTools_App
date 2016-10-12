@@ -1,0 +1,18 @@
+<div class="about-module white-brd" [style.background]="gE.bgColor"><!-- About Module -->
+    <div class="module-buttons">
+        <ul class="no-pad">
+            <li (click)="addAboutItem(gE)" class="add" title="Add Item"><i class="fa fa-plus fa-lg" aria-hidden="true"></i></li>
+            <li (click)="deleteAboutModule(gE)" class="delete" title="Delete Module"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></li>
+            <bgColor-module [gE]="gE"></bgColor-module>
+        </ul>
+    </div>
+    <div class="row" *ngFor="let aI of gE.moduleType.content">
+        <div class="col-sm-6 about-item-name">
+            <p class="editable-about-item-name cEditable" [innerHTML]="aI.name" (click)="updateAboutItemName(aI,gE)"></p>
+        </div>
+        <div class="col-sm-6 about-item-value">
+            <p class="editable-about-item-value cEditable" [innerHTML]="aI.value" (click)="updateAboutItemValue(aI,gE)"></p>
+        </div>
+        <div class="about-module-item-delete" (click)="deleteAboutItem(gE,aI)"><i class="fa fa-times" aria-hidden="true" title="Delete Item"></i></div>
+    </div>
+</div>

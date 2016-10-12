@@ -1,0 +1,23 @@
+<div class="tabs-module white-brd" [style.background]="gE.bgColor"><!-- Tabs Module -->
+    <div class="module-buttons">
+        <ul class="no-pad">
+            <li class="add" (click)="addTabsItem(gE)" title="Add Item"><i class="fa fa-plus fa-lg" aria-hidden="true"></i></li>
+            <li class="delete" (click)="deleteTabsModule(gE)" title="Delete Module"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></li>
+            <bgColor-module [gE]="gE"></bgColor-module>
+        </ul>
+    </div>
+    <div>
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li *ngFor="let item of gE.moduleType.items; let index = index" [class.active]="index == 0" role="presentation" class="tab-title"><a href="#{{item.id}}{{gE.id}}" aria-controls="home" role="tab" data-toggle="tab" [innerHTML]="item.title" (click)="updateTabsItemTitle(item,gE)"></a>
+            <div class="delete-tabs-item" (click)="deleteTabsItem(gE,item)" title="Delete Item">
+                <i aria-hidden="true" class="fa fa-times"></i>
+            </div>
+        </li>
+      </ul>
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div *ngFor="let item of gE.moduleType.items; let index = index" role="tabpanel" [class.active]="index == 0" class="editable-tabs-item-content tab-pane fade in cEditable" id="{{item.id}}{{gE.id}}" [innerHTML]="item.content" (click)="updateTabsItemContent(item,gE)"></div>
+      </div>
+    </div>
+</div>
