@@ -35,6 +35,9 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 .no-pad {
     padding: 0;
 }
+.hover-brd:hover {
+    border: 2px solid #001926;
+}
 /*
 ==================================
     Module Buttons
@@ -257,11 +260,6 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     position: fixed;
     top: 0;
     left: 0;
-}
-.accordion-module .note-editable.panel-body {
-    margin: 0 !important;
-    padding: 15px !important;
-    border-top: 1px solid #ddd;
 }
 .tag-module .tag p {
     margin: 0;

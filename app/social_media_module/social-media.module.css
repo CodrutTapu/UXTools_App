@@ -28,9 +28,6 @@
 .social-media-module ul li .external-link:hover {
     color: #2bb673;
 }
-.social-media-module:hover {
-    border: 2px solid #001926;
-}
 .social-media-module .edit-social-links {
     background: #f4f4f4;
     padding: 50px 0;

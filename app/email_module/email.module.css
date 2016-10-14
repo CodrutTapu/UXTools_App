@@ -16,9 +16,6 @@
 .email-module button {
     border-radius: 0;
 }
-.email-module:hover {
-    border: 2px solid #001926;
-}
 .email-module .send-btn {
     height: 34px;
     background: #337ab7;

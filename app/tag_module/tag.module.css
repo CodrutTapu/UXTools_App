@@ -17,9 +17,6 @@
 .tag-module .note-editor.note-frame .note-editing-area .note-editable {
     background: #e3e5e6;
 }
-.tag-module:hover {
-    border: 2px solid #001926;
-}
 .tag-module .tag .delete-tag {
     position: absolute;
     right: 0;

@@ -6,9 +6,6 @@
 .accordion-module {
     padding: 10px;
 }
-.accordion-module:hover {
-    border: 2px solid #001926;
-}
 .accordion-module .panel-group {
     margin-bottom: 2px;
 }
@@ -32,7 +29,4 @@
     color: #fff;
     cursor: pointer;
     display: none;
-}
-.editable-accordion-title {
-    margin-left: 10px;
 }

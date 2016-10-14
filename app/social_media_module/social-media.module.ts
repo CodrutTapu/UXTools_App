@@ -11,6 +11,7 @@ import {bgColorModule} from '../bgColor_component/bgColor.module';
 })
 
 export class SocialMediaModule {
+    gE;
     facebookUrl;
     twitterUrl;
     linkedinUrl;
@@ -23,5 +24,11 @@ export class SocialMediaModule {
         gE.moduleType.twitterUrl = this.twitterUrl;
         gE.moduleType.linkedinUrl = this.linkedinUrl;
         gE.moduleType.externalUrl = this.externalUrl;
+    }
+    ngOnInit() {
+        this.facebookUrl = this.gE.moduleType.facebookUrl;
+        this.twitterUrl = this.gE.moduleType.twitterUrl;
+        this.linkedinUrl = this.gE.moduleType.linkedinUrl;
+        this.externalUrl = this.gE.moduleType.externalUrl;
     }
 }

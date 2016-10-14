@@ -7,9 +7,6 @@
     padding: 10px;
     position: relative;
 }
-.image-module:hover {
-    border: 2px solid #001926;
-}
 .image-module img {
     display: block;
     width: 100%;
@@ -46,4 +43,13 @@
     right: 10px;
     cursor: pointer;
     display: none;
+}
+
+.view-image-module {
+    position: relative;
+}
+.view-image-module img {
+    display: block;
+    width: 100%;
+    position: relative;
 }

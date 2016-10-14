@@ -26,9 +26,6 @@
     font-weight: bold;
     font-size: 12px;
 }
-.scale-chart-module:hover {
-    border: 2px solid #001926;
-}
 .scale-chart-module .delete-slide {
     position: absolute;
     right: -14px;

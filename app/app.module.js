@@ -35,7 +35,8 @@ var tag_module_1 = require('./tag_module/tag.module');
 var view_tag_module_1 = require('./tag_module/view.tag.module');
 var email_module_1 = require('./email_module/email.module');
 var view_email_module_1 = require('./email_module/view.email.module');
-//import { EmbedModule } from './embed_module/embed.module';
+var embed_module_1 = require('./embed_module/embed.module');
+var view_embed_module_1 = require('./embed_module/view.embed.module');
 var scale_chart_module_1 = require('./scale_chart_module/scale-chart.module');
 var view_scale_chart_module_1 = require('./scale_chart_module/view.scale-chart.module');
 var pie_chart_module_1 = require('./pie_chart_module/pie-chart.module');
@@ -87,7 +88,8 @@ var AppModule = (function () {
                 view_tag_module_1.ViewTagModule,
                 email_module_1.EmailModule,
                 view_email_module_1.ViewEmailModule,
-                //EmbedModule,
+                embed_module_1.EmbedModule,
+                view_embed_module_1.ViewEmbedModule,
                 scale_chart_module_1.ScaleChartModule,
                 view_scale_chart_module_1.ViewScaleChartModule,
                 pie_chart_module_1.PieChartModule,

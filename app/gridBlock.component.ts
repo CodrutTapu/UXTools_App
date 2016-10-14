@@ -36,6 +36,7 @@ import { tabsItem } from './tabs_module/tabsItem';
 import { ViewTabsModule } from './tabs_module/view.tabs.module';
 import { EmbedModule } from './embed_module/embed.module';
 import { embedModule } from './embed_module/embedModule';
+import { ViewEmbedModule } from './embed_module/view.embed.module';
 import { DevicesPlatformsModule } from './devicesPlatforms_module/devices-platforms.module';
 import { devicesPlatformsModule } from './devicesPlatforms_module/devicesPlatformsModule';
 import { devicePlatform } from './devicesPlatforms_module/devicePlatform';

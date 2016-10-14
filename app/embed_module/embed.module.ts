@@ -1,23 +1,24 @@
 import { Component, Input } from '@angular/core';
-import {AppComponent} from '../app.component';
-import {GridBlock} from '../gridBlock.component';
-import { SafeResourceUrl, DomSanitizationService } from '@angular/platform-browser';
-import {bgColorModule} from '../bgColor_component/bgColor.module';
+import { AppComponent } from '../app.component';
+import { GridBlock } from '../gridBlock.component';
+import { SafeResourceUrl, DomSanitizer  } from '@angular/platform-browser';
+import { bgColorModule } from '../bgColor_component/bgColor.module';
 declare var $: any;
 
 @Component({
-  selector: 'embed-module',
-  templateUrl: 'app/embed_module/embed.module.html',
-  styleUrls: ['app/embed_module/embed.module.css'],
-  inputs: ['gE']
+    selector: 'embed-module',
+    templateUrl: 'app/embed_module/embed.module.html',
+    styleUrls: ['app/embed_module/embed.module.css'],
+    inputs: ['gE']
 })
 
 export class EmbedModule {
+    gE;
     embedUrl;
     url: SafeResourceUrl;
-    constructor(private sanitizer:DomSanitizationService){}
+    constructor(private sanitizer:DomSanitizer ){}
     ngOnInit(){
-        this.url = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/rn5s6H_Yamo');
+        this.url = this.sanitizer.bypassSecurityTrustResourceUrl(this.gE.moduleType.content);
     }
     deleteEmbedModule(gE) {
         gE.moduleType = {};

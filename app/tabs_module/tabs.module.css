@@ -6,9 +6,6 @@
 .tabs-module {
     padding: 10px;
 }
-.tabs-module:hover {
-    border: 2px solid #001926;
-}
 .tabs-module p {
     text-align: justify;
 }

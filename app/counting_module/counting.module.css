@@ -6,9 +6,6 @@
 .counting-module {
     padding: 10px;
 }
-.counting-module:hover {
-    border: 2px solid #001926;
-}
 .counting-module {
     text-align: center;
 }

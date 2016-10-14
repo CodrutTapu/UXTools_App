@@ -6,9 +6,6 @@
 .devices-platforms-module {
     padding: 10px
 }
-.devices-platforms-module:hover {
-    border: 2px solid #001926;
-}
 .devices-platforms-module .devices-platforms-list .col-md-2 {
     text-align: center;
     position: relative;

@@ -16,9 +16,6 @@
 .bar-graph-module .progress:hover {
     cursor: pointer;
 }
-.bar-graph-module:hover {
-    border: 2px solid #001926;
-}
 .bar-graph-module .delete-progress-bar {
     position: absolute;
     right: 0px;

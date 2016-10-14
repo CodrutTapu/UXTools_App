@@ -25,7 +25,8 @@ import { TagModule } from './tag_module/tag.module';
 import { ViewTagModule } from './tag_module/view.tag.module';
 import { EmailModule } from './email_module/email.module';
 import { ViewEmailModule } from './email_module/view.email.module';
-//import { EmbedModule } from './embed_module/embed.module';
+import { EmbedModule } from './embed_module/embed.module';
+import { ViewEmbedModule } from './embed_module/view.embed.module';
 import { ScaleChartModule } from './scale_chart_module/scale-chart.module';
 import { ViewScaleChartModule } from './scale_chart_module/view.scale-chart.module';
 import { PieChartModule } from './pie_chart_module/pie-chart.module';
@@ -74,7 +75,8 @@ import { bgColorModule } from './bgColor_component/bgColor.module';
         ViewTagModule,
         EmailModule,
         ViewEmailModule,
-        //EmbedModule,
+        EmbedModule,
+        ViewEmbedModule,
         ScaleChartModule,
         ViewScaleChartModule,
         PieChartModule,

@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var accordionItem_1 = require('./accordionItem');
+var core_1 = require("@angular/core");
+var accordionItem_1 = require("./accordionItem");
 var AccordionModule = (function () {
     function AccordionModule() {
         this.i = 4;
@@ -70,21 +70,16 @@ var AccordionModule = (function () {
             });
         });
     };
-    AccordionModule.prototype.ngOnInit = function () {
-        $('.accordion-module').on('show.bs.collapse', '.collapse', function () {
-            $(this).parents().eq(2).find('.collapse.in').collapse('hide');
-        });
-    };
-    AccordionModule = __decorate([
-        core_1.Component({
-            selector: 'accordion-module',
-            templateUrl: 'app/accordion_module/accordion.module.html',
-            styleUrls: ['app/accordion_module/accordion.module.css'],
-            inputs: ['gE']
-        }), 
-        __metadata('design:paramtypes', [])
-    ], AccordionModule);
     return AccordionModule;
 }());
+AccordionModule = __decorate([
+    core_1.Component({
+        selector: 'accordion-module',
+        templateUrl: 'app/accordion_module/accordion.module.html',
+        styleUrls: ['app/accordion_module/accordion.module.css'],
+        inputs: ['gE']
+    }),
+    __metadata("design:paramtypes", [])
+], AccordionModule);
 exports.AccordionModule = AccordionModule;
 //# sourceMappingURL=accordion.module.js.map

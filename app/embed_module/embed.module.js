@@ -8,14 +8,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
+var core_1 = require("@angular/core");
+var platform_browser_1 = require("@angular/platform-browser");
 var EmbedModule = (function () {
     function EmbedModule(sanitizer) {
         this.sanitizer = sanitizer;
     }
     EmbedModule.prototype.ngOnInit = function () {
-        this.url = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/rn5s6H_Yamo');
+        this.url = this.sanitizer.bypassSecurityTrustResourceUrl(this.gE.moduleType.content);
     };
     EmbedModule.prototype.deleteEmbedModule = function (gE) {
         gE.moduleType = {};
@@ -40,17 +40,16 @@ var EmbedModule = (function () {
             $(this).parent().find('.note-editable').css('background', gE.bgColor);
         });
     };
-    EmbedModule = __decorate([
-        core_1.Component({
-            selector: 'embed-module',
-            templateUrl: 'app/embed_module/embed.module.html',
-            styleUrls: ['app/embed_module/embed.module.css'],
-            inputs: ['gE']
-        }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof platform_browser_1.DomSanitizationService !== 'undefined' && platform_browser_1.DomSanitizationService) === 'function' && _a) || Object])
-    ], EmbedModule);
     return EmbedModule;
-    var _a;
 }());
+EmbedModule = __decorate([
+    core_1.Component({
+        selector: 'embed-module',
+        templateUrl: 'app/embed_module/embed.module.html',
+        styleUrls: ['app/embed_module/embed.module.css'],
+        inputs: ['gE']
+    }),
+    __metadata("design:paramtypes", [platform_browser_1.DomSanitizer])
+], EmbedModule);
 exports.EmbedModule = EmbedModule;
 //# sourceMappingURL=embed.module.js.map
