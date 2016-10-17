@@ -3,6 +3,7 @@ import {Http, Response} from '@angular/http';
 import {URLSearchParams} from '@angular/http';
 import {HTTTPService} from './http_service/http.service';
 declare var $:any;
+declare var toastr:any;
 
 @Component({
     selector: 'dashboard-component',
@@ -37,12 +38,18 @@ export class DashboardComponent {
         data =  {'author_id': author_id, 'project_id': project_id};
         $.post(ajaxurl, data, function (response) {});
         this.httpGet();
+        toastr["error"](" ", "Project Deleted!");
     }
 
-    archiveProject(author_id, project_id) {
+    archiveProject(author_id, project_id, project_archived) {
         var ajaxurl = '/public/archiveProject',
         data =  {'author_id': author_id, 'project_id': project_id};
         $.post(ajaxurl, data, function (response) {});
         this.httpGet();
+        if( project_archived == 1 ) {
+            toastr["warning"](" ", "Project Unarchived!");
+        } else {
+            toastr["warning"](" ", "Project Archived!");
+        }
     }
 }

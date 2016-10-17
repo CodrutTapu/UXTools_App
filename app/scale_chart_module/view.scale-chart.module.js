@@ -8,20 +8,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+var core_1 = require("@angular/core");
 var ViewScaleChartModule = (function () {
     function ViewScaleChartModule() {
     }
-    ViewScaleChartModule = __decorate([
-        core_1.Component({
-            selector: 'view-scale-chart-module',
-            templateUrl: 'app/scale_chart_module/view-scale-chart.module.html',
-            styleUrls: ['app/scale_chart_module/scale-chart.module.css'],
-            inputs: ['gE']
-        }), 
-        __metadata('design:paramtypes', [])
-    ], ViewScaleChartModule);
+    ViewScaleChartModule.prototype.ngOnInit = function () {
+        $("<style type='text/css'>.scale-chart-module input[type=range]::-webkit-slider-thumb{background:" + this.gE.csColor + "!important}</style>").appendTo($("head"));
+    };
     return ViewScaleChartModule;
 }());
+ViewScaleChartModule = __decorate([
+    core_1.Component({
+        selector: 'view-scale-chart-module',
+        templateUrl: 'app/scale_chart_module/view-scale-chart.module.html',
+        styleUrls: ['app/scale_chart_module/scale-chart.module.css'],
+        inputs: ['gE']
+    }),
+    __metadata("design:paramtypes", [])
+], ViewScaleChartModule);
 exports.ViewScaleChartModule = ViewScaleChartModule;
 //# sourceMappingURL=view.scale-chart.module.js.map

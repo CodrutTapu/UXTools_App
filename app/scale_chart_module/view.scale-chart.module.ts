@@ -12,4 +12,9 @@ declare var $: any;
     inputs: ['gE']
 })
 
-export class ViewScaleChartModule {}
+export class ViewScaleChartModule {
+    gE;
+    ngOnInit() {
+        $("<style type='text/css'>.scale-chart-module input[type=range]::-webkit-slider-thumb{background:" + this.gE.csColor + "!important}</style>").appendTo($("head"));
+    }
+}

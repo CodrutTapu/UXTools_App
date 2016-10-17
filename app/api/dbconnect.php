@@ -13,5 +13,5 @@
 
     	'option' => [
     		PDO::ATTR_CASE => PDO::CASE_NATURAL
-    	]
+        ]
     ]);

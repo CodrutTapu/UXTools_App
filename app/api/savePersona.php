@@ -10,7 +10,7 @@
 
         $project_name = $request->getParam('project_name');
 
-        $date_modified  = date("m.d.y");
+        $date_modified  = date("Y-m-d");
 
         $content = $request->getParam('gridElements');
 

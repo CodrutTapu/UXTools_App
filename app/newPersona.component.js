@@ -8,11 +8,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var http_service_1 = require('./http_service/http.service');
-var gridElem_1 = require('./gridElem');
-var textModule_1 = require('./text_module/textModule');
-var router_1 = require('@angular/router');
+var core_1 = require("@angular/core");
+var http_service_1 = require("./http_service/http.service");
+var gridElem_1 = require("./gridElem");
+var textModule_1 = require("./text_module/textModule");
+var router_1 = require("@angular/router");
 var newPersonaComponent = (function () {
     function newPersonaComponent(_httpService, route) {
         this._httpService = _httpService;
@@ -27,17 +27,18 @@ var newPersonaComponent = (function () {
     };
     newPersonaComponent.prototype.savePersona = function () {
         var ajaxurl = '/public/saveNewPersona', data = { 'author_id': this.author_id, 'project_name': this.project_name, 'gridElements': JSON.stringify(this.gridElements) };
-        $.post(ajaxurl, data, function (response) { alert("Persona saved!"); });
+        $.post(ajaxurl, data, function (response) { });
+        toastr["success"](" ", "Persona Saved!");
     };
-    newPersonaComponent = __decorate([
-        core_1.Component({
-            selector: 'new-persona',
-            templateUrl: 'app/persona.component.html',
-            providers: [http_service_1.HTTTPService],
-        }), 
-        __metadata('design:paramtypes', [http_service_1.HTTTPService, router_1.ActivatedRoute])
-    ], newPersonaComponent);
     return newPersonaComponent;
 }());
+newPersonaComponent = __decorate([
+    core_1.Component({
+        selector: 'new-persona',
+        templateUrl: 'app/persona.component.html',
+        providers: [http_service_1.HTTTPService],
+    }),
+    __metadata("design:paramtypes", [http_service_1.HTTTPService, router_1.ActivatedRoute])
+], newPersonaComponent);
 exports.newPersonaComponent = newPersonaComponent;
 //# sourceMappingURL=newPersona.component.js.map

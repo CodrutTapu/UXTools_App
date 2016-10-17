@@ -22,8 +22,33 @@
                     <td *ngIf="project.archived == 0" >
                         <a class="btn btn-success" routerLink="/view/{{ project.author_id }}/{{ project.project_type }}/{{ project.project_id }}/{{ project.project_name }}">View</a>
                         <a class="btn btn-info" routerLink="/edit/{{ project.author_id }}/{{ project.project_type }}/{{ project.project_id }}/{{ project.project_name }}">Edit</a>
-                        <button class="btn btn-warning" type="button" name="button" (click)="archiveProject(project.author_id, project.project_id)">Archive</button>
-                        <button class="btn btn-danger" type="button" name="button" (click)="deleteProject(project.author_id, project.project_id)">Delete</button>
+                        <button class="btn btn-warning" type="button" name="button" (click)="archiveProject(project.author_id, project.project_id, project.archived)">Archive</button>
+                        <button class="btn btn-danger" type="button" name="button" data-toggle="modal" [attr.data-target]="'#confirmDelete' + project.project_id">Delete</button>
+
+                        <div class="modal fade" id="confirmDelete{{project.project_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title text-center">Are you sure you want to permanently delete this?</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <br>
+                                        <p class="text-center">All information, image assets, and form submissions will be deleted. Any links to this folio or its images will not be accessible. You won't be able to undo this action.</p>
+                                        <br><br>
+                                        <div class="row">
+                                            <div class="col-xs-6 text-center">
+                                                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                                            </div>
+                                            <div class="col-xs-6 text-center">
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="deleteProject(project.author_id, project.project_id)">Yes, Delete this</button>
+                                            </div>
+                                        </div>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </td>
             </tr>
         </tbody>
@@ -55,8 +80,33 @@
                     <td *ngIf="project.archived == 1" >
                         <a class="btn btn-success" routerLink="/view/{{ project.author_id }}/{{ project.project_type }}/{{ project.project_id }}/{{ project.project_name }}">View</a>
                         <a class="btn btn-info" href="/edit/{{ project.author_id }}/{{ project.project_type }}/{{ project.project_id }}/{{ project.project_name }}">Edit</a>
-                        <button class="btn btn-warning" type="button" name="button" (click)="archiveProject(project.author_id, project.project_id)">Unarchive</button>
-                        <button class="btn btn-danger" type="button" name="button" (click)="deleteProject(project.author_id, project.project_id)">Delete</button>
+                        <button class="btn btn-warning" type="button" name="button" (click)="archiveProject(project.author_id, project.project_id, project.archived)">Unarchive</button>
+                        <button class="btn btn-danger" type="button" name="button"  data-toggle="modal" [attr.data-target]="'#confirmDelete' + project.project_id">Delete</button>
+
+                        <div class="modal fade" id="confirmDelete{{project.project_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title text-center">Are you sure you want to permanently delete this?</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <br>
+                                        <p class="text-center">All information, image assets, and form submissions will be deleted. Any links to this folio or its images will not be accessible. You won't be able to undo this action.</p>
+                                        <br><br>
+                                        <div class="row">
+                                            <div class="col-xs-6 text-center">
+                                                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                                            </div>
+                                            <div class="col-xs-6 text-center">
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="deleteProject(project.author_id, project.project_id)">Yes, Delete this</button>
+                                            </div>
+                                        </div>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </td>
             </tr>
         </tbody>

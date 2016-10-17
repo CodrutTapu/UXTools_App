@@ -8,9 +8,9 @@
 
         $project_name = $request->getParam('project_name');
 
-        $date_created  = date("m.d.y");
+        $date_created  = date("Y-m-d");
 
-        $date_modified  = date("m.d.y");
+        $date_modified  = date("Y-m-d");
 
         $content = $request->getParam('gridElements');
 

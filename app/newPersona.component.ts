@@ -9,6 +9,7 @@ import {persona} from './persona';
 import {textModule} from './text_module/textModule';
 import {ActivatedRoute} from '@angular/router';
 declare var $:any;
+declare var toastr:any;
 
 @Component({
     selector: 'new-persona',
@@ -38,7 +39,8 @@ export class newPersonaComponent {
     savePersona() {
         var ajaxurl = '/public/saveNewPersona',
         data =  {'author_id': this.author_id, 'project_name': this.project_name, 'gridElements': JSON.stringify(this.gridElements)};
-        $.post(ajaxurl, data, function (response) {alert("Persona saved!")});
+        $.post(ajaxurl, data, function (response) {});
+        toastr["success"](" ", "Persona Saved!");
     }
 
 }
