@@ -90,8 +90,8 @@ $(document).on("mouseleave",".scale-chart-module .slide-wrapper",function(){
 ==================================
 */
 $(document).on('click','.pie-chart-module .add',function(){
-    var pcModule = $('.pie-chart-module');
-    if( $('.create-pie-chart-box').is(':visible') ){
+    var pcModule = $(this).parents().eq(2);
+    if( pcModule.find('.create-pie-chart-box').is(':visible') ){
         pcModule.find('.create-pie-chart-box').stop().hide(200);
     }else {
         pcModule.find('.create-pie-chart-box').stop().show(200);

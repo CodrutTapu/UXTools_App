@@ -13,23 +13,39 @@ declare var Chart:any;
 })
 
 export class ViewPieChartModule {
-    ngOnInit() {
-        var ctx = document.getElementById("pieChart");
+    gE;
+    ngAfterViewInit() {
+        var ctx = document.getElementById("pieChart" + this.gE.id);
         var pieChart = new Chart(ctx, {
             type: 'pie',
             data: {
-                labels: ["Red", "Blue", "Yellow"],
+                labels: this.gE.moduleType.labels,
                 datasets: [{
-                    data: [12, 19, 3],
+                    data: this.gE.moduleType.data,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)'
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(191, 63, 127, 0.2)',
+                        'rgba(38, 12, 12, 0.2)',
+                        'rgba(3, 124, 21, 0.2)',
+                        'rgba(242, 230, 63, 0.2)'
+
                     ],
                     borderColor: [
                         'rgba(255,99,132,1)',
                         'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)'
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(191, 63, 127, 1)',
+                        'rgba(38, 12, 12, 1)',
+                        'rgba(3, 124, 21, 1)',
+                        'rgba(242, 230, 63, 1)'
                     ],
                     borderWidth: 1
                 }]

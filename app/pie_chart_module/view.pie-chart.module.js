@@ -8,27 +8,41 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+var core_1 = require("@angular/core");
 var ViewPieChartModule = (function () {
     function ViewPieChartModule() {
     }
-    ViewPieChartModule.prototype.ngOnInit = function () {
-        var ctx = document.getElementById("pieChart");
+    ViewPieChartModule.prototype.ngAfterViewInit = function () {
+        var ctx = document.getElementById("pieChart" + this.gE.id);
         var pieChart = new Chart(ctx, {
             type: 'pie',
             data: {
-                labels: ["Red", "Blue", "Yellow"],
+                labels: this.gE.moduleType.labels,
                 datasets: [{
-                        data: [12, 19, 3],
+                        data: this.gE.moduleType.data,
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)'
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)',
+                            'rgba(191, 63, 127, 0.2)',
+                            'rgba(38, 12, 12, 0.2)',
+                            'rgba(3, 124, 21, 0.2)',
+                            'rgba(242, 230, 63, 0.2)'
                         ],
                         borderColor: [
                             'rgba(255,99,132,1)',
                             'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)'
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)',
+                            'rgba(191, 63, 127, 1)',
+                            'rgba(38, 12, 12, 1)',
+                            'rgba(3, 124, 21, 1)',
+                            'rgba(242, 230, 63, 1)'
                         ],
                         borderWidth: 1
                     }]
@@ -36,16 +50,16 @@ var ViewPieChartModule = (function () {
             showScale: false
         });
     };
-    ViewPieChartModule = __decorate([
-        core_1.Component({
-            selector: 'view-pie-chart-module',
-            templateUrl: 'app/pie_chart_module/view-pie-chart.module.html',
-            styleUrls: ['app/pie_chart_module/pie-chart.module.css'],
-            inputs: ['gE']
-        }), 
-        __metadata('design:paramtypes', [])
-    ], ViewPieChartModule);
     return ViewPieChartModule;
 }());
+ViewPieChartModule = __decorate([
+    core_1.Component({
+        selector: 'view-pie-chart-module',
+        templateUrl: 'app/pie_chart_module/view-pie-chart.module.html',
+        styleUrls: ['app/pie_chart_module/pie-chart.module.css'],
+        inputs: ['gE']
+    }),
+    __metadata("design:paramtypes", [])
+], ViewPieChartModule);
 exports.ViewPieChartModule = ViewPieChartModule;
 //# sourceMappingURL=view.pie-chart.module.js.map

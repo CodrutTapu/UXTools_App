@@ -13,19 +13,19 @@
             </div>
             <div class="col-md-6 pie-labels-list">
                 <h4>Labels</h4>
-                <input *ngFor="let lb of gE.moduleType.labels" class="pie-label form-control" type="text" name="name" value="{{lb}}" (keyup)="lbUpdate($event,lb,gE)" required>
+                <input *ngFor="let lb of gE.moduleType.labels" class="pie-label form-control" type="text" name="name" value="{{lb}}" (focusout)="lbUpdate($event,lb,gE)" required min="0">
             </div>
             <div class="col-md-6 pie-data-list">
                 <h4>Data</h4>
-                <input *ngFor="let dt of gE.moduleType.data" class="pie-data form-control" type="number" name="name" value="{{dt}}" (keyup)="dtUpdate($event,dt,gE)" required>
+                <input *ngFor="let dt of gE.moduleType.data" class="pie-data form-control" type="number" name="name" value="{{dt}}" (focusout)="dtUpdate($event,dt,gE)" required min="0">
             </div>
             <div class="col-md-12">
                 <button class="create-pie-chart btn btn-primary" name="button" (click)="createNewPieChart(gE)">Create</button>
             </div>
         </div>
     </div>
-    <div class="pie-chart-content">
+    <div class="pie-chart-content{{gE.id}}">
         <div class="editable-pie-title cEditable" [innerHTML]="gE.moduleType.title" (click)="updatePieTitle(gE)"></div>
-        <canvas id="pieChart" width="400" height="400"></canvas>
+        <canvas id="pieChart{{gE.id}}" width="400" height="400"></canvas>
     </div>
 </div>
