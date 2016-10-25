@@ -15,6 +15,7 @@ var DashboardComponent = (function () {
         this._httpService = _httpService;
         this.projects = [];
         this.author_id = 1;
+        this.viewArchivedProjects = false;
     }
     DashboardComponent.prototype.ngOnInit = function () {
         this.httpGet();
@@ -41,6 +42,9 @@ var DashboardComponent = (function () {
         else {
             toastr["warning"](" ", "Project Archived!");
         }
+    };
+    DashboardComponent.prototype.changeViewArchivedProjects = function () {
+        this.viewArchivedProjects = !this.viewArchivedProjects;
     };
     return DashboardComponent;
 }());

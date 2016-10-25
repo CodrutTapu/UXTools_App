@@ -9,15 +9,16 @@
     <div>
       <!-- Nav tabs -->
       <ul class="nav nav-tabs" role="tablist">
-        <li *ngFor="let item of gE.moduleType.items; let index = index" [class.active]="index == 0" role="presentation" class="tab-title"><a href="#{{item.id}}{{gE.id}}" aria-controls="home" role="tab" data-toggle="tab" [innerHTML]="item.title" (click)="updateTabsItemTitle(item,gE)"></a>
+        <div *ngFor="let item of gE.moduleType.items; let index = index" class="tabsTitleWrapper">
+            <div role="presentation" class="tab-title editable-tabs-item-title" [innerHTML]="item.title" (click)="updateTabsItemTitle(item,gE)"></div>
             <div class="delete-tabs-item" (click)="deleteTabsItem(gE,item)" title="Delete Item">
                 <i aria-hidden="true" class="fa fa-times"></i>
             </div>
-        </li>
+        </div>
       </ul>
       <!-- Tab panes -->
       <div class="tab-content">
-        <div *ngFor="let item of gE.moduleType.items; let index = index" role="tabpanel" [class.active]="index == 0" class="editable-tabs-item-content tab-pane fade in cEditable" id="{{item.id}}{{gE.id}}" [innerHTML]="item.content" (click)="updateTabsItemContent(item,gE)"></div>
+        <div *ngFor="let item of gE.moduleType.items; let index = index" role="tabpanel" class="editable-tabs-item-content tab-pane fade in cEditable active" id="{{item.id}}{{gE.id}}" [innerHTML]="item.content" (click)="updateTabsItemContent(item,gE)"></div>
       </div>
     </div>
 </div>

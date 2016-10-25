@@ -110,17 +110,6 @@ $(document).on("mouseleave",".accordion-module .panel",function(){
 });
 /*
 ==================================
-    Tabs Module
-==================================
-*/
-$(document).on("mouseenter",".tabs-module .tab-title",function(){
-    $(this).find('.delete-tabs-item').stop().show(200);
-});
-$(document).on("mouseleave",".tabs-module .tab-title",function(){
-    $(this).find('.delete-tabs-item').stop().hide(200);
-});
-/*
-==================================
     Embed Module
 ==================================
 */

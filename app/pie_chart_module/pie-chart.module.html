@@ -9,15 +9,20 @@
     <div class="create-pie-chart-box">
         <div class="row">
             <div class="col-md-12">
-                <h2><span (click)="addPieSegment(gE)" class="add-pie-segment"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add </span> / <span (click)="removePieSegment(gE)" class="remove-pie-segment"><i class="fa fa-minus-circle" aria-hidden="true"></i> Remove </span></h2>
+                <h2><span (click)="addPieSegment(gE)" class="add-pie-segment"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add </span></h2>
             </div>
             <div class="col-md-6 pie-labels-list">
                 <h4>Labels</h4>
-                <input *ngFor="let lb of gE.moduleType.labels" class="pie-label form-control" type="text" name="name" value="{{lb}}" (focusout)="lbUpdate($event,lb,gE)" required min="0">
+                <p *ngFor="let lb of gE.moduleType.labels" >
+                    <input class="pie-label form-control" type="text" name="name" value="{{lb}}" (focusout)="lbUpdate($event,lb,gE)" required min="0">
+                </p>
             </div>
             <div class="col-md-6 pie-data-list">
                 <h4>Data</h4>
-                <input *ngFor="let dt of gE.moduleType.data" class="pie-data form-control" type="number" name="name" value="{{dt}}" (focusout)="dtUpdate($event,dt,gE)" required min="0">
+                <p *ngFor="let dt of gE.moduleType.data" >
+                    <span (click)="removePieSegment(gE,dt)" class="remove-pie-segment"><i class="fa fa-minus-circle" aria-hidden="true"></i></span>
+                    <input class="pie-data form-control" type="number" name="name" value="{{dt}}" (focusout)="dtUpdate($event,dt,gE)" required min="0" />
+                </p>
             </div>
             <div class="col-md-12">
                 <button class="create-pie-chart btn btn-primary" name="button" (click)="createNewPieChart(gE)">Create</button>

@@ -19,9 +19,9 @@ var PieChartModule = (function () {
         gE.moduleType.labels.push("");
         gE.moduleType.data.push("");
     };
-    PieChartModule.prototype.removePieSegment = function (gE) {
-        gE.moduleType.labels.pop();
-        gE.moduleType.data.pop();
+    PieChartModule.prototype.removePieSegment = function (gE, dt) {
+        gE.moduleType.labels.splice(gE.moduleType.data.indexOf(dt), 1);
+        gE.moduleType.data.splice(gE.moduleType.data.indexOf(dt), 1);
     };
     PieChartModule.prototype.lbUpdate = function (event, lb, gE) {
         if (event.target.value < 0) {

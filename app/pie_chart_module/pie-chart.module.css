@@ -15,9 +15,9 @@
     cursor: pointer;
 }
 .pie-chart-module .add-pie-segment:hover {
-    color: #337ab7;
+    color: #5cb85c;
 }
-.pie-chart-module .remove-pie-segment:hover {
+.pie-chart-module .remove-pie-segment {
     color: #d9534f;
 }
 .pie-chart-module .create-pie-chart-box {
@@ -25,4 +25,13 @@
     padding: 0 20px;
     width: 100%;
     display: none;
+}
+.pie-chart-module .remove-pie-segment {
+    float: right;
+}
+.pie-chart-module .pie-labels-list p {
+    margin-top: 30px;
+}
+.pie-chart-module .pie-labels-list input {
+    margin-bottom: 0;
 }

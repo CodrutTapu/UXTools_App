@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var tabsItem_1 = require('./tabsItem');
+var core_1 = require("@angular/core");
+var tabsItem_1 = require("./tabsItem");
 var TabsModule = (function () {
     function TabsModule() {
         this.i = 4;
@@ -28,7 +28,7 @@ var TabsModule = (function () {
         $(document).off('click', '.editable-tabs-item-content').on('click', '.editable-tabs-item-content', function () {
             $(this).summernote({
                 toolbar: [
-                    ['all', ['style', 'fontname', 'fontsize', 'color', 'bold', 'italic', 'underline', 'strikethrough', 'clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
+                    ['all', ['fontname', 'color', 'bold', 'italic', 'underline', 'strikethrough', 'clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
                 ],
                 disableDragAndDrop: true,
                 callbacks: {
@@ -44,28 +44,28 @@ var TabsModule = (function () {
         $(document).off('click', '.editable-tabs-item-title').on('click', '.editable-tabs-item-title', function () {
             $(this).summernote({
                 toolbar: [
-                    ['all', ['style', 'fontname', 'fontsize', 'color', 'bold', 'italic', 'underline', 'strikethrough', 'clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
+                    ['all', ['fontname', 'color', 'bold', 'italic', 'underline', 'strikethrough', 'clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
                 ],
                 disableDragAndDrop: true,
                 callbacks: {
                     onChange: function (contents, $editable) {
-                        item.content = contents;
+                        item.title = contents;
                     }
                 }
             });
             $(this).parent().find('.note-editable').css('background', gE.bgColor);
         });
     };
-    TabsModule = __decorate([
-        core_1.Component({
-            selector: 'tabs-module',
-            templateUrl: 'app/tabs_module/tabs.module.html',
-            styleUrls: ['app/tabs_module/tabs.module.css'],
-            inputs: ['gE']
-        }), 
-        __metadata('design:paramtypes', [])
-    ], TabsModule);
     return TabsModule;
 }());
+TabsModule = __decorate([
+    core_1.Component({
+        selector: 'tabs-module',
+        templateUrl: 'app/tabs_module/tabs.module.html',
+        styleUrls: ['app/tabs_module/tabs.module.css'],
+        inputs: ['gE']
+    }),
+    __metadata("design:paramtypes", [])
+], TabsModule);
 exports.TabsModule = TabsModule;
 //# sourceMappingURL=tabs.module.js.map

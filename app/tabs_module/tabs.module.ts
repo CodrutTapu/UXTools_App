@@ -28,7 +28,7 @@ export class TabsModule {
         $(document).off('click','.editable-tabs-item-content').on('click','.editable-tabs-item-content',function(){
             $(this).summernote({
                 toolbar: [
-                    ['all', ['style','fontname', 'fontsize', 'color', 'bold', 'italic', 'underline', 'strikethrough','clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
+                    ['all', ['fontname', 'color', 'bold', 'italic', 'underline', 'strikethrough','clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
                 ],
                 disableDragAndDrop: true,
                 callbacks: {
@@ -44,12 +44,12 @@ export class TabsModule {
         $(document).off('click','.editable-tabs-item-title').on('click','.editable-tabs-item-title',function(){
             $(this).summernote({
                 toolbar: [
-                    ['all', ['style','fontname', 'fontsize', 'color', 'bold', 'italic', 'underline', 'strikethrough','clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
+                    ['all', ['fontname', 'color', 'bold', 'italic', 'underline', 'strikethrough','clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
                 ],
                 disableDragAndDrop: true,
                 callbacks: {
                     onChange: function(contents, $editable) {
-                      item.content = contents;
+                      item.title = contents;
                     }
                 }
             });

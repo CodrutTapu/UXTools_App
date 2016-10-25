@@ -17,6 +17,8 @@ export class DashboardComponent {
 
     author_id:number = 1;
 
+    viewArchivedProjects:boolean = false;
+
     constructor(private _httpService: HTTTPService) {}
 
     ngOnInit() {
@@ -51,5 +53,9 @@ export class DashboardComponent {
         } else {
             toastr["warning"](" ", "Project Archived!");
         }
+    }
+
+    changeViewArchivedProjects() {
+        this.viewArchivedProjects = !this.viewArchivedProjects;
     }
 }

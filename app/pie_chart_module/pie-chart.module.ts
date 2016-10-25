@@ -21,9 +21,9 @@ export class PieChartModule {
         gE.moduleType.labels.push("");
         gE.moduleType.data.push("");
     }
-    removePieSegment(gE) {
-        gE.moduleType.labels.pop();
-        gE.moduleType.data.pop();
+    removePieSegment(gE,dt) {
+        gE.moduleType.labels.splice(gE.moduleType.data.indexOf(dt), 1);
+        gE.moduleType.data.splice(gE.moduleType.data.indexOf(dt), 1);
     }
     lbUpdate(event:any,lb,gE) {
         if( event.target.value < 0 ) {

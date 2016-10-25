@@ -8,28 +8,28 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var textModule_1 = require('./text_module/textModule');
-var imageModule_1 = require('./image_module/imageModule');
-var barGraphModule_1 = require('./bar_graph_module/barGraphModule');
-var barGraphBar_1 = require('./bar_graph_module/barGraphBar');
-var socialMediaModule_1 = require('./social_media_module/socialMediaModule');
-var tagModule_1 = require('./tag_module/tagModule');
-var tagModuleTag_1 = require('./tag_module/tagModuleTag');
-var emailModule_1 = require('./email_module/emailModule');
-var scaleChartModule_1 = require('./scale_chart_module/scaleChartModule');
-var scaleChartModuleScale_1 = require('./scale_chart_module/scaleChartModuleScale');
-var pieChartModule_1 = require('./pie_chart_module/pieChartModule');
-var accordionModule_1 = require('./accordion_module/accordionModule');
-var accordionItem_1 = require('./accordion_module/accordionItem');
-var tabsModule_1 = require('./tabs_module/tabsModule');
-var tabsItem_1 = require('./tabs_module/tabsItem');
-var embedModule_1 = require('./embed_module/embedModule');
-var devicesPlatformsModule_1 = require('./devicesPlatforms_module/devicesPlatformsModule');
-var devicePlatform_1 = require('./devicesPlatforms_module/devicePlatform');
-var aboutModule_1 = require('./about_module/aboutModule');
-var aboutItem_1 = require('./about_module/aboutItem');
-var countingModule_1 = require('./counting_module/countingModule');
+var core_1 = require("@angular/core");
+var textModule_1 = require("./text_module/textModule");
+var imageModule_1 = require("./image_module/imageModule");
+var barGraphModule_1 = require("./bar_graph_module/barGraphModule");
+var barGraphBar_1 = require("./bar_graph_module/barGraphBar");
+var socialMediaModule_1 = require("./social_media_module/socialMediaModule");
+var tagModule_1 = require("./tag_module/tagModule");
+var tagModuleTag_1 = require("./tag_module/tagModuleTag");
+var emailModule_1 = require("./email_module/emailModule");
+var scaleChartModule_1 = require("./scale_chart_module/scaleChartModule");
+var scaleChartModuleScale_1 = require("./scale_chart_module/scaleChartModuleScale");
+var pieChartModule_1 = require("./pie_chart_module/pieChartModule");
+var accordionModule_1 = require("./accordion_module/accordionModule");
+var accordionItem_1 = require("./accordion_module/accordionItem");
+var tabsModule_1 = require("./tabs_module/tabsModule");
+var tabsItem_1 = require("./tabs_module/tabsItem");
+var embedModule_1 = require("./embed_module/embedModule");
+var devicesPlatformsModule_1 = require("./devicesPlatforms_module/devicesPlatformsModule");
+var devicePlatform_1 = require("./devicesPlatforms_module/devicePlatform");
+var aboutModule_1 = require("./about_module/aboutModule");
+var aboutItem_1 = require("./about_module/aboutItem");
+var countingModule_1 = require("./counting_module/countingModule");
 var GridBlock = (function () {
     function GridBlock() {
     }
@@ -221,16 +221,16 @@ var GridBlock = (function () {
             });
         }
     };
-    GridBlock = __decorate([
-        core_1.Component({
-            selector: 'grid-block',
-            templateUrl: 'app/grid-block.html',
-            styleUrls: ['app/grid-block.css'],
-            inputs: ['gridElements', 'currentUser'],
-        }), 
-        __metadata('design:paramtypes', [])
-    ], GridBlock);
     return GridBlock;
 }());
+GridBlock = __decorate([
+    core_1.Component({
+        selector: 'grid-block',
+        templateUrl: 'app/grid-block.html',
+        styleUrls: ['app/grid-block.css'],
+        inputs: ['gridElements', 'currentUser'],
+    }),
+    __metadata("design:paramtypes", [])
+], GridBlock);
 exports.GridBlock = GridBlock;
 //# sourceMappingURL=gridBlock.component.js.map
