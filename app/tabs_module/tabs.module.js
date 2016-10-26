@@ -18,7 +18,7 @@ var TabsModule = (function () {
         gE.moduleType = {};
     };
     TabsModule.prototype.addTabsItem = function (gE) {
-        gE.moduleType.items.push(new tabsItem_1.tabsItem('item' + this.i, '<p>New Tab</p>', '<p>Nulla condimentum finibus massa, sit amet viverra purus luctus ac. Fusce ut erat sapien new.</p>'));
+        gE.moduleType.items.push(new tabsItem_1.tabsItem('item' + this.i, 'New Tab', '<p>Nulla condimentum finibus massa, sit amet viverra purus luctus ac. Fusce ut erat sapien new.</p>'));
         this.i++;
     };
     TabsModule.prototype.deleteTabsItem = function (gE, item) {
@@ -40,21 +40,8 @@ var TabsModule = (function () {
             $(this).parent().find('.note-editable').css('background', gE.bgColor);
         });
     };
-    TabsModule.prototype.updateTabsItemTitle = function (item, gE) {
-        $(document).off('click', '.editable-tabs-item-title').on('click', '.editable-tabs-item-title', function () {
-            $(this).summernote({
-                toolbar: [
-                    ['all', ['fontname', 'color', 'bold', 'italic', 'underline', 'strikethrough', 'clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
-                ],
-                disableDragAndDrop: true,
-                callbacks: {
-                    onChange: function (contents, $editable) {
-                        item.title = contents;
-                    }
-                }
-            });
-            $(this).parent().find('.note-editable').css('background', gE.bgColor);
-        });
+    TabsModule.prototype.updateTabsItemTitle = function (item, gE, event) {
+        item.title = event.target.value;
     };
     return TabsModule;
 }());

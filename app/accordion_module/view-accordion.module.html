@@ -4,7 +4,7 @@
       <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="heading{{item.id}}{{gE.id}}">
           <h4 class="panel-title">
-              <a class="collapsed" role="button" data-toggle="collapse"  href="#{{item.id}}{{gE.id}}" aria-expanded="false" [innerHTML]="item.title"></a>
+              <a class="collapsed" role="button" data-toggle="collapse"  href="#{{item.id}}{{gE.id}}" aria-expanded="false"><h4 class="tab-title" [innerHTML]="item.title"></h4></a>
           </h4>
         </div>
         <div id="{{item.id}}{{gE.id}}" class="panel-collapse collapse" [class.in]="index == 0" role="tabpanel">

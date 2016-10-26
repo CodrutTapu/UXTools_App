@@ -18,7 +18,7 @@ export class TabsModule {
         gE.moduleType = {};
     }
     addTabsItem(gE) {
-        gE.moduleType.items.push(new tabsItem('item' + this.i,'<p>New Tab</p>','<p>Nulla condimentum finibus massa, sit amet viverra purus luctus ac. Fusce ut erat sapien new.</p>'));
+        gE.moduleType.items.push(new tabsItem('item' + this.i,'New Tab','<p>Nulla condimentum finibus massa, sit amet viverra purus luctus ac. Fusce ut erat sapien new.</p>'));
         this.i++;
     }
     deleteTabsItem(gE,item) {
@@ -40,20 +40,7 @@ export class TabsModule {
             $(this).parent().find('.note-editable').css('background',gE.bgColor);
         });
     }
-    updateTabsItemTitle(item,gE) {
-        $(document).off('click','.editable-tabs-item-title').on('click','.editable-tabs-item-title',function(){
-            $(this).summernote({
-                toolbar: [
-                    ['all', ['fontname', 'color', 'bold', 'italic', 'underline', 'strikethrough','clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
-                ],
-                disableDragAndDrop: true,
-                callbacks: {
-                    onChange: function(contents, $editable) {
-                      item.title = contents;
-                    }
-                }
-            });
-            $(this).parent().find('.note-editable').css('background',gE.bgColor);
-        });
+    updateTabsItemTitle(item,gE,event:any) {
+        item.title = event.target.value;
     }
 }

@@ -14,11 +14,16 @@ declare var $: any;
 
 export class AccordionModule {
     i:number = 4;
+    ngOnInit() {
+        $('.accordion-module').on('show.bs.collapse','.collapse', function() {
+            $(this).parents().eq(2).find('.collapse.in').collapse('hide');
+        });
+    }
     deleteAccordionModule(gE) {
         gE.moduleType = {};
     }
     addAccordionItem(gE) {
-        gE.moduleType.items.push(new accordionItem('item' + this.i,'<p>New Item</p>','<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>'));
+        gE.moduleType.items.push(new accordionItem('item' + this.i,'New Item Title','<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>'));
         this.i++;
     }
     deleteAccordionItem(gE,item) {
@@ -40,20 +45,8 @@ export class AccordionModule {
             $(this).parent().find('.note-editable').css('background',gE.bgColor);
         });
     }
-    updateAccordionItemTitle(item) {
-        $(document).off('click','.editable-accordion-item-title').on('click','.editable-accordion-item-title',function(){
-            $(this).summernote({
-                toolbar: [
-                    ['all', ['style','fontname', 'fontsize', 'color', 'bold', 'italic', 'underline', 'strikethrough','clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
-                ],
-                disableDragAndDrop: true,
-                callbacks: {
-                    onChange: function(contents, $editable) {
-                      item.title = contents;
-                    }
-                }
-            });
-        });
+    updateAccordionItemTitle(item,event:any) {
+        item.title = event.target.value;
     }
     updateAccordionItemContent(item) {
         $(document).off('click','.editable-accordion-item-content').on('click','.editable-accordion-item-content',function(){

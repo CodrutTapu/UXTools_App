@@ -45,6 +45,12 @@ var DashboardComponent = (function () {
     };
     DashboardComponent.prototype.changeViewArchivedProjects = function () {
         this.viewArchivedProjects = !this.viewArchivedProjects;
+        if (this.viewArchivedProjects === true) {
+            $('.view-archived-btn').html('<i class="fa fa-file-archive-o" aria-hidden="true"></i> Unarchived Projects');
+        }
+        else {
+            $('.view-archived-btn').html('<i class="fa fa-file-archive-o" aria-hidden="true"></i> Archived Projects');
+        }
     };
     return DashboardComponent;
 }());

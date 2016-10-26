@@ -14,11 +14,16 @@ var AccordionModule = (function () {
     function AccordionModule() {
         this.i = 4;
     }
+    AccordionModule.prototype.ngOnInit = function () {
+        $('.accordion-module').on('show.bs.collapse', '.collapse', function () {
+            $(this).parents().eq(2).find('.collapse.in').collapse('hide');
+        });
+    };
     AccordionModule.prototype.deleteAccordionModule = function (gE) {
         gE.moduleType = {};
     };
     AccordionModule.prototype.addAccordionItem = function (gE) {
-        gE.moduleType.items.push(new accordionItem_1.accordionItem('item' + this.i, '<p>New Item</p>', '<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>'));
+        gE.moduleType.items.push(new accordionItem_1.accordionItem('item' + this.i, 'New Item Title', '<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>'));
         this.i++;
     };
     AccordionModule.prototype.deleteAccordionItem = function (gE, item) {
@@ -40,20 +45,8 @@ var AccordionModule = (function () {
             $(this).parent().find('.note-editable').css('background', gE.bgColor);
         });
     };
-    AccordionModule.prototype.updateAccordionItemTitle = function (item) {
-        $(document).off('click', '.editable-accordion-item-title').on('click', '.editable-accordion-item-title', function () {
-            $(this).summernote({
-                toolbar: [
-                    ['all', ['style', 'fontname', 'fontsize', 'color', 'bold', 'italic', 'underline', 'strikethrough', 'clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
-                ],
-                disableDragAndDrop: true,
-                callbacks: {
-                    onChange: function (contents, $editable) {
-                        item.title = contents;
-                    }
-                }
-            });
-        });
+    AccordionModule.prototype.updateAccordionItemTitle = function (item, event) {
+        item.title = event.target.value;
     };
     AccordionModule.prototype.updateAccordionItemContent = function (item) {
         $(document).off('click', '.editable-accordion-item-content').on('click', '.editable-accordion-item-content', function () {
