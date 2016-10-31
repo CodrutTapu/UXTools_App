@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import {Http, Response} from '@angular/http';
-import {URLSearchParams} from '@angular/http';
-import {HTTTPService} from './http_service/http.service';
+import { Http, Response } from '@angular/http';
+import { URLSearchParams } from '@angular/http';
+import { HTTTPService } from './http_service/http.service';
 declare var $:any;
 declare var toastr:any;
 
@@ -14,9 +14,7 @@ declare var toastr:any;
 export class DashboardComponent {
 
     projects:Array<any> = [];
-
     author_id:number = 1;
-
     viewArchivedProjects:boolean = false;
 
     constructor(private _httpService: HTTTPService) {}

@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import {Http, Response} from '@angular/http';
-import {URLSearchParams} from '@angular/http';
-import {HTTTPService} from './http_service/http.service';
-import {GridBlock} from './gridBlock.component';
-import {gridElem} from './gridElem';
-import {user} from './user';
-import {persona} from './persona';
-import {textModule} from './text_module/textModule';
-import {ActivatedRoute} from '@angular/router';
+import { Http, Response } from '@angular/http';
+import { URLSearchParams } from '@angular/http';
+import { HTTTPService } from './http_service/http.service';
+import { GridBlock } from './gridBlock.component';
+import { gridElem } from './gridElem';
+import { user } from './user';
+import { persona } from './persona';
+import { textModule } from './text_module/textModule';
+import { ActivatedRoute } from '@angular/router';
 declare var $:any;
 declare var toastr:any;
 

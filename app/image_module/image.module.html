@@ -3,6 +3,7 @@
         <ul class="no-pad">
             <li class="add" title="Add Image"><i class="fa fa-plus fa-lg" aria-hidden="true"></i></li>
             <li class="delete" (click)="deleteImageModule(gE)" title="Delete Module"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></li>
+            <li (click)="cloneModule(gE)" title="Clone Module"><i class="fa fa-clone" aria-hidden="true"></i></li>
         </ul>
     </div>
     <img src="{{gE.moduleType.url}}" alt="profile-image" id="image-result"/>

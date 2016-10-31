@@ -1,20 +1,32 @@
 import { Component } from '@angular/core';
-import {AppComponent} from '../app.component';
-import {GridBlock} from '../gridBlock.component';
-import {bgColorModule} from '../bgColor_component/bgColor.module';
+import { AppComponent } from '../app.component';
+import { GridBlock } from '../gridBlock.component';
+import { bgColorModule } from '../bgColor_component/bgColor.module';
+import { cloneModuleService } from '../cloneModule_service/cloneModule.service';
 declare var $: any;
+declare var toastr:any;
 
 @Component({
     selector: 'text-module',
     templateUrl: 'app/text_module/text.module.html',
     styleUrls:  ['app/text_module/text.module.css'],
-    inputs: ['gE']
+    inputs: ['gE','gridElements'],
+    providers: [cloneModuleService]
 })
 
 export class TextModule {
-    deleteTextModule(gE) {
-        gE.moduleType = {};
+    gridElements:Array<number>;
+
+    constructor(private _cloneModuleService: cloneModuleService) {}
+
+    cloneModule(gE) {
+        this._cloneModuleService.cloneModule(gE,this.gridElements);
     }
+
+    deleteTextModule(gE) {
+        gE.moduleType = 0;
+    }
+
     updateTextModule(gE) {
         $(document).off('click','.editable-text-content').on('click','.editable-text-content',function(){
             $(this).summernote({
@@ -31,4 +43,5 @@ export class TextModule {
             $(this).parent().find('.note-editable').css('background',gE.bgColor);
         });
     }
+
 }

@@ -1,8 +1,8 @@
-import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import {Headers} from '@angular/http';
-import {RequestOptions} from '@angular/http';
+import { Headers } from '@angular/http';
+import { RequestOptions } from '@angular/http';
 
 @Injectable()
 export class HTTTPService {

@@ -8,12 +8,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+var core_1 = require("@angular/core");
+var cloneModule_service_1 = require("../cloneModule_service/cloneModule.service");
 var TextModule = (function () {
-    function TextModule() {
+    function TextModule(_cloneModuleService) {
+        this._cloneModuleService = _cloneModuleService;
     }
+    TextModule.prototype.cloneModule = function (gE) {
+        this._cloneModuleService.cloneModule(gE, this.gridElements);
+    };
     TextModule.prototype.deleteTextModule = function (gE) {
-        gE.moduleType = {};
+        gE.moduleType = 0;
     };
     TextModule.prototype.updateTextModule = function (gE) {
         $(document).off('click', '.editable-text-content').on('click', '.editable-text-content', function () {
@@ -31,16 +36,17 @@ var TextModule = (function () {
             $(this).parent().find('.note-editable').css('background', gE.bgColor);
         });
     };
-    TextModule = __decorate([
-        core_1.Component({
-            selector: 'text-module',
-            templateUrl: 'app/text_module/text.module.html',
-            styleUrls: ['app/text_module/text.module.css'],
-            inputs: ['gE']
-        }), 
-        __metadata('design:paramtypes', [])
-    ], TextModule);
     return TextModule;
 }());
+TextModule = __decorate([
+    core_1.Component({
+        selector: 'text-module',
+        templateUrl: 'app/text_module/text.module.html',
+        styleUrls: ['app/text_module/text.module.css'],
+        inputs: ['gE', 'gridElements'],
+        providers: [cloneModule_service_1.cloneModuleService]
+    }),
+    __metadata("design:paramtypes", [cloneModule_service_1.cloneModuleService])
+], TextModule);
 exports.TextModule = TextModule;
 //# sourceMappingURL=text.module.js.map

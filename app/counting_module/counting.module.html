@@ -3,6 +3,7 @@
         <ul class="no-pad">
             <li (click)="deleteCountingModule(gE)" class="delete" title="Delete Module"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></li>
             <bgColor-module [gE]="gE"></bgColor-module>
+            <li (click)="cloneModule(gE)" title="Clone Module"><i class="fa fa-clone" aria-hidden="true"></i></li>
         </ul>
     </div>
     <p class="editable-counting-value cEditable" [innerHTML]="gE.moduleType.content[0]" (click)="updateCountingValue(gE)"></p>

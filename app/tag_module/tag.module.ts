@@ -1,31 +1,44 @@
 import { Component } from '@angular/core';
-import {AppComponent} from '../app.component';
-import {GridBlock} from '../gridBlock.component';
-import {tagModuleTag} from './tagModuleTag';
-import {bgColorModule} from '../bgColor_component/bgColor.module';
+import { AppComponent } from '../app.component';
+import { GridBlock } from '../gridBlock.component';
+import { tagModuleTag } from './tagModuleTag';
+import { bgColorModule } from '../bgColor_component/bgColor.module';
+import { cloneModuleService } from '../cloneModule_service/cloneModule.service';
 declare var $: any;
 
 @Component({
     selector: 'tag-module',
     templateUrl: 'app/tag_module/tag.module.html',
     styleUrls: ['app/tag_module/tag.module.css'],
-    inputs: ['gE']
+    inputs: ['gE','gridElements'],
+    providers: [cloneModuleService]
 })
 
 export class TagModule {
     i:number = 4;
     bgColors:Array<string> = ['#4c7ba0','#ffffff','#ee4039','#f07171','#124666','#737373','#f8b13d','#00b5c8','#E3E5E6','#b05574'];
     customTagBgColor = '#E3E5E6';
-    deleteTagModule(gE) {
-        gE.moduleType = {};
+    gridElements:Array<number>;
+
+    constructor(private _cloneModuleService: cloneModuleService) {}
+
+    cloneModule(gE) {
+        this._cloneModuleService.cloneModule(gE,this.gridElements);
     }
+
+    deleteTagModule(gE) {
+        gE.moduleType = 0;
+    }
+
     addTag(gE) {
         gE.moduleType.tags.push(new tagModuleTag(this.i,'<p>New Tag</p>','#e3e5e6'));
         this.i += 1;
     }
+
     deleteTag(gE,tag) {
         gE.moduleType.tags.splice(gE.moduleType.tags.indexOf(tag), 1);
     }
+
     updateTag(tag) {
         $(document).off('click','.editable-tag').on('click','.editable-tag',function(){
             $(this).summernote({
@@ -42,17 +55,21 @@ export class TagModule {
             $(this).parent().find('.note-editable').css('background',tag.color);
         });
     }
+
     tagBgColorToggle(tag) {
         var tagId = tag.id;
         $('.tag-bg-colors-list-' + tagId).toggle();
     }
+
     updateTagBgColor(tag) {
         if( this.customTagBgColor[0] != '#') {
             this.customTagBgColor = "#" +  this.customTagBgColor;
         };
         tag.color= this.customTagBgColor;
     }
+
     selectTagBgColor(tag,bgC) {
         tag.color = bgC;
     }
+
 }

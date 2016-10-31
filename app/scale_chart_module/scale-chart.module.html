@@ -4,6 +4,7 @@
             <li class="add" (click)=addScale(gE) title="Add Scale"><i class="fa fa-plus fa-lg" aria-hidden="true"></i></li>
             <li class="delete" (click)="deleteScaleChartModule(gE)" title="Delete Module"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></li>
             <bgColor-module [gE]="gE"></bgColor-module>
+            <li (click)="cloneModule(gE)" title="Clone Module"><i class="fa fa-clone" aria-hidden="true"></i></li>
         </ul>
     </div>
     <div class="editable-scale-title cEditable" [innerHTML]="gE.moduleType.title" (click)="updateScaleTitle(gE)"></div>

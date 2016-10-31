@@ -8,16 +8,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var tagModuleTag_1 = require('./tagModuleTag');
+var core_1 = require("@angular/core");
+var tagModuleTag_1 = require("./tagModuleTag");
+var cloneModule_service_1 = require("../cloneModule_service/cloneModule.service");
 var TagModule = (function () {
-    function TagModule() {
+    function TagModule(_cloneModuleService) {
+        this._cloneModuleService = _cloneModuleService;
         this.i = 4;
         this.bgColors = ['#4c7ba0', '#ffffff', '#ee4039', '#f07171', '#124666', '#737373', '#f8b13d', '#00b5c8', '#E3E5E6', '#b05574'];
         this.customTagBgColor = '#E3E5E6';
     }
+    TagModule.prototype.cloneModule = function (gE) {
+        this._cloneModuleService.cloneModule(gE, this.gridElements);
+    };
     TagModule.prototype.deleteTagModule = function (gE) {
-        gE.moduleType = {};
+        gE.moduleType = 0;
     };
     TagModule.prototype.addTag = function (gE) {
         gE.moduleType.tags.push(new tagModuleTag_1.tagModuleTag(this.i, '<p>New Tag</p>', '#e3e5e6'));
@@ -56,16 +61,17 @@ var TagModule = (function () {
     TagModule.prototype.selectTagBgColor = function (tag, bgC) {
         tag.color = bgC;
     };
-    TagModule = __decorate([
-        core_1.Component({
-            selector: 'tag-module',
-            templateUrl: 'app/tag_module/tag.module.html',
-            styleUrls: ['app/tag_module/tag.module.css'],
-            inputs: ['gE']
-        }), 
-        __metadata('design:paramtypes', [])
-    ], TagModule);
     return TagModule;
 }());
+TagModule = __decorate([
+    core_1.Component({
+        selector: 'tag-module',
+        templateUrl: 'app/tag_module/tag.module.html',
+        styleUrls: ['app/tag_module/tag.module.css'],
+        inputs: ['gE', 'gridElements'],
+        providers: [cloneModule_service_1.cloneModuleService]
+    }),
+    __metadata("design:paramtypes", [cloneModule_service_1.cloneModuleService])
+], TagModule);
 exports.TagModule = TagModule;
 //# sourceMappingURL=tag.module.js.map

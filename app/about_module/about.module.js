@@ -8,13 +8,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var aboutItem_1 = require('./aboutItem');
+var core_1 = require("@angular/core");
+var aboutItem_1 = require("./aboutItem");
+var cloneModule_service_1 = require("../cloneModule_service/cloneModule.service");
 var AboutModule = (function () {
-    function AboutModule() {
+    function AboutModule(_cloneModuleService) {
+        this._cloneModuleService = _cloneModuleService;
     }
+    AboutModule.prototype.cloneModule = function (gE) {
+        this._cloneModuleService.cloneModule(gE, this.gridElements);
+    };
     AboutModule.prototype.deleteAboutModule = function (gE) {
-        gE.moduleType = {};
+        gE.moduleType = 0;
     };
     AboutModule.prototype.addAboutItem = function (gE) {
         gE.moduleType.content.push(new aboutItem_1.aboutItem('<p>new item name</p>', '<p>New item value</p>'));
@@ -54,16 +59,17 @@ var AboutModule = (function () {
             $(this).parent().find('.note-editable').css('background', gE.bgColor);
         });
     };
-    AboutModule = __decorate([
-        core_1.Component({
-            selector: 'about-module',
-            templateUrl: 'app/about_module/about.module.html',
-            styleUrls: ['app/about_module/about.module.css'],
-            inputs: ['gE']
-        }), 
-        __metadata('design:paramtypes', [])
-    ], AboutModule);
     return AboutModule;
 }());
+AboutModule = __decorate([
+    core_1.Component({
+        selector: 'about-module',
+        templateUrl: 'app/about_module/about.module.html',
+        styleUrls: ['app/about_module/about.module.css'],
+        inputs: ['gE', 'gridElements'],
+        providers: [cloneModule_service_1.cloneModuleService]
+    }),
+    __metadata("design:paramtypes", [cloneModule_service_1.cloneModuleService])
+], AboutModule);
 exports.AboutModule = AboutModule;
 //# sourceMappingURL=about.module.js.map

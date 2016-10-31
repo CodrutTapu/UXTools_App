@@ -8,13 +8,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var scaleChartModuleScale_1 = require('./scaleChartModuleScale');
+var core_1 = require("@angular/core");
+var scaleChartModuleScale_1 = require("./scaleChartModuleScale");
+var cloneModule_service_1 = require("../cloneModule_service/cloneModule.service");
 var ScaleChartModule = (function () {
-    function ScaleChartModule() {
+    function ScaleChartModule(_cloneModuleService) {
+        this._cloneModuleService = _cloneModuleService;
     }
+    ScaleChartModule.prototype.cloneModule = function (gE) {
+        this._cloneModuleService.cloneModule(gE, this.gridElements);
+    };
     ScaleChartModule.prototype.deleteScaleChartModule = function (gE) {
-        gE.moduleType = {};
+        gE.moduleType = 0;
     };
     ScaleChartModule.prototype.updateScaleValue = function (event, scale) {
         scale.value = event.target.value;
@@ -73,16 +78,17 @@ var ScaleChartModule = (function () {
             $(this).parent().find('.note-editable').css('background', gE.bgColor);
         });
     };
-    ScaleChartModule = __decorate([
-        core_1.Component({
-            selector: 'scale-chart-module',
-            templateUrl: 'app/scale_chart_module/scale-chart.module.html',
-            styleUrls: ['app/scale_chart_module/scale-chart.module.css'],
-            inputs: ['gE']
-        }), 
-        __metadata('design:paramtypes', [])
-    ], ScaleChartModule);
     return ScaleChartModule;
 }());
+ScaleChartModule = __decorate([
+    core_1.Component({
+        selector: 'scale-chart-module',
+        templateUrl: 'app/scale_chart_module/scale-chart.module.html',
+        styleUrls: ['app/scale_chart_module/scale-chart.module.css'],
+        inputs: ['gE', 'gridElements'],
+        providers: [cloneModule_service_1.cloneModuleService]
+    }),
+    __metadata("design:paramtypes", [cloneModule_service_1.cloneModuleService])
+], ScaleChartModule);
 exports.ScaleChartModule = ScaleChartModule;
 //# sourceMappingURL=scale-chart.module.js.map

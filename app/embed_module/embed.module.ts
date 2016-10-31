@@ -3,30 +3,42 @@ import { AppComponent } from '../app.component';
 import { GridBlock } from '../gridBlock.component';
 import { SafeResourceUrl, DomSanitizer  } from '@angular/platform-browser';
 import { bgColorModule } from '../bgColor_component/bgColor.module';
+import { cloneModuleService } from '../cloneModule_service/cloneModule.service';
 declare var $: any;
 
 @Component({
     selector: 'embed-module',
     templateUrl: 'app/embed_module/embed.module.html',
     styleUrls: ['app/embed_module/embed.module.css'],
-    inputs: ['gE']
+    inputs: ['gE','gridElements'],
+    providers: [cloneModuleService]
 })
 
 export class EmbedModule {
     gE;
     embedUrl;
     url: SafeResourceUrl;
-    constructor(private sanitizer:DomSanitizer ){}
+    gridElements:Array<number>;
+
+    constructor(private sanitizer:DomSanitizer, private _cloneModuleService: cloneModuleService ){}
+
+    cloneModule(gE) {
+        this._cloneModuleService.cloneModule(gE,this.gridElements);
+    }
+
     ngOnInit(){
         this.url = this.sanitizer.bypassSecurityTrustResourceUrl(this.gE.moduleType.content);
     }
+
     deleteEmbedModule(gE) {
-        gE.moduleType = {};
+        gE.moduleType = 0;
     }
+
     changeEmbedUrl(gE) {
         gE.moduleType.content = this.embedUrl;
         this.url = this.sanitizer.bypassSecurityTrustResourceUrl(gE.moduleType.content);
     }
+
     updateEmbedTitle(gE) {
         $(document).off('click','.editable-embed-title').on('click','.editable-embed-title',function(){
             $(this).summernote({
@@ -43,4 +55,5 @@ export class EmbedModule {
             $(this).parent().find('.note-editable').css('background',gE.bgColor);
         });
     }
+
 }

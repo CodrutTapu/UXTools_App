@@ -4,6 +4,7 @@
             <li class="add" (click)="addTag(gE)" title="Add Tag"><i class="fa fa-plus fa-lg" aria-hidden="true"></i></li>
             <li class="delete" (click)="deleteTagModule(gE)" title="Delete Module"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></li>
             <bgColor-module [gE]="gE"></bgColor-module>
+            <li (click)="cloneModule(gE)" title="Clone Module"><i class="fa fa-clone" aria-hidden="true"></i></li>
         </ul>
     </div>
     <div class="tag" *ngFor="let tag of gE.moduleType.tags"  [style.background]="tag.color">

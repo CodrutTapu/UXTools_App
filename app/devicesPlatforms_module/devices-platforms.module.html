@@ -4,6 +4,7 @@
             <li class="add" data-toggle="modal" [attr.data-target]="'#addDevicePlatform' + gE.id" title="Add Item"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></li>
             <li class="delete" (click)="deleteDevicesPlatformsModule(gE)" title="Delete Module"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></li>
             <bgColor-module [gE]="gE"></bgColor-module>
+            <li (click)="cloneModule(gE)" title="Clone Module"><i class="fa fa-clone" aria-hidden="true"></i></li>
         </ul>
     </div>
     <div class="devices-platforms-list">

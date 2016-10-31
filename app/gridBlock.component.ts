@@ -60,6 +60,7 @@ declare var $: any;
 
 export class GridBlock {
     gridElements:Array<number>;
+
     minGridElem(gE) {
         if(gE.dim == 2){
             alert("Too Small");
@@ -68,6 +69,7 @@ export class GridBlock {
             gE.dim-=2;
         }
     }
+
     maxGridElem(gE) {
         if(gE.dim == 12){
             alert("Too Large");
@@ -76,64 +78,77 @@ export class GridBlock {
             gE.dim+=2;
         }
     }
+
     deleteGridElem(gE) {
         this.gridElements.splice(this.gridElements.indexOf(gE), 1);
     }
+
     addTextModule(gE) {
         gE.moduleType = new textModule(1,'text-module','<h1>New Text Field</h1><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pharetra felis in sem porta feugiat.</p>');
         gE.bgColor = "#F8F8F8";
         $('.add-module-modal').modal('hide');
     }
+
     addImageModule(gE) {
         gE.moduleType = new imageModule(2,'image-module','public/images/img-default.png');
         gE.bgColor = "#F8F8F8";
         $('.add-module-modal').modal('hide');
     }
+
     addBarGraphModule(gE) {
         gE.moduleType = new barGraphModule(3,'bar-graph-module','<h1>Bar Graph</h1>',[new barGraphBar(30,'<p>Label 1</p>'),new barGraphBar(50,'<p>Label 2</p>'),new barGraphBar(100,'<p>Label 3</p>')]);
         gE.bgColor = "#F8F8F8";
         $('.add-module-modal').modal('hide');
     }
+
     addSocialMediaModule(gE) {
         gE.moduleType = new socialMediaModule(4,'social-media-module','facebook','twitter','linkedin','external');
         gE.bgColor = "#F8F8F8";
         $('.add-module-modal').modal('hide');
     }
+
     addTagModule(gE) {
         gE.moduleType = new tagModule(5,'tags-module',[new tagModuleTag(1,'<p>Tag 1</p>','#e3e5e6'),new tagModuleTag(2,'<p>Tag 2</p>','#e3e5e6'),new tagModuleTag(3,'<p>Tag 3</p>','#e3e5e6')]);
         gE.bgColor = "#F8F8F8";
         $('.add-module-modal').modal('hide');
     }
+
     addEmailModule(gE) {
         gE.moduleType = new emailModule(6,'email-module','you@yourmail.com','<h2>This is a form field to collect emails.</h2><p>Give them a good reason.</p>');
         gE.bgColor = "#F8F8F8";
         $('.add-module-modal').modal('hide');
     }
+
     addScaleChartModule(gE) {
         gE.moduleType = new scaleChartModule(7,'scale-chart-module','<h1>Scale Chart</h1>',[new scaleChartModuleScale('<p>Side A</p>','<p>Side B</p>',0),new scaleChartModuleScale('<p>Side A</p>','<p>Side B</p>',50),new scaleChartModuleScale('<p>Side A</p>','<p>Side B</p>',100)]);
         gE.bgColor = "#F8F8F8";
         $('.add-module-modal').modal('hide');
     }
+
     addPieChartModule(gE) {
         gE.moduleType = new pieChartModule(8,'pie-chart-module','<h1>Pie Chart</h1>',["Red", "Blue", "Yellow"],[12, 19, 3]);
         gE.bgColor = "#F8F8F8";
         $('.add-module-modal').modal('hide');
     }
+
     addAccordionModule(gE) {
         gE.moduleType = new accordionModule(9,'accordion-module','<h1>Accordion</h1>',[new accordionItem('item1','Item 1','<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>'), new accordionItem('item2','Item 2','<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>'), new accordionItem('item3','Item 3','<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>')]);
         gE.bgColor = "#F8F8F8";
         $('.add-module-modal').modal('hide');
     }
+
     addTabsModule(gE) {
         gE.moduleType = new tabsModule(10,'tabs-module',[new tabsItem('item1','Tab 1','<p>Nulla condimentum finibus massa, sit amet viverra purus luctus ac. Fusce ut erat sapien 1.</p>'),new tabsItem('item2','Tab 2','<p>Nulla condimentum finibus massa, sit amet viverra purus luctus ac. Fusce ut erat sapien 2.</p>'),new tabsItem('item3','Tab 3','<p>Nulla condimentum finibus massa, sit amet viverra purus luctus ac. Fusce ut erat sapien 3.</p>')]);
         gE.bgColor = "#F8F8F8";
         $('.add-module-modal').modal('hide');
     }
+
     addEmbedModule(gE) {
         gE.moduleType = new embedModule(11,'embed-module','<h1>Embed</h1>','https://www.youtube.com/embed/rn5s6H_Yamo');
         gE.bgColor = "#F8F8F8";
         $('.add-module-modal').modal('hide');
     }
+
     addDevicesPlatformsModule(gE) {
         gE.moduleType = new devicesPlatformsModule(12,'devices-platforms-module',[new devicePlatform('<i class="fa fa-mobile" aria-hidden="true"></i>',true,'Mobile'),
                                                                                     new devicePlatform('<i class="fa fa-tablet" aria-hidden="true"></i>',true,'Tablet'),
@@ -150,6 +165,7 @@ export class GridBlock {
         gE.bgColor = "#F8F8F8";
         $('.add-module-modal').modal('hide');
     }
+
     addAboutModule(gE) {
         gE.moduleType = new aboutModule(13,'about-module',[new aboutItem('<p>age</p>','<p>1-100</p>'),
                                                             new aboutItem('<p>occupation</p>','<p>What they do</p>'),
@@ -161,26 +177,31 @@ export class GridBlock {
         gE.bgColor = "#F8F8F8";
         $('.add-module-modal').modal('hide');
     }
+
     addSimpleCountingModule(gE) {
         gE.moduleType = new countingModule(14,'counting-module',['<p class="counting-value"><span class="number">00</span></p>','<p class="counting-description">Something you want to count</p>']);
         gE.bgColor = "#F8F8F8";
         $('.add-module-modal').modal('hide');
     }
+
     addSufixedCountingModule(gE) {
         gE.moduleType = new countingModule(14,'counting-module',['<p class="counting-value"><span class="number">00</span><span class="counting-sufix"> min</span></p>','<p class="counting-description">Something you want to count</p>']);
         gE.bgColor = "#F8F8F8";
         $('.add-module-modal').modal('hide');
     }
+
     addIntervalCountingModule(gE) {
         gE.moduleType = new countingModule(14,'counting-module',['<p class="counting-value"><span class="number">00-00</span></p>','<p class="counting-description">Something you want to count</p>']);
         gE.bgColor = "#F8F8F8";
         $('.add-module-modal').modal('hide');
     }
+
     addPrefixedCountingModule(gE) {
         gE.moduleType = new countingModule(14,'counting-module',['<p class="counting-value"><span class="counting-prefix">$ <span><span class="number">00</span></p>','<p class="counting-description">Something you want to count</p>']);
         gE.bgColor = "#F8F8F8";
         $('.add-module-modal').modal('hide');
     }
+
     closeTextEditor(event:any,gE) {
         if( event.srcElement.className == 'row sortable' || event.srcElement.className == 'grid-block-content' || event.target.className == 'row sortable' ||  event.target.className == 'grid-block-content') {
             $('editable').each(function(){
@@ -246,4 +267,5 @@ export class GridBlock {
             });
         }
     }
+
 }

@@ -1,26 +1,39 @@
 import { Component, Input } from '@angular/core';
-import {AppComponent} from '../app.component';
-import {aboutItem} from './aboutItem';
-import {bgColorModule} from '../bgColor_component/bgColor.module';
+import { AppComponent } from '../app.component';
+import { aboutItem } from './aboutItem';
+import { bgColorModule } from '../bgColor_component/bgColor.module';
+import { cloneModuleService } from '../cloneModule_service/cloneModule.service';
 declare var $: any;
 
 @Component({
     selector: 'about-module',
     templateUrl: 'app/about_module/about.module.html',
     styleUrls: ['app/about_module/about.module.css'],
-    inputs: ['gE']
+    inputs: ['gE','gridElements'],
+    providers: [cloneModuleService]
 })
 
 export class AboutModule {
-    deleteAboutModule(gE) {
-        gE.moduleType = {};
+    gridElements:Array<number>;
+
+    constructor(private _cloneModuleService: cloneModuleService) {}
+
+    cloneModule(gE) {
+        this._cloneModuleService.cloneModule(gE,this.gridElements);
     }
+
+    deleteAboutModule(gE) {
+        gE.moduleType = 0;
+    }
+
     addAboutItem(gE) {
         gE.moduleType.content.push(new aboutItem('<p>new item name</p>','<p>New item value</p>'));
     }
+
     deleteAboutItem(gE,item) {
         gE.moduleType.content.splice(gE.moduleType.content.indexOf(item), 1);
     }
+
     updateAboutItemName(aI,gE) {
         $(document).off('click','.editable-about-item-name').on('click','.editable-about-item-name',function(){
             $(this).summernote({
@@ -37,6 +50,7 @@ export class AboutModule {
             $(this).parent().find('.note-editable').css('background',gE.bgColor);
         });
     }
+
     updateAboutItemValue(aI,gE) {
         $(document).off('click','.editable-about-item-value').on('click','.editable-about-item-value',function(){
             $(this).summernote({
@@ -53,4 +67,5 @@ export class AboutModule {
             $(this).parent().find('.note-editable').css('background',gE.bgColor);
         });
     }
+
 }

@@ -10,15 +10,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
+var cloneModule_service_1 = require("../cloneModule_service/cloneModule.service");
 var EmbedModule = (function () {
-    function EmbedModule(sanitizer) {
+    function EmbedModule(sanitizer, _cloneModuleService) {
         this.sanitizer = sanitizer;
+        this._cloneModuleService = _cloneModuleService;
     }
+    EmbedModule.prototype.cloneModule = function (gE) {
+        this._cloneModuleService.cloneModule(gE, this.gridElements);
+    };
     EmbedModule.prototype.ngOnInit = function () {
         this.url = this.sanitizer.bypassSecurityTrustResourceUrl(this.gE.moduleType.content);
     };
     EmbedModule.prototype.deleteEmbedModule = function (gE) {
-        gE.moduleType = {};
+        gE.moduleType = 0;
     };
     EmbedModule.prototype.changeEmbedUrl = function (gE) {
         gE.moduleType.content = this.embedUrl;
@@ -47,9 +52,10 @@ EmbedModule = __decorate([
         selector: 'embed-module',
         templateUrl: 'app/embed_module/embed.module.html',
         styleUrls: ['app/embed_module/embed.module.css'],
-        inputs: ['gE']
+        inputs: ['gE', 'gridElements'],
+        providers: [cloneModule_service_1.cloneModuleService]
     }),
-    __metadata("design:paramtypes", [platform_browser_1.DomSanitizer])
+    __metadata("design:paramtypes", [platform_browser_1.DomSanitizer, cloneModule_service_1.cloneModuleService])
 ], EmbedModule);
 exports.EmbedModule = EmbedModule;
 //# sourceMappingURL=embed.module.js.map

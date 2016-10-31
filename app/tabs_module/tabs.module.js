@@ -10,16 +10,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var tabsItem_1 = require("./tabsItem");
+var cloneModule_service_1 = require("../cloneModule_service/cloneModule.service");
 var TabsModule = (function () {
-    function TabsModule() {
-        this.i = 4;
+    function TabsModule(_cloneModuleService) {
+        this._cloneModuleService = _cloneModuleService;
     }
+    TabsModule.prototype.cloneModule = function (gE) {
+        this._cloneModuleService.cloneModule(gE, this.gridElements);
+    };
     TabsModule.prototype.deleteTabsModule = function (gE) {
-        gE.moduleType = {};
+        gE.moduleType = 0;
     };
     TabsModule.prototype.addTabsItem = function (gE) {
-        gE.moduleType.items.push(new tabsItem_1.tabsItem('item' + this.i, 'New Tab', '<p>Nulla condimentum finibus massa, sit amet viverra purus luctus ac. Fusce ut erat sapien new.</p>'));
-        this.i++;
+        var length = gE.moduleType.items.length;
+        var lastItemId = gE.moduleType.items[length - 1].id;
+        var lastId = 0;
+        if (lastItemId.length == 5) {
+            lastId = parseInt(lastItemId[4]) + 1;
+        }
+        else if (lastItemId.length == 6) {
+            lastId = parseInt(lastItemId[4] + lastItemId[5]) + 1;
+        }
+        gE.moduleType.items.push(new tabsItem_1.tabsItem('item' + lastId, 'New Tab', '<p>Nulla condimentum finibus massa, sit amet viverra purus luctus ac. Fusce ut erat sapien new.</p>'));
     };
     TabsModule.prototype.deleteTabsItem = function (gE, item) {
         gE.moduleType.items.splice(gE.moduleType.items.indexOf(item), 1);
@@ -50,9 +62,10 @@ TabsModule = __decorate([
         selector: 'tabs-module',
         templateUrl: 'app/tabs_module/tabs.module.html',
         styleUrls: ['app/tabs_module/tabs.module.css'],
-        inputs: ['gE']
+        inputs: ['gE', 'gridElements'],
+        providers: [cloneModule_service_1.cloneModuleService]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [cloneModule_service_1.cloneModuleService])
 ], TabsModule);
 exports.TabsModule = TabsModule;
 //# sourceMappingURL=tabs.module.js.map

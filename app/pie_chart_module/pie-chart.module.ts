@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import {AppComponent} from '../app.component';
-import {GridBlock} from '../gridBlock.component';
-import {bgColorModule} from '../bgColor_component/bgColor.module';
+import { AppComponent } from '../app.component';
+import { GridBlock } from '../gridBlock.component';
+import { bgColorModule } from '../bgColor_component/bgColor.module';
+import { cloneModuleService } from '../cloneModule_service/cloneModule.service';
 declare var $: any;
 declare var Chart:any;
 
@@ -9,22 +10,34 @@ declare var Chart:any;
     selector: 'pie-chart-module',
     templateUrl: 'app/pie_chart_module/pie-chart.module.html',
     styleUrls: ['app/pie_chart_module/pie-chart.module.css'],
-    inputs: ['gE']
+    inputs: ['gE','gridElements'],
+    providers: [cloneModuleService]
 })
 
 export class PieChartModule {
+    gridElements:Array<number>;
     gE;
-    deletePieChartModule(gE) {
-        gE.moduleType = {};
+
+    constructor(private _cloneModuleService: cloneModuleService) {}
+
+    cloneModule(gE) {
+        this._cloneModuleService.cloneModule(gE,this.gridElements);
     }
+
+    deletePieChartModule(gE) {
+        gE.moduleType = 0;
+    }
+
     addPieSegment(gE) {
         gE.moduleType.labels.push("");
         gE.moduleType.data.push("");
     }
+
     removePieSegment(gE,dt) {
         gE.moduleType.labels.splice(gE.moduleType.data.indexOf(dt), 1);
         gE.moduleType.data.splice(gE.moduleType.data.indexOf(dt), 1);
     }
+
     lbUpdate(event:any,lb,gE) {
         if( event.target.value < 0 ) {
             gE.moduleType.labels[gE.moduleType.labels.indexOf(lb)] = - event.target.value;
@@ -32,6 +45,7 @@ export class PieChartModule {
             gE.moduleType.labels[gE.moduleType.labels.indexOf(lb)] = event.target.value;
         }
     }
+
     dtUpdate(event:any,dt,gE) {
         if( event.target.value < 0 ) {
             gE.moduleType.data[gE.moduleType.data.indexOf(dt)] = - event.target.value;
@@ -39,6 +53,7 @@ export class PieChartModule {
             gE.moduleType.data[gE.moduleType.data.indexOf(dt)] = event.target.value;
         }
     }
+
     createNewPieChart(gE) {
             var pcModule = $('.pie-chart-module');
             $('#pieChart' + gE.id).remove();
@@ -83,6 +98,7 @@ export class PieChartModule {
             pcModule.find('.pie-chart-content').stop().show(200);
             pcModule.find('.create-pie-chart-box').stop().hide(200);
     }
+
     ngAfterViewInit() {
         var ctx = document.getElementById("pieChart" + this.gE.id);
         var pieChart = new Chart(ctx, {
@@ -139,4 +155,5 @@ export class PieChartModule {
             $(this).parent().find('.note-editable').css('background',gE.bgColor);
         });
     }
+
 }

@@ -8,12 +8,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+var core_1 = require("@angular/core");
+var cloneModule_service_1 = require("../cloneModule_service/cloneModule.service");
 var ImageModule = (function () {
-    function ImageModule() {
+    function ImageModule(_cloneModuleService) {
+        this._cloneModuleService = _cloneModuleService;
     }
+    ImageModule.prototype.cloneModule = function (gE) {
+        this._cloneModuleService.cloneModule(gE, this.gridElements);
+    };
     ImageModule.prototype.deleteImageModule = function (gE) {
-        gE.moduleType = {};
+        gE.moduleType = 0;
     };
     ImageModule.prototype.changeImageUrl = function (gE) {
         gE.moduleType.url = this.imageUrl;
@@ -21,16 +26,17 @@ var ImageModule = (function () {
     ImageModule.prototype.deleteImageUrl = function (gE) {
         gE.moduleType.url = 'public/images/img-default.png';
     };
-    ImageModule = __decorate([
-        core_1.Component({
-            selector: 'image-module',
-            templateUrl: 'app/image_module/image.module.html',
-            styleUrls: ['app/image_module/image.module.css'],
-            inputs: ['gE']
-        }), 
-        __metadata('design:paramtypes', [])
-    ], ImageModule);
     return ImageModule;
 }());
+ImageModule = __decorate([
+    core_1.Component({
+        selector: 'image-module',
+        templateUrl: 'app/image_module/image.module.html',
+        styleUrls: ['app/image_module/image.module.css'],
+        inputs: ['gE', 'gridElements'],
+        providers: [cloneModule_service_1.cloneModuleService]
+    }),
+    __metadata("design:paramtypes", [cloneModule_service_1.cloneModuleService])
+], ImageModule);
 exports.ImageModule = ImageModule;
 //# sourceMappingURL=image.module.js.map

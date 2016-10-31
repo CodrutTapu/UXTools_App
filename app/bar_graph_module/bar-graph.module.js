@@ -8,13 +8,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var barGraphBar_1 = require('./barGraphBar');
+var core_1 = require("@angular/core");
+var barGraphBar_1 = require("./barGraphBar");
+var cloneModule_service_1 = require("../cloneModule_service/cloneModule.service");
 var BarGraphModule = (function () {
-    function BarGraphModule() {
+    function BarGraphModule(_cloneModuleService) {
+        this._cloneModuleService = _cloneModuleService;
     }
+    BarGraphModule.prototype.cloneModule = function (gE) {
+        this._cloneModuleService.cloneModule(gE, this.gridElements);
+    };
     BarGraphModule.prototype.deleteBarGraphModule = function (gE) {
-        gE.moduleType = {};
+        gE.moduleType = 0;
     };
     BarGraphModule.prototype.addBarGraph = function (gE) {
         gE.moduleType.bars.push(new barGraphBar_1.barGraphBar(50, '<p>New Label</p>'));
@@ -58,16 +63,17 @@ var BarGraphModule = (function () {
             $(this).parent().find('.note-editable').css('background', gE.bgColor);
         });
     };
-    BarGraphModule = __decorate([
-        core_1.Component({
-            selector: 'bar-graph-module',
-            templateUrl: 'app/bar_graph_module/bar-graph.module.html',
-            styleUrls: ['app/bar_graph_module/bar-graph.module.css'],
-            inputs: ['gE']
-        }), 
-        __metadata('design:paramtypes', [])
-    ], BarGraphModule);
     return BarGraphModule;
 }());
+BarGraphModule = __decorate([
+    core_1.Component({
+        selector: 'bar-graph-module',
+        templateUrl: 'app/bar_graph_module/bar-graph.module.html',
+        styleUrls: ['app/bar_graph_module/bar-graph.module.css'],
+        inputs: ['gE', 'gridElements'],
+        providers: [cloneModule_service_1.cloneModuleService]
+    }),
+    __metadata("design:paramtypes", [cloneModule_service_1.cloneModuleService])
+], BarGraphModule);
 exports.BarGraphModule = BarGraphModule;
 //# sourceMappingURL=bar-graph.module.js.map

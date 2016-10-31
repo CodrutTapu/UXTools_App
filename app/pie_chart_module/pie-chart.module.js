@@ -9,11 +9,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var cloneModule_service_1 = require("../cloneModule_service/cloneModule.service");
 var PieChartModule = (function () {
-    function PieChartModule() {
+    function PieChartModule(_cloneModuleService) {
+        this._cloneModuleService = _cloneModuleService;
     }
+    PieChartModule.prototype.cloneModule = function (gE) {
+        this._cloneModuleService.cloneModule(gE, this.gridElements);
+    };
     PieChartModule.prototype.deletePieChartModule = function (gE) {
-        gE.moduleType = {};
+        gE.moduleType = 0;
     };
     PieChartModule.prototype.addPieSegment = function (gE) {
         gE.moduleType.labels.push("");
@@ -143,9 +148,10 @@ PieChartModule = __decorate([
         selector: 'pie-chart-module',
         templateUrl: 'app/pie_chart_module/pie-chart.module.html',
         styleUrls: ['app/pie_chart_module/pie-chart.module.css'],
-        inputs: ['gE']
+        inputs: ['gE', 'gridElements'],
+        providers: [cloneModule_service_1.cloneModuleService]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [cloneModule_service_1.cloneModuleService])
 ], PieChartModule);
 exports.PieChartModule = PieChartModule;
 //# sourceMappingURL=pie-chart.module.js.map

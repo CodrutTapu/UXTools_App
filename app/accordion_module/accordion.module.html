@@ -4,6 +4,7 @@
             <li class="add" (click)="addAccordionItem(gE)" title="Add Item"><i class="fa fa-plus fa-lg" aria-hidden="true"></i></li>
             <li class="delete" (click)="deleteAccordionModule(gE)" title="Delete Module"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></li>
             <bgColor-module [gE]="gE"></bgColor-module>
+            <li (click)="cloneModule(gE)" title="Clone Module"><i class="fa fa-clone" aria-hidden="true"></i></li>
         </ul>
     </div>
     <div class="editable-accordion-title cEditable" [innerHtml]="gE.moduleType.title" (click)="updateAccordionTitle(gE)"></div>
@@ -18,7 +19,7 @@
                         </div>
                     </form>
                 </h4>
-                <div class="delete-accordion-item" (click)="deleteAccordionItem(gE,item)" title="Delete Item">
+                <div class="delete-accordion-item" (click)="deleteAccordionItem(gE,item)" title="Delete Item">``
                     <i aria-hidden="true" class="fa fa-times"></i>
                 </div>
             </div>

@@ -8,12 +8,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+var core_1 = require("@angular/core");
+var cloneModule_service_1 = require("../cloneModule_service/cloneModule.service");
 var CountingModule = (function () {
-    function CountingModule() {
+    function CountingModule(_cloneModuleService) {
+        this._cloneModuleService = _cloneModuleService;
     }
+    CountingModule.prototype.cloneModule = function (gE) {
+        this._cloneModuleService.cloneModule(gE, this.gridElements);
+    };
     CountingModule.prototype.deleteCountingModule = function (gE) {
-        gE.moduleType = {};
+        gE.moduleType = 0;
     };
     CountingModule.prototype.updateCountingValue = function (gE) {
         $(document).off('click', '.editable-counting-value').on('click', '.editable-counting-value', function () {
@@ -47,16 +52,17 @@ var CountingModule = (function () {
             $(this).parent().find('.note-editable').css('background', gE.bgColor);
         });
     };
-    CountingModule = __decorate([
-        core_1.Component({
-            selector: 'counting-module',
-            templateUrl: 'app/counting_module/counting.module.html',
-            styleUrls: ['app/counting_module/counting.module.css'],
-            inputs: ['gE']
-        }), 
-        __metadata('design:paramtypes', [])
-    ], CountingModule);
     return CountingModule;
 }());
+CountingModule = __decorate([
+    core_1.Component({
+        selector: 'counting-module',
+        templateUrl: 'app/counting_module/counting.module.html',
+        styleUrls: ['app/counting_module/counting.module.css'],
+        inputs: ['gE', 'gridElements'],
+        providers: [cloneModule_service_1.cloneModuleService]
+    }),
+    __metadata("design:paramtypes", [cloneModule_service_1.cloneModuleService])
+], CountingModule);
 exports.CountingModule = CountingModule;
 //# sourceMappingURL=counting.module.js.map

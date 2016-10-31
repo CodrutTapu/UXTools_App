@@ -9,25 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var http_1 = require("@angular/http");
 require("rxjs/add/operator/map");
-var HTTTPService = (function () {
-    function HTTTPService(_http) {
-        this._http = _http;
+var cloneModuleService = (function () {
+    function cloneModuleService() {
     }
-    HTTTPService.prototype.getProjects = function (author_id) {
-        return this._http.get('http://localhost:8000/public/getprojects/' + author_id)
-            .map(function (res) { return res.json(); });
+    cloneModuleService.prototype.cloneModule = function (gE, gridElements) {
+        var i, ok = 1;
+        var length = gridElements.length;
+        this.lastModule = gridElements[length - 1];
+        if (this.lastModule.moduleType == 0) {
+            this.lastModule.moduleType = gE.moduleType;
+        }
+        else {
+            toastr["error"](" ", "You must add an empty Layout Element!");
+        }
     };
-    HTTTPService.prototype.getProject = function (author_id, project_type, project_id) {
-        return this._http.get('http://localhost:8000/public/edit/' + author_id + '/' + project_type + '/' + project_id)
-            .map(function (res) { return res.json(); });
-    };
-    return HTTTPService;
+    return cloneModuleService;
 }());
-HTTTPService = __decorate([
+cloneModuleService = __decorate([
     core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.Http])
-], HTTTPService);
-exports.HTTTPService = HTTTPService;
-//# sourceMappingURL=http.service.js.map
+    __metadata("design:paramtypes", [])
+], cloneModuleService);
+exports.cloneModuleService = cloneModuleService;
+//# sourceMappingURL=cloneModule.service.js.map

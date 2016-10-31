@@ -4,6 +4,7 @@
             <li (click)="addAboutItem(gE)" class="add" title="Add Item"><i class="fa fa-plus fa-lg" aria-hidden="true"></i></li>
             <li (click)="deleteAboutModule(gE)" class="delete" title="Delete Module"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></li>
             <bgColor-module [gE]="gE"></bgColor-module>
+            <li (click)="cloneModule(gE)" title="Clone Module"><i class="fa fa-clone" aria-hidden="true"></i></li>
         </ul>
     </div>
     <div class="row" *ngFor="let aI of gE.moduleType.content">

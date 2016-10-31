@@ -10,21 +10,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var accordionItem_1 = require("./accordionItem");
+var cloneModule_service_1 = require("../cloneModule_service/cloneModule.service");
 var AccordionModule = (function () {
-    function AccordionModule() {
-        this.i = 4;
+    function AccordionModule(_cloneModuleService) {
+        this._cloneModuleService = _cloneModuleService;
     }
+    AccordionModule.prototype.cloneModule = function (gE) {
+        this._cloneModuleService.cloneModule(gE, this.gridElements);
+    };
     AccordionModule.prototype.ngOnInit = function () {
         $('.accordion-module').on('show.bs.collapse', '.collapse', function () {
             $(this).parents().eq(2).find('.collapse.in').collapse('hide');
         });
     };
     AccordionModule.prototype.deleteAccordionModule = function (gE) {
-        gE.moduleType = {};
+        gE.moduleType = 0;
     };
     AccordionModule.prototype.addAccordionItem = function (gE) {
-        gE.moduleType.items.push(new accordionItem_1.accordionItem('item' + this.i, 'New Item Title', '<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>'));
-        this.i++;
+        var length = gE.moduleType.items.length;
+        var lastItemId = gE.moduleType.items[length - 1].id;
+        var lastId = 0;
+        if (lastItemId.length == 5) {
+            lastId = parseInt(lastItemId[4]) + 1;
+        }
+        else if (lastItemId.length == 6) {
+            lastId = parseInt(lastItemId[4] + lastItemId[5]) + 1;
+        }
+        gE.moduleType.items.push(new accordionItem_1.accordionItem('item' + lastId, 'New Item Title', '<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>'));
     };
     AccordionModule.prototype.deleteAccordionItem = function (gE, item) {
         gE.moduleType.items.splice(gE.moduleType.items.indexOf(item), 1);
@@ -70,9 +82,10 @@ AccordionModule = __decorate([
         selector: 'accordion-module',
         templateUrl: 'app/accordion_module/accordion.module.html',
         styleUrls: ['app/accordion_module/accordion.module.css'],
-        inputs: ['gE']
+        inputs: ['gE', 'gridElements'],
+        providers: [cloneModule_service_1.cloneModuleService]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [cloneModule_service_1.cloneModuleService])
 ], AccordionModule);
 exports.AccordionModule = AccordionModule;
 //# sourceMappingURL=accordion.module.js.map
