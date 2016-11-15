@@ -8,20 +8,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+var core_1 = require("@angular/core");
 var ViewAboutModule = (function () {
     function ViewAboutModule() {
     }
-    ViewAboutModule = __decorate([
-        core_1.Component({
-            selector: 'view-about-module',
-            templateUrl: 'app/about_module/view.about.module.html',
-            styleUrls: ['app/about_module/about.module.css'],
-            inputs: ['gE']
-        }), 
-        __metadata('design:paramtypes', [])
-    ], ViewAboutModule);
     return ViewAboutModule;
 }());
+ViewAboutModule = __decorate([
+    core_1.Component({
+        selector: 'view-about-module',
+        templateUrl: 'app/about_module/view.about.module.html',
+        styleUrls: ['app/about_module/about.module.css'],
+        inputs: ['gE', 'module']
+    }),
+    __metadata("design:paramtypes", [])
+], ViewAboutModule);
 exports.ViewAboutModule = ViewAboutModule;
 //# sourceMappingURL=view.about.module.js.map

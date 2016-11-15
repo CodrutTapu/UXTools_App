@@ -10,7 +10,7 @@ declare var toastr:any;
     selector: 'text-module',
     templateUrl: 'app/text_module/text.module.html',
     styleUrls:  ['app/text_module/text.module.css'],
-    inputs: ['gE','gridElements'],
+    inputs: ['gE','gridElements','module'],
     providers: [cloneModuleService]
 })
 
@@ -19,15 +19,15 @@ export class TextModule {
 
     constructor(private _cloneModuleService: cloneModuleService) {}
 
-    cloneModule(gE) {
-        this._cloneModuleService.cloneModule(gE,this.gridElements);
+    cloneModule(gE,module) {
+        this._cloneModuleService.cloneModule(gE,module);
     }
 
-    deleteTextModule(gE) {
-        gE.moduleType = 0;
+    deleteTextModule(gE,module) {
+        gE.modules.splice(gE.modules.indexOf(module), 1);
     }
 
-    updateTextModule(gE) {
+    updateTextModule(module) {
         $(document).off('click','.editable-text-content').on('click','.editable-text-content',function(){
             $(this).summernote({
                 toolbar: [
@@ -36,11 +36,11 @@ export class TextModule {
                 disableDragAndDrop: true,
                 callbacks: {
                     onChange: function(contents, $editable) {
-                      gE.moduleType.content = contents;
+                      module.content = contents;
                     }
                 }
             });
-            $(this).parent().find('.note-editable').css('background',gE.bgColor);
+            $(this).parent().find('.note-editable').css('background',module.bgColor);
         });
     }
 

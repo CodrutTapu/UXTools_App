@@ -15,23 +15,23 @@ var BarGraphModule = (function () {
     function BarGraphModule(_cloneModuleService) {
         this._cloneModuleService = _cloneModuleService;
     }
-    BarGraphModule.prototype.cloneModule = function (gE) {
-        this._cloneModuleService.cloneModule(gE, this.gridElements);
+    BarGraphModule.prototype.cloneModule = function (gE, module) {
+        this._cloneModuleService.cloneModule(gE, module);
     };
-    BarGraphModule.prototype.deleteBarGraphModule = function (gE) {
-        gE.moduleType = 0;
+    BarGraphModule.prototype.deleteBarGraphModule = function (gE, module) {
+        gE.modules.splice(gE.modules.indexOf(module), 1);
     };
-    BarGraphModule.prototype.addBarGraph = function (gE) {
-        gE.moduleType.bars.push(new barGraphBar_1.barGraphBar(50, '<p>New Label</p>'));
+    BarGraphModule.prototype.addBarGraph = function (module) {
+        module.bars.push(new barGraphBar_1.barGraphBar(50, '<p>New Label</p>'));
     };
-    BarGraphModule.prototype.deleteBar = function (gE, bar) {
-        gE.moduleType.bars.splice(gE.moduleType.bars.indexOf(bar), 1);
+    BarGraphModule.prototype.deleteBar = function (module, bar) {
+        module.bars.splice(module.bars.indexOf(bar), 1);
     };
     BarGraphModule.prototype.adjustBarLength = function (event, bar) {
         var pBLength = $('.progress').width();
         bar.value = Math.ceil((event.layerX * 100) / pBLength);
     };
-    BarGraphModule.prototype.updateBarGraphTitle = function (gE) {
+    BarGraphModule.prototype.updateBarGraphTitle = function (module) {
         $(document).off('click', '.editable-barGrpah-title').on('click', '.editable-barGrpah-title', function () {
             $(this).summernote({
                 toolbar: [
@@ -40,14 +40,14 @@ var BarGraphModule = (function () {
                 disableDragAndDrop: true,
                 callbacks: {
                     onChange: function (contents, $editable) {
-                        gE.moduleType.title = contents;
+                        module.title = contents;
                     }
                 }
             });
-            $(this).parent().find('.note-editable').css('background', gE.bgColor);
+            $(this).parent().find('.note-editable').css('background', module.bgColor);
         });
     };
-    BarGraphModule.prototype.updateBarLabel = function (bar, gE) {
+    BarGraphModule.prototype.updateBarLabel = function (bar, module) {
         $(document).off('click', '.editable-bar-label').on('click', '.editable-bar-label', function () {
             $(this).summernote({
                 toolbar: [
@@ -60,7 +60,7 @@ var BarGraphModule = (function () {
                     }
                 }
             });
-            $(this).parent().find('.note-editable').css('background', gE.bgColor);
+            $(this).parent().find('.note-editable').css('background', module.bgColor);
         });
     };
     return BarGraphModule;
@@ -70,7 +70,7 @@ BarGraphModule = __decorate([
         selector: 'bar-graph-module',
         templateUrl: 'app/bar_graph_module/bar-graph.module.html',
         styleUrls: ['app/bar_graph_module/bar-graph.module.css'],
-        inputs: ['gE', 'gridElements'],
+        inputs: ['gE', 'gridElements', 'module'],
         providers: [cloneModule_service_1.cloneModuleService]
     }),
     __metadata("design:paramtypes", [cloneModule_service_1.cloneModuleService])

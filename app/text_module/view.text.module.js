@@ -8,20 +8,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+var core_1 = require("@angular/core");
 var ViewTextModule = (function () {
     function ViewTextModule() {
     }
-    ViewTextModule = __decorate([
-        core_1.Component({
-            selector: 'view-text-module',
-            templateUrl: 'app/text_module/view.text.module.html',
-            styleUrls: ['app/text_module/text.module.css'],
-            inputs: ['gE']
-        }), 
-        __metadata('design:paramtypes', [])
-    ], ViewTextModule);
     return ViewTextModule;
 }());
+ViewTextModule = __decorate([
+    core_1.Component({
+        selector: 'view-text-module',
+        templateUrl: 'app/text_module/view.text.module.html',
+        styleUrls: ['app/text_module/text.module.css'],
+        inputs: ['gE', 'module']
+    }),
+    __metadata("design:paramtypes", [])
+], ViewTextModule);
 exports.ViewTextModule = ViewTextModule;
 //# sourceMappingURL=view.text.module.js.map

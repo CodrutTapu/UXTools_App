@@ -8,20 +8,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+var core_1 = require("@angular/core");
 var ViewTagModule = (function () {
     function ViewTagModule() {
     }
-    ViewTagModule = __decorate([
-        core_1.Component({
-            selector: 'view-tag-module',
-            templateUrl: 'app/tag_module/view.tag.module.html',
-            styleUrls: ['app/tag_module/tag.module.css'],
-            inputs: ['gE']
-        }), 
-        __metadata('design:paramtypes', [])
-    ], ViewTagModule);
     return ViewTagModule;
 }());
+ViewTagModule = __decorate([
+    core_1.Component({
+        selector: 'view-tag-module',
+        templateUrl: 'app/tag_module/view.tag.module.html',
+        styleUrls: ['app/tag_module/tag.module.css'],
+        inputs: ['gE', 'module']
+    }),
+    __metadata("design:paramtypes", [])
+], ViewTagModule);
 exports.ViewTagModule = ViewTagModule;
 //# sourceMappingURL=view.tag.module.js.map

@@ -46,7 +46,7 @@ EmailModule = __decorate([
         selector: 'email-module',
         templateUrl: 'app/email_module/email.module.html',
         styleUrls: ['app/email_module/email.module.css'],
-        inputs: ['gE', 'gridElements'],
+        inputs: ['gE', 'gridElements', 'module'],
         providers: [cloneModule_service_1.cloneModuleService]
     }),
     __metadata("design:paramtypes", [cloneModule_service_1.cloneModuleService])

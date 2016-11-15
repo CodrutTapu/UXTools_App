@@ -22,7 +22,7 @@ ViewScaleChartModule = __decorate([
         selector: 'view-scale-chart-module',
         templateUrl: 'app/scale_chart_module/view-scale-chart.module.html',
         styleUrls: ['app/scale_chart_module/scale-chart.module.css'],
-        inputs: ['gE']
+        inputs: ['gE', 'module']
     }),
     __metadata("design:paramtypes", [])
 ], ViewScaleChartModule);

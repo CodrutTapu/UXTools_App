@@ -8,20 +8,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+var core_1 = require("@angular/core");
 var ViewBarGraphModule = (function () {
     function ViewBarGraphModule() {
     }
-    ViewBarGraphModule = __decorate([
-        core_1.Component({
-            selector: 'view-bar-graph-module',
-            templateUrl: 'app/bar_graph_module/view.bar-graph.module.html',
-            styleUrls: ['app/bar_graph_module/bar-graph.module.css'],
-            inputs: ['gE']
-        }), 
-        __metadata('design:paramtypes', [])
-    ], ViewBarGraphModule);
     return ViewBarGraphModule;
 }());
+ViewBarGraphModule = __decorate([
+    core_1.Component({
+        selector: 'view-bar-graph-module',
+        templateUrl: 'app/bar_graph_module/view.bar-graph.module.html',
+        styleUrls: ['app/bar_graph_module/bar-graph.module.css'],
+        inputs: ['gE', 'module']
+    }),
+    __metadata("design:paramtypes", [])
+], ViewBarGraphModule);
 exports.ViewBarGraphModule = ViewBarGraphModule;
 //# sourceMappingURL=view.bar-graph.module.js.map

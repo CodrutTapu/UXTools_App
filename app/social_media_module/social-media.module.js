@@ -39,7 +39,7 @@ SocialMediaModule = __decorate([
         selector: 'social-media-module',
         templateUrl: 'app/social_media_module/social-media.module.html',
         styleUrls: ['app/social_media_module/social-media.module.css'],
-        inputs: ['gE', 'gridElements'],
+        inputs: ['gE', 'gridElements', 'module'],
         providers: [cloneModule_service_1.cloneModuleService]
     }),
     __metadata("design:paramtypes", [cloneModule_service_1.cloneModuleService])

@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+var core_1 = require("@angular/core");
 var ViewAccordionModule = (function () {
     function ViewAccordionModule() {
     }
@@ -17,16 +17,16 @@ var ViewAccordionModule = (function () {
             $(this).parents().eq(2).find('.collapse.in').collapse('hide');
         });
     };
-    ViewAccordionModule = __decorate([
-        core_1.Component({
-            selector: 'view-accordion-module',
-            templateUrl: 'app/accordion_module/view-accordion.module.html',
-            styleUrls: ['app/accordion_module/accordion.module.css'],
-            inputs: ['gE']
-        }), 
-        __metadata('design:paramtypes', [])
-    ], ViewAccordionModule);
     return ViewAccordionModule;
 }());
+ViewAccordionModule = __decorate([
+    core_1.Component({
+        selector: 'view-accordion-module',
+        templateUrl: 'app/accordion_module/view-accordion.module.html',
+        styleUrls: ['app/accordion_module/accordion.module.css'],
+        inputs: ['gE', 'module']
+    }),
+    __metadata("design:paramtypes", [])
+], ViewAccordionModule);
 exports.ViewAccordionModule = ViewAccordionModule;
 //# sourceMappingURL=view.accordion.module.js.map

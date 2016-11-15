@@ -9,7 +9,7 @@ declare var $: any;
     selector: 'bar-graph-module',
     templateUrl: 'app/bar_graph_module/bar-graph.module.html',
     styleUrls: ['app/bar_graph_module/bar-graph.module.css'],
-    inputs: ['gE','gridElements'],
+    inputs: ['gE','gridElements','module'],
     providers: [cloneModuleService]
 })
 
@@ -18,20 +18,20 @@ export class BarGraphModule {
 
     constructor(private _cloneModuleService: cloneModuleService) {}
 
-    cloneModule(gE) {
-        this._cloneModuleService.cloneModule(gE,this.gridElements);
+    cloneModule(gE,module) {
+        this._cloneModuleService.cloneModule(gE,module);
     }
 
-    deleteBarGraphModule(gE) {
-        gE.moduleType = 0;
+    deleteBarGraphModule(gE,module) {
+        gE.modules.splice(gE.modules.indexOf(module), 1);
     }
 
-   addBarGraph(gE) {
-       gE.moduleType.bars.push(new barGraphBar(50,'<p>New Label</p>'));
+   addBarGraph(module) {
+       module.bars.push(new barGraphBar(50,'<p>New Label</p>'));
    }
 
-   deleteBar(gE,bar) {
-       gE.moduleType.bars.splice(gE.moduleType.bars.indexOf(bar), 1);
+   deleteBar(module,bar) {
+       module.bars.splice(module.bars.indexOf(bar), 1);
    }
 
    adjustBarLength(event:any,bar) {
@@ -39,7 +39,7 @@ export class BarGraphModule {
        bar.value = Math.ceil((event.layerX*100)/pBLength);
    }
 
-   updateBarGraphTitle(gE) {
+   updateBarGraphTitle(module) {
        $(document).off('click','.editable-barGrpah-title').on('click','.editable-barGrpah-title',function(){
            $(this).summernote({
                toolbar: [
@@ -48,15 +48,15 @@ export class BarGraphModule {
                disableDragAndDrop: true,
                callbacks: {
                    onChange: function(contents, $editable) {
-                     gE.moduleType.title = contents;
+                     module.title = contents;
                    }
                }
            });
-           $(this).parent().find('.note-editable').css('background',gE.bgColor);
+           $(this).parent().find('.note-editable').css('background',module.bgColor);
        });
    }
 
-   updateBarLabel(bar,gE) {
+   updateBarLabel(bar,module) {
        $(document).off('click','.editable-bar-label').on('click','.editable-bar-label',function(){
            $(this).summernote({
                toolbar: [
@@ -69,7 +69,7 @@ export class BarGraphModule {
                    }
                }
            });
-           $(this).parent().find('.note-editable').css('background',gE.bgColor);
+           $(this).parent().find('.note-editable').css('background',module.bgColor);
        });
    }
 

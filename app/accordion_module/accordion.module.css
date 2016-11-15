@@ -33,11 +33,11 @@
 .accordion-module .expand {
     color: #000;
 }
-.accordion-module .expand:hover {
-    color: #5cb85c;
-}
 .accordion-module .title-input {
     height: 28px;
+}
+.accordion-module .title-form {
+    margin-bottom: 10px;
 }
 .accordion-module .tab-title {
     margin: 5px 0;

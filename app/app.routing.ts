@@ -7,6 +7,7 @@ import { DashboardComponent } from './dashboard.component';
 import { PersonaComponent } from './persona.component';
 import { newPersonaComponent } from './newPersona.component';
 import { ViewPersonaComponent } from './view.persona.component';
+import { test } from './test';
 
 
 const appRoutes: Routes = [
@@ -16,6 +17,7 @@ const appRoutes: Routes = [
     { path: 'edit/:author_id/:project_type/:project_id/:project_name', component: PersonaComponent },
     { path: 'view/:author_id/:project_type/:project_id/:project_name', component: ViewPersonaComponent },
     { path: 'new/persona/:author_id', component: newPersonaComponent },
+    { path: 'test', component: test },
     { path: '', component: HomeComponent }
 ];
 

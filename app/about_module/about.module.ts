@@ -9,7 +9,7 @@ declare var $: any;
     selector: 'about-module',
     templateUrl: 'app/about_module/about.module.html',
     styleUrls: ['app/about_module/about.module.css'],
-    inputs: ['gE','gridElements'],
+    inputs: ['gE','gridElements','module'],
     providers: [cloneModuleService]
 })
 

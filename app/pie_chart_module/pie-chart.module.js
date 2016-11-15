@@ -148,7 +148,7 @@ PieChartModule = __decorate([
         selector: 'pie-chart-module',
         templateUrl: 'app/pie_chart_module/pie-chart.module.html',
         styleUrls: ['app/pie_chart_module/pie-chart.module.css'],
-        inputs: ['gE', 'gridElements'],
+        inputs: ['gE', 'gridElements', 'module'],
         providers: [cloneModule_service_1.cloneModuleService]
     }),
     __metadata("design:paramtypes", [cloneModule_service_1.cloneModuleService])

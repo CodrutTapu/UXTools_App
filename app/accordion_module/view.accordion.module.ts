@@ -9,7 +9,7 @@ declare var $: any;
     selector: 'view-accordion-module',
     templateUrl: 'app/accordion_module/view-accordion.module.html',
     styleUrls: ['app/accordion_module/accordion.module.css'],
-    inputs: ['gE']
+    inputs: ['gE','module']
 })
 
 export class ViewAccordionModule {

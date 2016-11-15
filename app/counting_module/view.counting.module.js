@@ -8,20 +8,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+var core_1 = require("@angular/core");
 var ViewCountingModule = (function () {
     function ViewCountingModule() {
     }
-    ViewCountingModule = __decorate([
-        core_1.Component({
-            selector: 'view-counting-module',
-            templateUrl: 'app/counting_module/view.counting.module.html',
-            styleUrls: ['app/counting_module/counting.module.css'],
-            inputs: ['gE']
-        }), 
-        __metadata('design:paramtypes', [])
-    ], ViewCountingModule);
     return ViewCountingModule;
 }());
+ViewCountingModule = __decorate([
+    core_1.Component({
+        selector: 'view-counting-module',
+        templateUrl: 'app/counting_module/view.counting.module.html',
+        styleUrls: ['app/counting_module/counting.module.css'],
+        inputs: ['gE', 'module']
+    }),
+    __metadata("design:paramtypes", [])
+], ViewCountingModule);
 exports.ViewCountingModule = ViewCountingModule;
 //# sourceMappingURL=view.counting.module.js.map

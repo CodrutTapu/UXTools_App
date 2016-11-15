@@ -8,7 +8,7 @@ declare var $: any;
     selector: 'view-about-module',
     templateUrl: 'app/about_module/view.about.module.html',
     styleUrls: ['app/about_module/about.module.css'],
-    inputs: ['gE']
+    inputs: ['gE','module']
 })
 
 export class ViewAboutModule {}

@@ -1,15 +1,13 @@
 export class gridElem {
     id:number;
     dim:number;
-    moduleType:any;
-    bgColor:any;
+    modules:Array<any>;
     csColor:any;
 
-    constructor(dim:number,id:number,moduleType:any,bgColor:any,csColor:any) {
+    constructor(dim:number,id:number,modules:any,csColor:any) {
         this.dim = dim;
         this.id = id;
-        this.moduleType = moduleType;
-        this.bgColor = bgColor;
+        this.modules = modules;
         this.csColor = csColor;
     }
 }

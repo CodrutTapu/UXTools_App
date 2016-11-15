@@ -13,16 +13,8 @@ require("rxjs/add/operator/map");
 var cloneModuleService = (function () {
     function cloneModuleService() {
     }
-    cloneModuleService.prototype.cloneModule = function (gE, gridElements) {
-        var i, ok = 1;
-        var length = gridElements.length;
-        this.lastModule = gridElements[length - 1];
-        if (this.lastModule.moduleType == 0) {
-            this.lastModule.moduleType = gE.moduleType;
-        }
-        else {
-            toastr["error"](" ", "You must add an empty Layout Element!");
-        }
+    cloneModuleService.prototype.cloneModule = function (gE, module) {
+        gE.modules.push(module);
     };
     return cloneModuleService;
 }());

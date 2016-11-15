@@ -59,7 +59,7 @@ CountingModule = __decorate([
         selector: 'counting-module',
         templateUrl: 'app/counting_module/counting.module.html',
         styleUrls: ['app/counting_module/counting.module.css'],
-        inputs: ['gE', 'gridElements'],
+        inputs: ['gE', 'gridElements', 'module'],
         providers: [cloneModule_service_1.cloneModuleService]
     }),
     __metadata("design:paramtypes", [cloneModule_service_1.cloneModuleService])

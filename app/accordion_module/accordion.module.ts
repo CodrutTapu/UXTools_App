@@ -10,7 +10,7 @@ declare var $: any;
     selector: 'accordion-module',
     templateUrl: 'app/accordion_module/accordion.module.html',
     styleUrls: ['app/accordion_module/accordion.module.css'],
-    inputs: ['gE','gridElements'],
+    inputs: ['gE','gridElements','module'],
     providers: [cloneModuleService]
 })
 

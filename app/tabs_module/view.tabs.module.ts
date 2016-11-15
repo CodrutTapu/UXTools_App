@@ -9,7 +9,7 @@ declare var $: any;
     selector: 'view-tabs-module',
     templateUrl: 'app/tabs_module/view.tabs.module.html',
     styleUrls: ['app/tabs_module/tabs.module.css'],
-    inputs: ['gE']
+    inputs: ['gE','module']
 })
 
 export class ViewTabsModule {}

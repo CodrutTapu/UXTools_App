@@ -14,13 +14,13 @@ var TextModule = (function () {
     function TextModule(_cloneModuleService) {
         this._cloneModuleService = _cloneModuleService;
     }
-    TextModule.prototype.cloneModule = function (gE) {
-        this._cloneModuleService.cloneModule(gE, this.gridElements);
+    TextModule.prototype.cloneModule = function (gE, module) {
+        this._cloneModuleService.cloneModule(gE, module);
     };
-    TextModule.prototype.deleteTextModule = function (gE) {
-        gE.moduleType = 0;
+    TextModule.prototype.deleteTextModule = function (gE, module) {
+        gE.modules.splice(gE.modules.indexOf(module), 1);
     };
-    TextModule.prototype.updateTextModule = function (gE) {
+    TextModule.prototype.updateTextModule = function (module) {
         $(document).off('click', '.editable-text-content').on('click', '.editable-text-content', function () {
             $(this).summernote({
                 toolbar: [
@@ -29,11 +29,11 @@ var TextModule = (function () {
                 disableDragAndDrop: true,
                 callbacks: {
                     onChange: function (contents, $editable) {
-                        gE.moduleType.content = contents;
+                        module.content = contents;
                     }
                 }
             });
-            $(this).parent().find('.note-editable').css('background', gE.bgColor);
+            $(this).parent().find('.note-editable').css('background', module.bgColor);
         });
     };
     return TextModule;
@@ -43,7 +43,7 @@ TextModule = __decorate([
         selector: 'text-module',
         templateUrl: 'app/text_module/text.module.html',
         styleUrls: ['app/text_module/text.module.css'],
-        inputs: ['gE', 'gridElements'],
+        inputs: ['gE', 'gridElements', 'module'],
         providers: [cloneModule_service_1.cloneModuleService]
     }),
     __metadata("design:paramtypes", [cloneModule_service_1.cloneModuleService])

@@ -9,7 +9,7 @@ declare var Chart:any;
     selector: 'view-pie-chart-module',
     templateUrl: 'app/pie_chart_module/view-pie-chart.module.html',
     styleUrls: ['app/pie_chart_module/pie-chart.module.css'],
-    inputs: ['gE']
+    inputs: ['gE','module']
 })
 
 export class ViewPieChartModule {

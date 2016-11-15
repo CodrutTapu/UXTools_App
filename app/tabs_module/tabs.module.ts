@@ -10,7 +10,7 @@ declare var $: any;
     selector: 'tabs-module',
     templateUrl: 'app/tabs_module/tabs.module.html',
     styleUrls: ['app/tabs_module/tabs.module.css'],
-    inputs: ['gE','gridElements'],
+    inputs: ['gE','gridElements','module'],
     providers: [cloneModuleService]
 })
 

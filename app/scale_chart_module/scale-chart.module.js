@@ -85,7 +85,7 @@ ScaleChartModule = __decorate([
         selector: 'scale-chart-module',
         templateUrl: 'app/scale_chart_module/scale-chart.module.html',
         styleUrls: ['app/scale_chart_module/scale-chart.module.css'],
-        inputs: ['gE', 'gridElements'],
+        inputs: ['gE', 'gridElements', 'module'],
         providers: [cloneModule_service_1.cloneModuleService]
     }),
     __metadata("design:paramtypes", [cloneModule_service_1.cloneModuleService])

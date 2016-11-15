@@ -7,7 +7,7 @@ declare var $: any;
     selector: 'view-devices-platforms-module',
     templateUrl: 'app/devicesPlatforms_module/view.devices-platforms.module.html',
     styleUrls: ['app/devicesPlatforms_module/devices-platforms.module.css'],
-    inputs: ['gE']
+    inputs: ['gE','module']
 })
 
 export class ViewDevicesPlatformsModule {

@@ -48,7 +48,7 @@ export class PersonaComponent {
                 maxId = this.gridElements[i].id;
             }
         }
-        this.gridElements.push(new gridElem(dim,maxId+1,0,'#F8F8F8','#4c7ba0'));
+        this.gridElements.push(new gridElem(dim,maxId+1,[],'#4c7ba0'));
     }
 
     httpGet() {

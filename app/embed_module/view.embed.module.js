@@ -24,7 +24,7 @@ ViewEmbedModule = __decorate([
         selector: 'view-embed-module',
         templateUrl: 'app/embed_module/view.embed.module.html',
         styleUrls: ['app/embed_module/embed.module.css'],
-        inputs: ['gE']
+        inputs: ['gE', 'module']
     }),
     __metadata("design:paramtypes", [platform_browser_1.DomSanitizer])
 ], ViewEmbedModule);

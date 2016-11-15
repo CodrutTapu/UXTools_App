@@ -8,7 +8,7 @@ declare var $: any;
     selector: 'view-bar-graph-module',
     templateUrl: 'app/bar_graph_module/view.bar-graph.module.html',
     styleUrls: ['app/bar_graph_module/bar-graph.module.css'],
-    inputs: ['gE']
+    inputs: ['gE','module']
 })
 
 export class ViewBarGraphModule {}

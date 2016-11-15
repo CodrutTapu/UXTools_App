@@ -14,17 +14,17 @@ var ImageModule = (function () {
     function ImageModule(_cloneModuleService) {
         this._cloneModuleService = _cloneModuleService;
     }
-    ImageModule.prototype.cloneModule = function (gE) {
-        this._cloneModuleService.cloneModule(gE, this.gridElements);
+    ImageModule.prototype.cloneModule = function (gE, module) {
+        this._cloneModuleService.cloneModule(gE, module);
     };
-    ImageModule.prototype.deleteImageModule = function (gE) {
-        gE.moduleType = 0;
+    ImageModule.prototype.deleteImageModule = function (gE, module) {
+        gE.modules.splice(gE.modules.indexOf(module), 1);
     };
-    ImageModule.prototype.changeImageUrl = function (gE) {
-        gE.moduleType.url = this.imageUrl;
+    ImageModule.prototype.changeImageUrl = function (module) {
+        module.url = this.imageUrl;
     };
-    ImageModule.prototype.deleteImageUrl = function (gE) {
-        gE.moduleType.url = 'public/images/img-default.png';
+    ImageModule.prototype.deleteImageUrl = function (module) {
+        module.url = 'public/images/img-default.png';
     };
     return ImageModule;
 }());
@@ -33,7 +33,7 @@ ImageModule = __decorate([
         selector: 'image-module',
         templateUrl: 'app/image_module/image.module.html',
         styleUrls: ['app/image_module/image.module.css'],
-        inputs: ['gE', 'gridElements'],
+        inputs: ['gE', 'gridElements', 'module'],
         providers: [cloneModule_service_1.cloneModuleService]
     }),
     __metadata("design:paramtypes", [cloneModule_service_1.cloneModuleService])

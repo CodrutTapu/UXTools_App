@@ -82,7 +82,7 @@ AccordionModule = __decorate([
         selector: 'accordion-module',
         templateUrl: 'app/accordion_module/accordion.module.html',
         styleUrls: ['app/accordion_module/accordion.module.css'],
-        inputs: ['gE', 'gridElements'],
+        inputs: ['gE', 'gridElements', 'module'],
         providers: [cloneModule_service_1.cloneModuleService]
     }),
     __metadata("design:paramtypes", [cloneModule_service_1.cloneModuleService])

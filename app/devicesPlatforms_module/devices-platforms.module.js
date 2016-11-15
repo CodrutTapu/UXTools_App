@@ -38,7 +38,7 @@ DevicesPlatformsModule = __decorate([
         selector: 'devices-platforms-module',
         templateUrl: 'app/devicesPlatforms_module/devices-platforms.module.html',
         styleUrls: ['app/devicesPlatforms_module/devices-platforms.module.css'],
-        inputs: ['gE', 'gridElements'],
+        inputs: ['gE', 'gridElements', 'module'],
         providers: [cloneModule_service_1.cloneModuleService]
     }),
     __metadata("design:paramtypes", [cloneModule_service_1.cloneModuleService])

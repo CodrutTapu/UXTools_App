@@ -6,7 +6,7 @@ import {GridBlock} from '../gridBlock.component';
     selector: 'view-image-module',
     templateUrl: 'app/image_module/view-image.module.html',
     styleUrls: ['app/image_module/image.module.css'],
-    inputs: ['gE']
+    inputs: ['gE','module']
 })
 
 export class ViewImageModule {

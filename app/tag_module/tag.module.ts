@@ -10,7 +10,7 @@ declare var $: any;
     selector: 'tag-module',
     templateUrl: 'app/tag_module/tag.module.html',
     styleUrls: ['app/tag_module/tag.module.css'],
-    inputs: ['gE','gridElements'],
+    inputs: ['gE','gridElements','module'],
     providers: [cloneModuleService]
 })
 

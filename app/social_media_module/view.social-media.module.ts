@@ -7,7 +7,7 @@ import {bgColorModule} from '../bgColor_component/bgColor.module';
     selector: 'view-social-media-module',
     templateUrl: 'app/social_media_module/view.social-media.module.html',
     styleUrls: ['app/social_media_module/social-media.module.css'],
-    inputs: ['gE']
+    inputs: ['gE','module']
 })
 
 export class ViewSocialMediaModule {

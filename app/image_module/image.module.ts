@@ -7,7 +7,7 @@ import { cloneModuleService } from '../cloneModule_service/cloneModule.service';
     selector: 'image-module',
     templateUrl: 'app/image_module/image.module.html',
     styleUrls: ['app/image_module/image.module.css'],
-    inputs: ['gE','gridElements'],
+    inputs: ['gE','gridElements','module'],
     providers: [cloneModuleService]
 })
 
@@ -17,20 +17,20 @@ export class ImageModule {
 
     constructor(private _cloneModuleService: cloneModuleService) {}
 
-    cloneModule(gE) {
-        this._cloneModuleService.cloneModule(gE,this.gridElements);
+    cloneModule(gE,module) {
+        this._cloneModuleService.cloneModule(gE,module);
     }
 
-    deleteImageModule(gE) {
-        gE.moduleType = 0;
+    deleteImageModule(gE,module) {
+        gE.modules.splice(gE.modules.indexOf(module), 1);
     }
 
-    changeImageUrl(gE) {
-        gE.moduleType.url = this.imageUrl;
+    changeImageUrl(module) {
+        module.url = this.imageUrl;
     }
 
-    deleteImageUrl(gE) {
-        gE.moduleType.url = 'public/images/img-default.png';
+    deleteImageUrl(module) {
+        module.url = 'public/images/img-default.png';
     }
 
 }

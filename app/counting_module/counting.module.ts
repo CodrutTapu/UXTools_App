@@ -8,7 +8,7 @@ declare var $: any;
     selector: 'counting-module',
     templateUrl: 'app/counting_module/counting.module.html',
     styleUrls: ['app/counting_module/counting.module.css'],
-    inputs: ['gE','gridElements'],
+    inputs: ['gE','gridElements','module'],
     providers: [cloneModuleService]
 })
 

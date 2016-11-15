@@ -9,19 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var ViewEmailModule = (function () {
-    function ViewEmailModule() {
+var test = (function () {
+    function test() {
+        this.listTeamOne = ['Text Module', 'Image Module', 'Pie Chart Module'];
+        this.listTeamTwo = ['Scale Chart Module', 'About Module'];
+        this.listTeamThree = ['Counting Module', 'Something Else', 'Else'];
+        this.gridElements = [this.listTeamOne, this.listTeamTwo, this.listTeamThree];
     }
-    return ViewEmailModule;
+    return test;
 }());
-ViewEmailModule = __decorate([
+test = __decorate([
     core_1.Component({
-        selector: 'view-email-module',
-        templateUrl: 'app/email_module/view-email.module.html',
-        styleUrls: ['app/email_module/email.module.css'],
-        inputs: ['gE', 'module']
+        selector: 'test',
+        templateUrl: 'app/test.html'
     }),
     __metadata("design:paramtypes", [])
-], ViewEmailModule);
-exports.ViewEmailModule = ViewEmailModule;
-//# sourceMappingURL=view.email.module.js.map
+], test);
+exports.test = test;
+//# sourceMappingURL=test.js.map

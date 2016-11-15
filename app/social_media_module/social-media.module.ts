@@ -8,7 +8,7 @@ import { cloneModuleService } from '../cloneModule_service/cloneModule.service';
     selector: 'social-media-module',
     templateUrl: 'app/social_media_module/social-media.module.html',
     styleUrls: ['app/social_media_module/social-media.module.css'],
-    inputs: ['gE','gridElements'],
+    inputs: ['gE','gridElements','module'],
     providers: [cloneModuleService]
 })
 

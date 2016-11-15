@@ -10,7 +10,7 @@ declare var Chart:any;
     selector: 'pie-chart-module',
     templateUrl: 'app/pie_chart_module/pie-chart.module.html',
     styleUrls: ['app/pie_chart_module/pie-chart.module.css'],
-    inputs: ['gE','gridElements'],
+    inputs: ['gE','gridElements','module'],
     providers: [cloneModuleService]
 })
 

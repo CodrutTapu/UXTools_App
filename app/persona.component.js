@@ -33,7 +33,7 @@ var PersonaComponent = (function () {
                 maxId = this.gridElements[i].id;
             }
         }
-        this.gridElements.push(new gridElem_1.gridElem(dim, maxId + 1, 0, '#F8F8F8', '#4c7ba0'));
+        this.gridElements.push(new gridElem_1.gridElem(dim, maxId + 1, [], '#4c7ba0'));
     };
     PersonaComponent.prototype.httpGet = function () {
         var _this = this;

@@ -84,20 +84,17 @@ export class GridBlock {
     }
 
     addTextModule(gE) {
-        gE.moduleType = new textModule(1,'text-module','<h1>New Text Field</h1><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pharetra felis in sem porta feugiat.</p>');
-        gE.bgColor = "#F8F8F8";
+        gE.modules.push(new textModule(1,'text-module','<h1>New Text Field</h1><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pharetra felis in sem porta feugiat.</p>','#F8F8F8'));
         $('.add-module-modal').modal('hide');
     }
 
     addImageModule(gE) {
-        gE.moduleType = new imageModule(2,'image-module','public/images/img-default.png');
-        gE.bgColor = "#F8F8F8";
+        gE.modules.push(new imageModule(2,'image-module','public/images/img-default.png'));
         $('.add-module-modal').modal('hide');
     }
 
     addBarGraphModule(gE) {
-        gE.moduleType = new barGraphModule(3,'bar-graph-module','<h1>Bar Graph</h1>',[new barGraphBar(30,'<p>Label 1</p>'),new barGraphBar(50,'<p>Label 2</p>'),new barGraphBar(100,'<p>Label 3</p>')]);
-        gE.bgColor = "#F8F8F8";
+        gE.modules.push(new barGraphModule(3,'bar-graph-module','<h1>Bar Graph</h1>',[new barGraphBar(30,'<p>Label 1</p>'),new barGraphBar(50,'<p>Label 2</p>'),new barGraphBar(100,'<p>Label 3</p>')],'#F8F8F8'));
         $('.add-module-modal').modal('hide');
     }
 

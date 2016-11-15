@@ -66,7 +66,7 @@ AboutModule = __decorate([
         selector: 'about-module',
         templateUrl: 'app/about_module/about.module.html',
         styleUrls: ['app/about_module/about.module.css'],
-        inputs: ['gE', 'gridElements'],
+        inputs: ['gE', 'gridElements', 'module'],
         providers: [cloneModule_service_1.cloneModuleService]
     }),
     __metadata("design:paramtypes", [cloneModule_service_1.cloneModuleService])

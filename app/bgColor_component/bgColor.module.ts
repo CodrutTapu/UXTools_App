@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
-import {AppComponent} from '../app.component';
-import {bootstrap} from '@angular/platform-browser-dynamic';
-import {GridBlock} from '../gridBlock.component';
+import { AppComponent } from '../app.component';
+import { GridBlock } from '../gridBlock.component';
 declare var $: any;
 
 @Component({
   selector: 'bgColor-module',
   templateUrl: 'app/bgColor_component/bgColor.module.html',
   styleUrls:  ['app/bgColor_component/bgColor.module.css'],
-  inputs: ['gE']
+  inputs: ['module']
 })
 
 export class bgColorModule {
@@ -17,13 +16,13 @@ export class bgColorModule {
     colorsListToggle() {
         $('.colors-list').toggle();
     }
-    updateBgColor(gE) {
+    updateBgColor(module) {
         if( this.customBgColor[0] != '#') {
             this.customBgColor = "#" +  this.customBgColor;
         };
-        gE.bgColor = this.customBgColor;
+        module.bgColor = this.customBgColor;
     }
-    selectBgColor(gE,bgC) {
-        gE.bgColor = bgC;
+    selectBgColor(module,bgC) {
+        module.bgColor = bgC;
     }
 }

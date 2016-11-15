@@ -9,7 +9,7 @@ declare var $: any;
     selector: 'view-tag-module',
     templateUrl: 'app/tag_module/view.tag.module.html',
     styleUrls: ['app/tag_module/tag.module.css'],
-    inputs: ['gE']
+    inputs: ['gE','module']
 })
 
 export class ViewTagModule {}

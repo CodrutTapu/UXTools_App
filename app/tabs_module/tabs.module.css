@@ -56,3 +56,6 @@
 .tabs-module .editable-tabs-item-content {
     padding: 10px;
 }
+.tabs-module .title-input {
+    height: 28px;
+}

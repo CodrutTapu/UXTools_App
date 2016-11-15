@@ -9,7 +9,7 @@ declare var $: any;
     selector: 'email-module',
     templateUrl: 'app/email_module/email.module.html',
     styleUrls: ['app/email_module/email.module.css'],
-    inputs: ['gE','gridElements'],
+    inputs: ['gE','gridElements','module'],
     providers: [cloneModuleService]
 })
 

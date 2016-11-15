@@ -1,0 +1,14 @@
+<div class="row sortable" dnd-sortable-container [sortableData]="gridElements">
+    <div *ngFor="let gE of gridElements; let i = index" class="col-md-6">
+        <div dnd-sortable [sortableIndex]="i" style="background: red; cursor: move;">Move</div>
+        <div class="panel-body" dnd-sortable-container [dropZones]="['boxers-zone']" [sortableData]="gE">
+            <ul class="list-group">
+            <li *ngFor="let item of gE; let j = index" class="list-group-item" dnd-sortable [sortableIndex]="j">{{item}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<pre>
+    {{ gridElements | json }}
+</pre>

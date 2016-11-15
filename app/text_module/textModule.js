@@ -1,9 +1,10 @@
 "use strict";
 var textModule = (function () {
-    function textModule(id, name, content) {
+    function textModule(id, name, content, bgColor) {
         this.id = id;
         this.name = name;
         this.content = content;
+        this.bgColor = bgColor;
     }
     return textModule;
 }());

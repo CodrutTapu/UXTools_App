@@ -7,7 +7,7 @@ declare var $: any;
     selector: 'view-text-module',
     templateUrl: 'app/text_module/view.text.module.html',
     styleUrls:  ['app/text_module/text.module.css'],
-    inputs: ['gE']
+    inputs: ['gE','module']
 })
 
 export class ViewTextModule {}

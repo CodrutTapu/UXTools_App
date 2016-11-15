@@ -55,18 +55,15 @@ var GridBlock = (function () {
         this.gridElements.splice(this.gridElements.indexOf(gE), 1);
     };
     GridBlock.prototype.addTextModule = function (gE) {
-        gE.moduleType = new textModule_1.textModule(1, 'text-module', '<h1>New Text Field</h1><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pharetra felis in sem porta feugiat.</p>');
-        gE.bgColor = "#F8F8F8";
+        gE.modules.push(new textModule_1.textModule(1, 'text-module', '<h1>New Text Field</h1><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pharetra felis in sem porta feugiat.</p>', '#F8F8F8'));
         $('.add-module-modal').modal('hide');
     };
     GridBlock.prototype.addImageModule = function (gE) {
-        gE.moduleType = new imageModule_1.imageModule(2, 'image-module', 'public/images/img-default.png');
-        gE.bgColor = "#F8F8F8";
+        gE.modules.push(new imageModule_1.imageModule(2, 'image-module', 'public/images/img-default.png'));
         $('.add-module-modal').modal('hide');
     };
     GridBlock.prototype.addBarGraphModule = function (gE) {
-        gE.moduleType = new barGraphModule_1.barGraphModule(3, 'bar-graph-module', '<h1>Bar Graph</h1>', [new barGraphBar_1.barGraphBar(30, '<p>Label 1</p>'), new barGraphBar_1.barGraphBar(50, '<p>Label 2</p>'), new barGraphBar_1.barGraphBar(100, '<p>Label 3</p>')]);
-        gE.bgColor = "#F8F8F8";
+        gE.modules.push(new barGraphModule_1.barGraphModule(3, 'bar-graph-module', '<h1>Bar Graph</h1>', [new barGraphBar_1.barGraphBar(30, '<p>Label 1</p>'), new barGraphBar_1.barGraphBar(50, '<p>Label 2</p>'), new barGraphBar_1.barGraphBar(100, '<p>Label 3</p>')], '#F8F8F8'));
         $('.add-module-modal').modal('hide');
     };
     GridBlock.prototype.addSocialMediaModule = function (gE) {

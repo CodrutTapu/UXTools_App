@@ -1,10 +1,11 @@
-<div class="text-module white-brd hover-brd" [style.background]="gE.bgColor"><!-- Text Module -->
+<div class="text-module white-brd hover-brd" [style.background]="module.bgColor"><!-- Text Module -->
     <div class="module-buttons">
         <ul class="no-pad">
-            <li (click)="deleteTextModule(gE)" class="delete" title="Delete Module"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></li>
-            <bgColor-module [gE]="gE"></bgColor-module>
-            <li (click)="cloneModule(gE)" title="Clone Module"><i class="fa fa-clone" aria-hidden="true"></i></li>
+            <li (click)="deleteTextModule(gE,module)" class="delete" title="Delete Module"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></li>
+            <bgColor-module [module]="module"></bgColor-module>
+            <li (click)="cloneModule(gE,module)" title="Clone Module"><i class="fa fa-clone" aria-hidden="true"></i></li>
+            <li class="move"><i class="fa fa-arrows" aria-hidden="true"></i></li>
         </ul>
     </div>
-    <div class="editable-text-content cEditable" [innerHTML]="gE.moduleType.content" (click)="updateTextModule(gE)"></div>
+    <div class="editable-text-content cEditable" [innerHTML]="module.content" (click)="updateTextModule(module)"></div>
 </div>

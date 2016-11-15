@@ -8,7 +8,7 @@ declare var $: any;
     selector: 'view-email-module',
     templateUrl: 'app/email_module/view-email.module.html',
     styleUrls: ['app/email_module/email.module.css'],
-    inputs: ['gE']
+    inputs: ['gE','module']
 })
 
 export class ViewEmailModule {}

@@ -7,7 +7,7 @@ declare var $: any;
     selector: 'view-counting-module',
     templateUrl: 'app/counting_module/view.counting.module.html',
     styleUrls: ['app/counting_module/counting.module.css'],
-    inputs: ['gE']
+    inputs: ['gE','module']
 })
 
 export class ViewCountingModule {}

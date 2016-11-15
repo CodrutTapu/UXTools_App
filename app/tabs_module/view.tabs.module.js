@@ -8,20 +8,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+var core_1 = require("@angular/core");
 var ViewTabsModule = (function () {
     function ViewTabsModule() {
     }
-    ViewTabsModule = __decorate([
-        core_1.Component({
-            selector: 'view-tabs-module',
-            templateUrl: 'app/tabs_module/view.tabs.module.html',
-            styleUrls: ['app/tabs_module/tabs.module.css'],
-            inputs: ['gE']
-        }), 
-        __metadata('design:paramtypes', [])
-    ], ViewTabsModule);
     return ViewTabsModule;
 }());
+ViewTabsModule = __decorate([
+    core_1.Component({
+        selector: 'view-tabs-module',
+        templateUrl: 'app/tabs_module/view.tabs.module.html',
+        styleUrls: ['app/tabs_module/tabs.module.css'],
+        inputs: ['gE', 'module']
+    }),
+    __metadata("design:paramtypes", [])
+], ViewTabsModule);
 exports.ViewTabsModule = ViewTabsModule;
 //# sourceMappingURL=view.tabs.module.js.map

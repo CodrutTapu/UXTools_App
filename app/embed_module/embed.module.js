@@ -52,7 +52,7 @@ EmbedModule = __decorate([
         selector: 'embed-module',
         templateUrl: 'app/embed_module/embed.module.html',
         styleUrls: ['app/embed_module/embed.module.css'],
-        inputs: ['gE', 'gridElements'],
+        inputs: ['gE', 'gridElements', 'module'],
         providers: [cloneModule_service_1.cloneModuleService]
     }),
     __metadata("design:paramtypes", [platform_browser_1.DomSanitizer, cloneModule_service_1.cloneModuleService])

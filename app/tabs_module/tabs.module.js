@@ -62,7 +62,7 @@ TabsModule = __decorate([
         selector: 'tabs-module',
         templateUrl: 'app/tabs_module/tabs.module.html',
         styleUrls: ['app/tabs_module/tabs.module.css'],
-        inputs: ['gE', 'gridElements'],
+        inputs: ['gE', 'gridElements', 'module'],
         providers: [cloneModule_service_1.cloneModuleService]
     }),
     __metadata("design:paramtypes", [cloneModule_service_1.cloneModuleService])

@@ -10,7 +10,7 @@ declare var $: any;
     selector: 'scale-chart-module',
     templateUrl: 'app/scale_chart_module/scale-chart.module.html',
     styleUrls: ['app/scale_chart_module/scale-chart.module.css'],
-    inputs: ['gE','gridElements'],
+    inputs: ['gE','gridElements','module'],
     providers: [cloneModuleService]
 })
 

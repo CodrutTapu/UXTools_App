@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+var core_1 = require("@angular/core");
 var bgColorModule = (function () {
     function bgColorModule() {
         this.bgColors = ['#4c7ba0', '#ffffff', '#ee4039', '#f07171', '#124666', '#737373', '#f8b13d', '#00b5c8', '#81bda4', '#F8F8F8', '#b05574'];
@@ -17,26 +17,26 @@ var bgColorModule = (function () {
     bgColorModule.prototype.colorsListToggle = function () {
         $('.colors-list').toggle();
     };
-    bgColorModule.prototype.updateBgColor = function (gE) {
+    bgColorModule.prototype.updateBgColor = function (module) {
         if (this.customBgColor[0] != '#') {
             this.customBgColor = "#" + this.customBgColor;
         }
         ;
-        gE.bgColor = this.customBgColor;
+        module.bgColor = this.customBgColor;
     };
-    bgColorModule.prototype.selectBgColor = function (gE, bgC) {
-        gE.bgColor = bgC;
+    bgColorModule.prototype.selectBgColor = function (module, bgC) {
+        module.bgColor = bgC;
     };
-    bgColorModule = __decorate([
-        core_1.Component({
-            selector: 'bgColor-module',
-            templateUrl: 'app/bgColor_component/bgColor.module.html',
-            styleUrls: ['app/bgColor_component/bgColor.module.css'],
-            inputs: ['gE']
-        }), 
-        __metadata('design:paramtypes', [])
-    ], bgColorModule);
     return bgColorModule;
 }());
+bgColorModule = __decorate([
+    core_1.Component({
+        selector: 'bgColor-module',
+        templateUrl: 'app/bgColor_component/bgColor.module.html',
+        styleUrls: ['app/bgColor_component/bgColor.module.css'],
+        inputs: ['module']
+    }),
+    __metadata("design:paramtypes", [])
+], bgColorModule);
 exports.bgColorModule = bgColorModule;
 //# sourceMappingURL=bgColor.module.js.map

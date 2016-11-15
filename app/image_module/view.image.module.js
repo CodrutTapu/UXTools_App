@@ -8,20 +8,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+var core_1 = require("@angular/core");
 var ViewImageModule = (function () {
     function ViewImageModule() {
     }
-    ViewImageModule = __decorate([
-        core_1.Component({
-            selector: 'view-image-module',
-            templateUrl: 'app/image_module/view-image.module.html',
-            styleUrls: ['app/image_module/image.module.css'],
-            inputs: ['gE']
-        }), 
-        __metadata('design:paramtypes', [])
-    ], ViewImageModule);
     return ViewImageModule;
 }());
+ViewImageModule = __decorate([
+    core_1.Component({
+        selector: 'view-image-module',
+        templateUrl: 'app/image_module/view-image.module.html',
+        styleUrls: ['app/image_module/image.module.css'],
+        inputs: ['gE', 'module']
+    }),
+    __metadata("design:paramtypes", [])
+], ViewImageModule);
 exports.ViewImageModule = ViewImageModule;
 //# sourceMappingURL=view.image.module.js.map
