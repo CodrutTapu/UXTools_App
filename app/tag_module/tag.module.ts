@@ -22,21 +22,21 @@ export class TagModule {
 
     constructor(private _cloneModuleService: cloneModuleService) {}
 
-    cloneModule(gE) {
-        this._cloneModuleService.cloneModule(gE,this.gridElements);
+    cloneModule(gE,module) {
+        this._cloneModuleService.cloneModule(gE,module);
     }
 
-    deleteTagModule(gE) {
-        gE.moduleType = 0;
+    deleteTagModule(gE,module) {
+        gE.modules.splice(gE.modules.indexOf(module), 1);
     }
 
-    addTag(gE) {
-        gE.moduleType.tags.push(new tagModuleTag(this.i,'<p>New Tag</p>','#e3e5e6'));
+    addTag(module) {
+        module.tags.push(new tagModuleTag(this.i,'<p>New Tag</p>','#e3e5e6'));
         this.i += 1;
     }
 
-    deleteTag(gE,tag) {
-        gE.moduleType.tags.splice(gE.moduleType.tags.indexOf(tag), 1);
+    deleteTag(module,tag) {
+        module.tags.splice(module.tags.indexOf(tag), 1);
     }
 
     updateTag(tag) {

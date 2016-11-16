@@ -15,22 +15,22 @@ var ScaleChartModule = (function () {
     function ScaleChartModule(_cloneModuleService) {
         this._cloneModuleService = _cloneModuleService;
     }
-    ScaleChartModule.prototype.cloneModule = function (gE) {
-        this._cloneModuleService.cloneModule(gE, this.gridElements);
+    ScaleChartModule.prototype.cloneModule = function (gE, module) {
+        this._cloneModuleService.cloneModule(gE, module);
     };
-    ScaleChartModule.prototype.deleteScaleChartModule = function (gE) {
-        gE.moduleType = 0;
+    ScaleChartModule.prototype.deleteScaleChartModule = function (gE, module) {
+        gE.modules.splice(gE.modules.indexOf(module), 1);
     };
     ScaleChartModule.prototype.updateScaleValue = function (event, scale) {
         scale.value = event.target.value;
     };
-    ScaleChartModule.prototype.addScale = function (gE) {
-        gE.moduleType.scales.push(new scaleChartModuleScale_1.scaleChartModuleScale('side A', 'side B', 50));
+    ScaleChartModule.prototype.addScale = function (module) {
+        module.scales.push(new scaleChartModuleScale_1.scaleChartModuleScale('side A', 'side B', 50));
     };
-    ScaleChartModule.prototype.deleteScale = function (gE, scale) {
-        gE.moduleType.scales.splice(gE.moduleType.scales.indexOf(scale), 1);
+    ScaleChartModule.prototype.deleteScale = function (module, scale) {
+        module.scales.splice(module.scales.indexOf(scale), 1);
     };
-    ScaleChartModule.prototype.updateScaleTitle = function (gE) {
+    ScaleChartModule.prototype.updateScaleTitle = function (module) {
         $(document).off('click', '.editable-scale-title').on('click', '.editable-scale-title', function () {
             $(this).summernote({
                 toolbar: [
@@ -39,14 +39,14 @@ var ScaleChartModule = (function () {
                 disableDragAndDrop: true,
                 callbacks: {
                     onChange: function (contents, $editable) {
-                        gE.moduleType.title = contents;
+                        module.title = contents;
                     }
                 }
             });
-            $(this).parent().find('.note-editable').css('background', gE.bgColor);
+            $(this).parent().find('.note-editable').css('background', module.bgColor);
         });
     };
-    ScaleChartModule.prototype.updateScaleSideA = function (scale, gE) {
+    ScaleChartModule.prototype.updateScaleSideA = function (scale, module) {
         $(document).off('click', '.editable-sideA').on('click', '.editable-sideA', function () {
             $(this).summernote({
                 toolbar: [
@@ -59,10 +59,10 @@ var ScaleChartModule = (function () {
                     }
                 }
             });
-            $(this).parent().find('.note-editable').css('background', gE.bgColor);
+            $(this).parent().find('.note-editable').css('background', module.bgColor);
         });
     };
-    ScaleChartModule.prototype.updateScaleSideB = function (scale, gE) {
+    ScaleChartModule.prototype.updateScaleSideB = function (scale, module) {
         $(document).off('click', '.editable-sideB').on('click', '.editable-sideB', function () {
             $(this).summernote({
                 toolbar: [
@@ -75,7 +75,7 @@ var ScaleChartModule = (function () {
                     }
                 }
             });
-            $(this).parent().find('.note-editable').css('background', gE.bgColor);
+            $(this).parent().find('.note-editable').css('background', module.bgColor);
         });
     };
     return ScaleChartModule;

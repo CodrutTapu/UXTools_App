@@ -14,37 +14,37 @@ var PieChartModule = (function () {
     function PieChartModule(_cloneModuleService) {
         this._cloneModuleService = _cloneModuleService;
     }
-    PieChartModule.prototype.cloneModule = function (gE) {
-        this._cloneModuleService.cloneModule(gE, this.gridElements);
+    PieChartModule.prototype.cloneModule = function (gE, module) {
+        this._cloneModuleService.cloneModule(gE, module);
     };
-    PieChartModule.prototype.deletePieChartModule = function (gE) {
-        gE.moduleType = 0;
+    PieChartModule.prototype.deletePieChartModule = function (gE, module) {
+        gE.modules.splice(gE.modules.indexOf(module), 1);
     };
-    PieChartModule.prototype.addPieSegment = function (gE) {
-        gE.moduleType.labels.push("");
-        gE.moduleType.data.push("");
+    PieChartModule.prototype.addPieSegment = function (module) {
+        module.labels.push("");
+        module.data.push("");
     };
-    PieChartModule.prototype.removePieSegment = function (gE, dt) {
-        gE.moduleType.labels.splice(gE.moduleType.data.indexOf(dt), 1);
-        gE.moduleType.data.splice(gE.moduleType.data.indexOf(dt), 1);
+    PieChartModule.prototype.removePieSegment = function (module, dt) {
+        module.labels.splice(module.data.indexOf(dt), 1);
+        module.data.splice(module.data.indexOf(dt), 1);
     };
-    PieChartModule.prototype.lbUpdate = function (event, lb, gE) {
+    PieChartModule.prototype.lbUpdate = function (event, lb, module) {
         if (event.target.value < 0) {
-            gE.moduleType.labels[gE.moduleType.labels.indexOf(lb)] = -event.target.value;
+            module.labels[module.labels.indexOf(lb)] = -event.target.value;
         }
         else {
-            gE.moduleType.labels[gE.moduleType.labels.indexOf(lb)] = event.target.value;
+            module.labels[module.labels.indexOf(lb)] = event.target.value;
         }
     };
-    PieChartModule.prototype.dtUpdate = function (event, dt, gE) {
+    PieChartModule.prototype.dtUpdate = function (event, dt, module) {
         if (event.target.value < 0) {
-            gE.moduleType.data[gE.moduleType.data.indexOf(dt)] = -event.target.value;
+            module.data[module.data.indexOf(dt)] = -event.target.value;
         }
         else {
-            gE.moduleType.data[gE.moduleType.data.indexOf(dt)] = event.target.value;
+            module.data[module.data.indexOf(dt)] = event.target.value;
         }
     };
-    PieChartModule.prototype.createNewPieChart = function (gE) {
+    PieChartModule.prototype.createNewPieChart = function (gE, module) {
         var pcModule = $('.pie-chart-module');
         $('#pieChart' + gE.id).remove();
         $('.pie-chart-content' + gE.id).append("<canvas id='pieChart" + gE.id + "' width='400' height='400'></canvas>");
@@ -52,9 +52,9 @@ var PieChartModule = (function () {
         var pieChart = new Chart(ctx, {
             type: 'pie',
             data: {
-                labels: gE.moduleType.labels,
+                labels: module.labels,
                 datasets: [{
-                        data: gE.moduleType.data,
+                        data: module.data,
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',
@@ -92,9 +92,9 @@ var PieChartModule = (function () {
         var pieChart = new Chart(ctx, {
             type: 'pie',
             data: {
-                labels: this.gE.moduleType.labels,
+                labels: this.module.labels,
                 datasets: [{
-                        data: this.gE.moduleType.data,
+                        data: this.module.data,
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',
@@ -125,7 +125,7 @@ var PieChartModule = (function () {
             showScale: false
         });
     };
-    PieChartModule.prototype.updatePieTitle = function (gE) {
+    PieChartModule.prototype.updatePieTitle = function (module) {
         $(document).off('click', '.editable-pie-title').on('click', '.editable-pie-title', function () {
             $(this).summernote({
                 toolbar: [
@@ -134,11 +134,11 @@ var PieChartModule = (function () {
                 disableDragAndDrop: true,
                 callbacks: {
                     onChange: function (contents, $editable) {
-                        gE.moduleType.title = contents;
+                        module.title = contents;
                     }
                 }
             });
-            $(this).parent().find('.note-editable').css('background', gE.bgColor);
+            $(this).parent().find('.note-editable').css('background', module.bgColor);
         });
     };
     return PieChartModule;

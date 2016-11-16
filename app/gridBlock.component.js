@@ -67,28 +67,23 @@ var GridBlock = (function () {
         $('.add-module-modal').modal('hide');
     };
     GridBlock.prototype.addSocialMediaModule = function (gE) {
-        gE.moduleType = new socialMediaModule_1.socialMediaModule(4, 'social-media-module', 'facebook', 'twitter', 'linkedin', 'external');
-        gE.bgColor = "#F8F8F8";
+        gE.modules.push(new socialMediaModule_1.socialMediaModule(4, 'social-media-module', 'facebook', 'twitter', 'linkedin', 'external', '#F8F8F8'));
         $('.add-module-modal').modal('hide');
     };
     GridBlock.prototype.addTagModule = function (gE) {
-        gE.moduleType = new tagModule_1.tagModule(5, 'tags-module', [new tagModuleTag_1.tagModuleTag(1, '<p>Tag 1</p>', '#e3e5e6'), new tagModuleTag_1.tagModuleTag(2, '<p>Tag 2</p>', '#e3e5e6'), new tagModuleTag_1.tagModuleTag(3, '<p>Tag 3</p>', '#e3e5e6')]);
-        gE.bgColor = "#F8F8F8";
+        gE.modules.push(new tagModule_1.tagModule(5, 'tags-module', [new tagModuleTag_1.tagModuleTag(1, '<p>Tag 1</p>', '#e3e5e6'), new tagModuleTag_1.tagModuleTag(2, '<p>Tag 2</p>', '#e3e5e6'), new tagModuleTag_1.tagModuleTag(3, '<p>Tag 3</p>', '#e3e5e6')], '#F8F8F8'));
         $('.add-module-modal').modal('hide');
     };
     GridBlock.prototype.addEmailModule = function (gE) {
-        gE.moduleType = new emailModule_1.emailModule(6, 'email-module', 'you@yourmail.com', '<h2>This is a form field to collect emails.</h2><p>Give them a good reason.</p>');
-        gE.bgColor = "#F8F8F8";
+        gE.modules.push(new emailModule_1.emailModule(6, 'email-module', 'you@yourmail.com', '<h2>This is a form field to collect emails.</h2><p>Give them a good reason.</p>', '#F8F8F8'));
         $('.add-module-modal').modal('hide');
     };
     GridBlock.prototype.addScaleChartModule = function (gE) {
-        gE.moduleType = new scaleChartModule_1.scaleChartModule(7, 'scale-chart-module', '<h1>Scale Chart</h1>', [new scaleChartModuleScale_1.scaleChartModuleScale('<p>Side A</p>', '<p>Side B</p>', 0), new scaleChartModuleScale_1.scaleChartModuleScale('<p>Side A</p>', '<p>Side B</p>', 50), new scaleChartModuleScale_1.scaleChartModuleScale('<p>Side A</p>', '<p>Side B</p>', 100)]);
-        gE.bgColor = "#F8F8F8";
+        gE.modules.push(new scaleChartModule_1.scaleChartModule(7, 'scale-chart-module', '<h1>Scale Chart</h1>', [new scaleChartModuleScale_1.scaleChartModuleScale('<p>Side A</p>', '<p>Side B</p>', 0), new scaleChartModuleScale_1.scaleChartModuleScale('<p>Side A</p>', '<p>Side B</p>', 50), new scaleChartModuleScale_1.scaleChartModuleScale('<p>Side A</p>', '<p>Side B</p>', 100)], '#F8F8F8'));
         $('.add-module-modal').modal('hide');
     };
     GridBlock.prototype.addPieChartModule = function (gE) {
-        gE.moduleType = new pieChartModule_1.pieChartModule(8, 'pie-chart-module', '<h1>Pie Chart</h1>', ["Red", "Blue", "Yellow"], [12, 19, 3]);
-        gE.bgColor = "#F8F8F8";
+        gE.modules.push(new pieChartModule_1.pieChartModule(8, 'pie-chart-module', '<h1>Pie Chart</h1>', ["Red", "Blue", "Yellow"], [12, 19, 3], '#F8F8F8'));
         $('.add-module-modal').modal('hide');
     };
     GridBlock.prototype.addAccordionModule = function (gE) {

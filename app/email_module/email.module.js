@@ -14,16 +14,16 @@ var EmailModule = (function () {
     function EmailModule(_cloneModuleService) {
         this._cloneModuleService = _cloneModuleService;
     }
-    EmailModule.prototype.cloneModule = function (gE) {
-        this._cloneModuleService.cloneModule(gE, this.gridElements);
+    EmailModule.prototype.cloneModule = function (gE, module) {
+        this._cloneModuleService.cloneModule(gE, module);
     };
-    EmailModule.prototype.deleteEmailModule = function (gE) {
-        gE.moduleType = 0;
+    EmailModule.prototype.deleteEmailModule = function (gE, module) {
+        gE.modules.splice(gE.modules.indexOf(module), 1);
     };
-    EmailModule.prototype.updateEmail = function (gE) {
-        gE.moduleType.email = this.email;
+    EmailModule.prototype.updateEmail = function (module) {
+        module.email = this.email;
     };
-    EmailModule.prototype.updateEmailContent = function (gE) {
+    EmailModule.prototype.updateEmailContent = function (module) {
         $(document).off('click', '.editable-email-content').on('click', '.editable-email-content', function () {
             $(this).summernote({
                 toolbar: [
@@ -32,11 +32,11 @@ var EmailModule = (function () {
                 disableDragAndDrop: true,
                 callbacks: {
                     onChange: function (contents, $editable) {
-                        gE.moduleType.content = contents;
+                        module.content = contents;
                     }
                 }
             });
-            $(this).parent().find('.note-editable').css('background', gE.bgColor);
+            $(this).parent().find('.note-editable').css('background', module.bgColor);
         });
     };
     return EmailModule;

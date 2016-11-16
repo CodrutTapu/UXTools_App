@@ -17,44 +17,45 @@ declare var Chart:any;
 export class PieChartModule {
     gridElements:Array<number>;
     gE;
+    module;
 
     constructor(private _cloneModuleService: cloneModuleService) {}
 
-    cloneModule(gE) {
-        this._cloneModuleService.cloneModule(gE,this.gridElements);
+    cloneModule(gE,module) {
+        this._cloneModuleService.cloneModule(gE,module);
     }
 
-    deletePieChartModule(gE) {
-        gE.moduleType = 0;
+    deletePieChartModule(gE,module) {
+        gE.modules.splice(gE.modules.indexOf(module), 1);
     }
 
-    addPieSegment(gE) {
-        gE.moduleType.labels.push("");
-        gE.moduleType.data.push("");
+    addPieSegment(module) {
+        module.labels.push("");
+        module.data.push("");
     }
 
-    removePieSegment(gE,dt) {
-        gE.moduleType.labels.splice(gE.moduleType.data.indexOf(dt), 1);
-        gE.moduleType.data.splice(gE.moduleType.data.indexOf(dt), 1);
+    removePieSegment(module,dt) {
+        module.labels.splice(module.data.indexOf(dt), 1);
+        module.data.splice(module.data.indexOf(dt), 1);
     }
 
-    lbUpdate(event:any,lb,gE) {
+    lbUpdate(event:any,lb,module) {
         if( event.target.value < 0 ) {
-            gE.moduleType.labels[gE.moduleType.labels.indexOf(lb)] = - event.target.value;
+            module.labels[module.labels.indexOf(lb)] = - event.target.value;
         } else {
-            gE.moduleType.labels[gE.moduleType.labels.indexOf(lb)] = event.target.value;
+            module.labels[module.labels.indexOf(lb)] = event.target.value;
         }
     }
 
-    dtUpdate(event:any,dt,gE) {
+    dtUpdate(event:any,dt,module) {
         if( event.target.value < 0 ) {
-            gE.moduleType.data[gE.moduleType.data.indexOf(dt)] = - event.target.value;
+            module.data[module.data.indexOf(dt)] = - event.target.value;
         } else {
-            gE.moduleType.data[gE.moduleType.data.indexOf(dt)] = event.target.value;
+            module.data[module.data.indexOf(dt)] = event.target.value;
         }
     }
 
-    createNewPieChart(gE) {
+    createNewPieChart(gE,module) {
             var pcModule = $('.pie-chart-module');
             $('#pieChart' + gE.id).remove();
             $('.pie-chart-content' + gE.id).append("<canvas id='pieChart" + gE.id + "' width='400' height='400'></canvas>");
@@ -62,9 +63,9 @@ export class PieChartModule {
             var pieChart = new Chart(ctx, {
                 type: 'pie',
                 data: {
-                    labels: gE.moduleType.labels,
+                    labels: module.labels,
                     datasets: [{
-                        data: gE.moduleType.data,
+                        data: module.data,
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',
@@ -104,9 +105,9 @@ export class PieChartModule {
         var pieChart = new Chart(ctx, {
             type: 'pie',
             data: {
-                labels: this.gE.moduleType.labels,
+                labels: this.module.labels,
                 datasets: [{
-                    data: this.gE.moduleType.data,
+                    data: this.module.data,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
@@ -139,7 +140,7 @@ export class PieChartModule {
         });
     }
 
-    updatePieTitle(gE) {
+    updatePieTitle(module) {
         $(document).off('click','.editable-pie-title').on('click','.editable-pie-title',function(){
             $(this).summernote({
                 toolbar: [
@@ -148,11 +149,11 @@ export class PieChartModule {
                 disableDragAndDrop: true,
                 callbacks: {
                     onChange: function(contents, $editable) {
-                      gE.moduleType.title = contents;
+                      module.title = contents;
                     }
                 }
             });
-            $(this).parent().find('.note-editable').css('background',gE.bgColor);
+            $(this).parent().find('.note-editable').css('background',module.bgColor);
         });
     }
 

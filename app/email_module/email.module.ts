@@ -19,19 +19,19 @@ export class EmailModule {
 
     constructor(private _cloneModuleService: cloneModuleService) {}
 
-    cloneModule(gE) {
-        this._cloneModuleService.cloneModule(gE,this.gridElements);
+    cloneModule(gE,module) {
+        this._cloneModuleService.cloneModule(gE,module);
     }
 
-    deleteEmailModule(gE) {
-        gE.moduleType = 0;
+    deleteEmailModule(gE,module) {
+        gE.modules.splice(gE.modules.indexOf(module), 1);
     }
 
-    updateEmail(gE) {
-        gE.moduleType.email = this.email;
+    updateEmail(module) {
+        module.email = this.email;
     }
 
-    updateEmailContent(gE) {
+    updateEmailContent(module) {
         $(document).off('click','.editable-email-content').on('click','.editable-email-content',function(){
             $(this).summernote({
                 toolbar: [
@@ -40,11 +40,11 @@ export class EmailModule {
                 disableDragAndDrop: true,
                 callbacks: {
                     onChange: function(contents, $editable) {
-                      gE.moduleType.content = contents;
+                      module.content = contents;
                     }
                 }
             });
-            $(this).parent().find('.note-editable').css('background',gE.bgColor);
+            $(this).parent().find('.note-editable').css('background',module.bgColor);
         });
     }
 

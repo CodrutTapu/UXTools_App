@@ -19,27 +19,27 @@ export class ScaleChartModule {
 
     constructor(private _cloneModuleService: cloneModuleService) {}
 
-    cloneModule(gE) {
-        this._cloneModuleService.cloneModule(gE,this.gridElements);
+    cloneModule(gE,module) {
+        this._cloneModuleService.cloneModule(gE,module);
     }
 
-    deleteScaleChartModule(gE) {
-        gE.moduleType = 0;
+    deleteScaleChartModule(gE,module) {
+        gE.modules.splice(gE.modules.indexOf(module), 1);
     }
 
     updateScaleValue(event:any,scale) {
         scale.value = event.target.value;
     }
 
-    addScale(gE) {
-        gE.moduleType.scales.push(new scaleChartModuleScale('side A','side B',50));
+    addScale(module) {
+        module.scales.push(new scaleChartModuleScale('side A','side B',50));
     }
 
-    deleteScale(gE,scale) {
-        gE.moduleType.scales.splice(gE.moduleType.scales.indexOf(scale), 1);
+    deleteScale(module,scale) {
+        module.scales.splice(module.scales.indexOf(scale), 1);
     }
 
-    updateScaleTitle(gE) {
+    updateScaleTitle(module) {
         $(document).off('click','.editable-scale-title').on('click','.editable-scale-title',function(){
             $(this).summernote({
                 toolbar: [
@@ -48,15 +48,15 @@ export class ScaleChartModule {
                 disableDragAndDrop: true,
                 callbacks: {
                     onChange: function(contents, $editable) {
-                      gE.moduleType.title = contents;
+                      module.title = contents;
                     }
                 }
             });
-            $(this).parent().find('.note-editable').css('background',gE.bgColor);
+            $(this).parent().find('.note-editable').css('background',module.bgColor);
         });
     }
 
-    updateScaleSideA(scale,gE) {
+    updateScaleSideA(scale,module) {
         $(document).off('click','.editable-sideA').on('click','.editable-sideA',function(){
             $(this).summernote({
                 toolbar: [
@@ -69,11 +69,11 @@ export class ScaleChartModule {
                     }
                 }
             });
-            $(this).parent().find('.note-editable').css('background',gE.bgColor);
+            $(this).parent().find('.note-editable').css('background',module.bgColor);
         });
     }
 
-    updateScaleSideB(scale,gE) {
+    updateScaleSideB(scale,module) {
         $(document).off('click','.editable-sideB').on('click','.editable-sideB',function(){
             $(this).summernote({
                 toolbar: [
@@ -86,7 +86,7 @@ export class ScaleChartModule {
                     }
                 }
             });
-            $(this).parent().find('.note-editable').css('background',gE.bgColor);
+            $(this).parent().find('.note-editable').css('background',module.bgColor);
         });
     }
 

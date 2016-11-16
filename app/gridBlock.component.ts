@@ -99,32 +99,27 @@ export class GridBlock {
     }
 
     addSocialMediaModule(gE) {
-        gE.moduleType = new socialMediaModule(4,'social-media-module','facebook','twitter','linkedin','external');
-        gE.bgColor = "#F8F8F8";
+        gE.modules.push(new socialMediaModule(4,'social-media-module','facebook','twitter','linkedin','external','#F8F8F8'));
         $('.add-module-modal').modal('hide');
     }
 
     addTagModule(gE) {
-        gE.moduleType = new tagModule(5,'tags-module',[new tagModuleTag(1,'<p>Tag 1</p>','#e3e5e6'),new tagModuleTag(2,'<p>Tag 2</p>','#e3e5e6'),new tagModuleTag(3,'<p>Tag 3</p>','#e3e5e6')]);
-        gE.bgColor = "#F8F8F8";
+        gE.modules.push(new tagModule(5,'tags-module',[new tagModuleTag(1,'<p>Tag 1</p>','#e3e5e6'),new tagModuleTag(2,'<p>Tag 2</p>','#e3e5e6'),new tagModuleTag(3,'<p>Tag 3</p>','#e3e5e6')],'#F8F8F8'));
         $('.add-module-modal').modal('hide');
     }
 
     addEmailModule(gE) {
-        gE.moduleType = new emailModule(6,'email-module','you@yourmail.com','<h2>This is a form field to collect emails.</h2><p>Give them a good reason.</p>');
-        gE.bgColor = "#F8F8F8";
+        gE.modules.push(new emailModule(6,'email-module','you@yourmail.com','<h2>This is a form field to collect emails.</h2><p>Give them a good reason.</p>','#F8F8F8'));
         $('.add-module-modal').modal('hide');
     }
 
     addScaleChartModule(gE) {
-        gE.moduleType = new scaleChartModule(7,'scale-chart-module','<h1>Scale Chart</h1>',[new scaleChartModuleScale('<p>Side A</p>','<p>Side B</p>',0),new scaleChartModuleScale('<p>Side A</p>','<p>Side B</p>',50),new scaleChartModuleScale('<p>Side A</p>','<p>Side B</p>',100)]);
-        gE.bgColor = "#F8F8F8";
+        gE.modules.push(new scaleChartModule(7,'scale-chart-module','<h1>Scale Chart</h1>',[new scaleChartModuleScale('<p>Side A</p>','<p>Side B</p>',0),new scaleChartModuleScale('<p>Side A</p>','<p>Side B</p>',50),new scaleChartModuleScale('<p>Side A</p>','<p>Side B</p>',100)],'#F8F8F8'));
         $('.add-module-modal').modal('hide');
     }
 
     addPieChartModule(gE) {
-        gE.moduleType = new pieChartModule(8,'pie-chart-module','<h1>Pie Chart</h1>',["Red", "Blue", "Yellow"],[12, 19, 3]);
-        gE.bgColor = "#F8F8F8";
+        gE.modules.push(new pieChartModule(8,'pie-chart-module','<h1>Pie Chart</h1>',["Red", "Blue", "Yellow"],[12, 19, 3],'#F8F8F8'));
         $('.add-module-modal').modal('hide');
     }
 

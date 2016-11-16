@@ -1,6 +1,6 @@
-<div class="scale-chart-module" [style.background]="gE.bgColor"><!-- View Scale Chart Module -->
-    <div class="editable-scale-title cEditable" [innerHTML]="gE.moduleType.title" ></div>
-    <div *ngFor="let scale of gE.moduleType.scales">
+<div class="scale-chart-module" [style.background]="module.bgColor"><!-- View Scale Chart Module -->
+    <div class="editable-scale-title cEditable" [innerHTML]="module.title" ></div>
+    <div *ngFor="let scale of module.scales">
         <div class="slide-wrapper">
             <div class="slide-header clearfix">
                 <div class="side-left">
@@ -10,7 +10,7 @@
                     <p class="editable-sideB cEditable" [innerHTML]="scale.sideB"></p>
                 </div>
             </div>
-            <input class="tst" type="range" value="{{scale.value}}" disabled="true">
+            <input type="range" value="{{scale.value}}" disabled="true">
         </div>
     </div>
 </div>

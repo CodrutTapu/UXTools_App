@@ -14,23 +14,23 @@ var SocialMediaModule = (function () {
     function SocialMediaModule(_cloneModuleService) {
         this._cloneModuleService = _cloneModuleService;
     }
-    SocialMediaModule.prototype.cloneModule = function (gE) {
-        this._cloneModuleService.cloneModule(gE, this.gridElements);
+    SocialMediaModule.prototype.cloneModule = function (gE, module) {
+        this._cloneModuleService.cloneModule(gE, module);
     };
-    SocialMediaModule.prototype.deleteSocialMediaModule = function (gE) {
-        gE.moduleType = 0;
+    SocialMediaModule.prototype.deleteSocialMediaModule = function (gE, module) {
+        gE.modules.splice(gE.modules.indexOf(module), 1);
     };
-    SocialMediaModule.prototype.updateSocialLinks = function (gE) {
-        gE.moduleType.facebookUrl = this.facebookUrl;
-        gE.moduleType.twitterUrl = this.twitterUrl;
-        gE.moduleType.linkedinUrl = this.linkedinUrl;
-        gE.moduleType.externalUrl = this.externalUrl;
+    SocialMediaModule.prototype.updateSocialLinks = function (module) {
+        module.facebookUrl = this.facebookUrl;
+        module.twitterUrl = this.twitterUrl;
+        module.linkedinUrl = this.linkedinUrl;
+        module.externalUrl = this.externalUrl;
     };
     SocialMediaModule.prototype.ngOnInit = function () {
-        this.facebookUrl = this.gE.moduleType.facebookUrl;
-        this.twitterUrl = this.gE.moduleType.twitterUrl;
-        this.linkedinUrl = this.gE.moduleType.linkedinUrl;
-        this.externalUrl = this.gE.moduleType.externalUrl;
+        this.facebookUrl = this.module.facebookUrl;
+        this.twitterUrl = this.module.twitterUrl;
+        this.linkedinUrl = this.module.linkedinUrl;
+        this.externalUrl = this.module.externalUrl;
     };
     return SocialMediaModule;
 }());

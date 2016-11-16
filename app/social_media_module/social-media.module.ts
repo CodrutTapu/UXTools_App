@@ -13,7 +13,7 @@ import { cloneModuleService } from '../cloneModule_service/cloneModule.service';
 })
 
 export class SocialMediaModule {
-    gE;
+    module;
     facebookUrl;
     twitterUrl;
     linkedinUrl;
@@ -22,26 +22,26 @@ export class SocialMediaModule {
 
     constructor(private _cloneModuleService: cloneModuleService) {}
 
-    cloneModule(gE) {
-        this._cloneModuleService.cloneModule(gE,this.gridElements);
+    cloneModule(gE,module) {
+        this._cloneModuleService.cloneModule(gE,module);
     }
 
-    deleteSocialMediaModule(gE) {
-        gE.moduleType = 0;
+    deleteSocialMediaModule(gE,module) {
+        gE.modules.splice(gE.modules.indexOf(module), 1);
     }
 
-    updateSocialLinks(gE) {
-        gE.moduleType.facebookUrl = this.facebookUrl;
-        gE.moduleType.twitterUrl = this.twitterUrl;
-        gE.moduleType.linkedinUrl = this.linkedinUrl;
-        gE.moduleType.externalUrl = this.externalUrl;
+    updateSocialLinks(module) {
+        module.facebookUrl = this.facebookUrl;
+        module.twitterUrl = this.twitterUrl;
+        module.linkedinUrl = this.linkedinUrl;
+        module.externalUrl = this.externalUrl;
     }
 
     ngOnInit() {
-        this.facebookUrl = this.gE.moduleType.facebookUrl;
-        this.twitterUrl = this.gE.moduleType.twitterUrl;
-        this.linkedinUrl = this.gE.moduleType.linkedinUrl;
-        this.externalUrl = this.gE.moduleType.externalUrl;
+        this.facebookUrl = this.module.facebookUrl;
+        this.twitterUrl = this.module.twitterUrl;
+        this.linkedinUrl = this.module.linkedinUrl;
+        this.externalUrl = this.module.externalUrl;
     }
 
 }

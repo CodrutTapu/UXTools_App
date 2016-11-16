@@ -18,18 +18,18 @@ var TagModule = (function () {
         this.bgColors = ['#4c7ba0', '#ffffff', '#ee4039', '#f07171', '#124666', '#737373', '#f8b13d', '#00b5c8', '#E3E5E6', '#b05574'];
         this.customTagBgColor = '#E3E5E6';
     }
-    TagModule.prototype.cloneModule = function (gE) {
-        this._cloneModuleService.cloneModule(gE, this.gridElements);
+    TagModule.prototype.cloneModule = function (gE, module) {
+        this._cloneModuleService.cloneModule(gE, module);
     };
-    TagModule.prototype.deleteTagModule = function (gE) {
-        gE.moduleType = 0;
+    TagModule.prototype.deleteTagModule = function (gE, module) {
+        gE.modules.splice(gE.modules.indexOf(module), 1);
     };
-    TagModule.prototype.addTag = function (gE) {
-        gE.moduleType.tags.push(new tagModuleTag_1.tagModuleTag(this.i, '<p>New Tag</p>', '#e3e5e6'));
+    TagModule.prototype.addTag = function (module) {
+        module.tags.push(new tagModuleTag_1.tagModuleTag(this.i, '<p>New Tag</p>', '#e3e5e6'));
         this.i += 1;
     };
-    TagModule.prototype.deleteTag = function (gE, tag) {
-        gE.moduleType.tags.splice(gE.moduleType.tags.indexOf(tag), 1);
+    TagModule.prototype.deleteTag = function (module, tag) {
+        module.tags.splice(module.tags.indexOf(tag), 1);
     };
     TagModule.prototype.updateTag = function (tag) {
         $(document).off('click', '.editable-tag').on('click', '.editable-tag', function () {
