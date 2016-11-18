@@ -14,13 +14,13 @@ var CountingModule = (function () {
     function CountingModule(_cloneModuleService) {
         this._cloneModuleService = _cloneModuleService;
     }
-    CountingModule.prototype.cloneModule = function (gE) {
-        this._cloneModuleService.cloneModule(gE, this.gridElements);
+    CountingModule.prototype.cloneModule = function (gE, module) {
+        this._cloneModuleService.cloneModule(gE, module);
     };
-    CountingModule.prototype.deleteCountingModule = function (gE) {
-        gE.moduleType = 0;
+    CountingModule.prototype.deleteCountingModule = function (gE, module) {
+        gE.modules.splice(gE.modules.indexOf(module), 1);
     };
-    CountingModule.prototype.updateCountingValue = function (gE) {
+    CountingModule.prototype.updateCountingValue = function (module) {
         $(document).off('click', '.editable-counting-value').on('click', '.editable-counting-value', function () {
             $(this).summernote({
                 toolbar: [
@@ -29,14 +29,14 @@ var CountingModule = (function () {
                 disableDragAndDrop: true,
                 callbacks: {
                     onChange: function (contents, $editable) {
-                        gE.moduleType.content[0] = contents;
+                        module.content[0] = contents;
                     }
                 }
             });
-            $(this).parent().find('.note-editable').css('background', gE.bgColor);
+            $(this).parent().find('.note-editable').css('background', module.bgColor);
         });
     };
-    CountingModule.prototype.updateCountingDescription = function (gE) {
+    CountingModule.prototype.updateCountingDescription = function (module) {
         $(document).off('click', '.editable-counting-description').on('click', '.editable-counting-description', function () {
             $(this).summernote({
                 toolbar: [
@@ -45,11 +45,11 @@ var CountingModule = (function () {
                 disableDragAndDrop: true,
                 callbacks: {
                     onChange: function (contents, $editable) {
-                        gE.moduleType.content[1] = contents;
+                        module.content[1] = contents;
                     }
                 }
             });
-            $(this).parent().find('.note-editable').css('background', gE.bgColor);
+            $(this).parent().find('.note-editable').css('background', module.bgColor);
         });
     };
     return CountingModule;

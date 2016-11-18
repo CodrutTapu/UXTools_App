@@ -15,19 +15,19 @@ var AboutModule = (function () {
     function AboutModule(_cloneModuleService) {
         this._cloneModuleService = _cloneModuleService;
     }
-    AboutModule.prototype.cloneModule = function (gE) {
-        this._cloneModuleService.cloneModule(gE, this.gridElements);
+    AboutModule.prototype.cloneModule = function (gE, module) {
+        this._cloneModuleService.cloneModule(gE, module);
     };
-    AboutModule.prototype.deleteAboutModule = function (gE) {
-        gE.moduleType = 0;
+    AboutModule.prototype.deleteAboutModule = function (gE, module) {
+        gE.modules.splice(gE.modules.indexOf(module), 1);
     };
-    AboutModule.prototype.addAboutItem = function (gE) {
-        gE.moduleType.content.push(new aboutItem_1.aboutItem('<p>new item name</p>', '<p>New item value</p>'));
+    AboutModule.prototype.addAboutItem = function (module) {
+        module.content.push(new aboutItem_1.aboutItem('<p>new item name</p>', '<p>New item value</p>'));
     };
-    AboutModule.prototype.deleteAboutItem = function (gE, item) {
-        gE.moduleType.content.splice(gE.moduleType.content.indexOf(item), 1);
+    AboutModule.prototype.deleteAboutItem = function (module, item) {
+        module.content.splice(module.content.indexOf(item), 1);
     };
-    AboutModule.prototype.updateAboutItemName = function (aI, gE) {
+    AboutModule.prototype.updateAboutItemName = function (aI, module) {
         $(document).off('click', '.editable-about-item-name').on('click', '.editable-about-item-name', function () {
             $(this).summernote({
                 toolbar: [
@@ -40,10 +40,10 @@ var AboutModule = (function () {
                     }
                 }
             });
-            $(this).parent().find('.note-editable').css('background', gE.bgColor);
+            $(this).parent().find('.note-editable').css('background', module.bgColor);
         });
     };
-    AboutModule.prototype.updateAboutItemValue = function (aI, gE) {
+    AboutModule.prototype.updateAboutItemValue = function (aI, module) {
         $(document).off('click', '.editable-about-item-value').on('click', '.editable-about-item-value', function () {
             $(this).summernote({
                 toolbar: [
@@ -56,7 +56,7 @@ var AboutModule = (function () {
                     }
                 }
             });
-            $(this).parent().find('.note-editable').css('background', gE.bgColor);
+            $(this).parent().find('.note-editable').css('background', module.bgColor);
         });
     };
     return AboutModule;

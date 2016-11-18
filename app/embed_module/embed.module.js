@@ -16,20 +16,20 @@ var EmbedModule = (function () {
         this.sanitizer = sanitizer;
         this._cloneModuleService = _cloneModuleService;
     }
-    EmbedModule.prototype.cloneModule = function (gE) {
-        this._cloneModuleService.cloneModule(gE, this.gridElements);
+    EmbedModule.prototype.cloneModule = function (gE, module) {
+        this._cloneModuleService.cloneModule(gE, module);
     };
     EmbedModule.prototype.ngOnInit = function () {
-        this.url = this.sanitizer.bypassSecurityTrustResourceUrl(this.gE.moduleType.content);
+        this.url = this.sanitizer.bypassSecurityTrustResourceUrl(this.module.content);
     };
-    EmbedModule.prototype.deleteEmbedModule = function (gE) {
-        gE.moduleType = 0;
+    EmbedModule.prototype.deleteEmbedModule = function (gE, module) {
+        gE.modules.splice(gE.modules.indexOf(module), 1);
     };
-    EmbedModule.prototype.changeEmbedUrl = function (gE) {
-        gE.moduleType.content = this.embedUrl;
-        this.url = this.sanitizer.bypassSecurityTrustResourceUrl(gE.moduleType.content);
+    EmbedModule.prototype.changeEmbedUrl = function (module) {
+        module.content = this.embedUrl;
+        this.url = this.sanitizer.bypassSecurityTrustResourceUrl(module.content);
     };
-    EmbedModule.prototype.updateEmbedTitle = function (gE) {
+    EmbedModule.prototype.updateEmbedTitle = function (module) {
         $(document).off('click', '.editable-embed-title').on('click', '.editable-embed-title', function () {
             $(this).summernote({
                 toolbar: [
@@ -38,11 +38,10 @@ var EmbedModule = (function () {
                 disableDragAndDrop: true,
                 callbacks: {
                     onChange: function (contents, $editable) {
-                        gE.moduleType.title = contents;
+                        module.title = contents;
                     }
                 }
             });
-            $(this).parent().find('.note-editable').css('background', gE.bgColor);
         });
     };
     return EmbedModule;

@@ -25,7 +25,6 @@ export class TextModule {
 
     deleteTextModule(gE,module) {
         gE.modules.splice(gE.modules.indexOf(module), 1);
-        console.log(gE.modules.length);
     }
 
     updateTextModule(module) {

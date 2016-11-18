@@ -13,11 +13,11 @@ declare var $: any;
 })
 
 export class ViewEmbedModule {
-    gE;
+    module;
     embedUrl;
     url: SafeResourceUrl;
     constructor(private sanitizer:DomSanitizer ){}
     ngOnInit(){
-        this.url = this.sanitizer.bypassSecurityTrustResourceUrl(this.gE.moduleType.content);
+        this.url = this.sanitizer.bypassSecurityTrustResourceUrl(this.module.content);
     }
 }

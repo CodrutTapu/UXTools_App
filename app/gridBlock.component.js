@@ -51,6 +51,9 @@ var GridBlock = (function () {
             gE.dim += 2;
         }
     };
+    GridBlock.prototype.clearGridElement = function (gE) {
+        gE.modules = [];
+    };
     GridBlock.prototype.deleteGridElem = function (gE) {
         this.gridElements.splice(this.gridElements.indexOf(gE), 1);
     };
@@ -87,22 +90,19 @@ var GridBlock = (function () {
         $('.add-module-modal').modal('hide');
     };
     GridBlock.prototype.addAccordionModule = function (gE) {
-        gE.moduleType = new accordionModule_1.accordionModule(9, 'accordion-module', '<h1>Accordion</h1>', [new accordionItem_1.accordionItem('item1', 'Item 1', '<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>'), new accordionItem_1.accordionItem('item2', 'Item 2', '<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>'), new accordionItem_1.accordionItem('item3', 'Item 3', '<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>')]);
-        gE.bgColor = "#F8F8F8";
+        gE.modules.push(new accordionModule_1.accordionModule(9, 'accordion-module', '<h1>Accordion</h1>', [new accordionItem_1.accordionItem('item1', 'Item 1', '<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>'), new accordionItem_1.accordionItem('item2', 'Item 2', '<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>'), new accordionItem_1.accordionItem('item3', 'Item 3', '<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>')], '#F8F8F8'));
         $('.add-module-modal').modal('hide');
     };
     GridBlock.prototype.addTabsModule = function (gE) {
-        gE.moduleType = new tabsModule_1.tabsModule(10, 'tabs-module', [new tabsItem_1.tabsItem('item1', 'Tab 1', '<p>Nulla condimentum finibus massa, sit amet viverra purus luctus ac. Fusce ut erat sapien 1.</p>'), new tabsItem_1.tabsItem('item2', 'Tab 2', '<p>Nulla condimentum finibus massa, sit amet viverra purus luctus ac. Fusce ut erat sapien 2.</p>'), new tabsItem_1.tabsItem('item3', 'Tab 3', '<p>Nulla condimentum finibus massa, sit amet viverra purus luctus ac. Fusce ut erat sapien 3.</p>')]);
-        gE.bgColor = "#F8F8F8";
+        gE.modules.push(new tabsModule_1.tabsModule(10, 'tabs-module', [new tabsItem_1.tabsItem('item1', 'Tab 1', '<p>Nulla condimentum finibus massa, sit amet viverra purus luctus ac. Fusce ut erat sapien 1.</p>'), new tabsItem_1.tabsItem('item2', 'Tab 2', '<p>Nulla condimentum finibus massa, sit amet viverra purus luctus ac. Fusce ut erat sapien 2.</p>'), new tabsItem_1.tabsItem('item3', 'Tab 3', '<p>Nulla condimentum finibus massa, sit amet viverra purus luctus ac. Fusce ut erat sapien 3.</p>')], '#F8F8F8'));
         $('.add-module-modal').modal('hide');
     };
     GridBlock.prototype.addEmbedModule = function (gE) {
-        gE.moduleType = new embedModule_1.embedModule(11, 'embed-module', '<h1>Embed</h1>', 'https://www.youtube.com/embed/rn5s6H_Yamo');
-        gE.bgColor = "#F8F8F8";
+        gE.modules.push(new embedModule_1.embedModule(11, 'embed-module', '<h1>Embed</h1>', 'https://www.youtube.com/embed/rn5s6H_Yamo'));
         $('.add-module-modal').modal('hide');
     };
     GridBlock.prototype.addDevicesPlatformsModule = function (gE) {
-        gE.moduleType = new devicesPlatformsModule_1.devicesPlatformsModule(12, 'devices-platforms-module', [new devicePlatform_1.devicePlatform('<i class="fa fa-mobile" aria-hidden="true"></i>', true, 'Mobile'),
+        gE.modules.push(new devicesPlatformsModule_1.devicesPlatformsModule(12, 'devices-platforms-module', [new devicePlatform_1.devicePlatform('<i class="fa fa-mobile" aria-hidden="true"></i>', true, 'Mobile'),
             new devicePlatform_1.devicePlatform('<i class="fa fa-tablet" aria-hidden="true"></i>', true, 'Tablet'),
             new devicePlatform_1.devicePlatform('<i class="fa fa-laptop" aria-hidden="true"></i>', true, 'Laptop'),
             new devicePlatform_1.devicePlatform('<i class="fa fa-desktop" aria-hidden="true"></i>', false, 'Desktop'),
@@ -113,39 +113,33 @@ var GridBlock = (function () {
             new devicePlatform_1.devicePlatform('<i class="fa fa-chrome" aria-hidden="true"></i>', false, 'Chrome'),
             new devicePlatform_1.devicePlatform('<i class="fa fa-firefox" aria-hidden="true"></i>', false, 'Firefox'),
             new devicePlatform_1.devicePlatform('<i class="fa fa-internet-explorer" aria-hidden="true"></i>', false, 'IE'),
-            new devicePlatform_1.devicePlatform('<i class="fa fa-safari" aria-hidden="true"></i>', false, 'Safari')]);
-        gE.bgColor = "#F8F8F8";
+            new devicePlatform_1.devicePlatform('<i class="fa fa-safari" aria-hidden="true"></i>', false, 'Safari')], '#F8F8F8'));
         $('.add-module-modal').modal('hide');
     };
     GridBlock.prototype.addAboutModule = function (gE) {
-        gE.moduleType = new aboutModule_1.aboutModule(13, 'about-module', [new aboutItem_1.aboutItem('<p>age</p>', '<p>1-100</p>'),
+        gE.modules.push(new aboutModule_1.aboutModule(13, 'about-module', [new aboutItem_1.aboutItem('<p>age</p>', '<p>1-100</p>'),
             new aboutItem_1.aboutItem('<p>occupation</p>', '<p>What they do</p>'),
             new aboutItem_1.aboutItem('<p>status</p>', '<p>Single, Marries, Etc</p>'),
             new aboutItem_1.aboutItem('<p>location</p>', '<p>Where they live/work</p>'),
             new aboutItem_1.aboutItem('<p>tier</p>', '<p>Frequency of use</p>'),
             new aboutItem_1.aboutItem('<p>archetype</p>', '<p>Character model</p>'),
-        ]);
-        gE.bgColor = "#F8F8F8";
+        ], '#F8F8F8'));
         $('.add-module-modal').modal('hide');
     };
     GridBlock.prototype.addSimpleCountingModule = function (gE) {
-        gE.moduleType = new countingModule_1.countingModule(14, 'counting-module', ['<p class="counting-value"><span class="number">00</span></p>', '<p class="counting-description">Something you want to count</p>']);
-        gE.bgColor = "#F8F8F8";
+        gE.modules.push(new countingModule_1.countingModule(14, 'counting-module', ['<p class="counting-value"><span class="number">00</span></p>', '<p class="counting-description">Something you want to count</p>'], '#F8F8F8'));
         $('.add-module-modal').modal('hide');
     };
     GridBlock.prototype.addSufixedCountingModule = function (gE) {
-        gE.moduleType = new countingModule_1.countingModule(14, 'counting-module', ['<p class="counting-value"><span class="number">00</span><span class="counting-sufix"> min</span></p>', '<p class="counting-description">Something you want to count</p>']);
-        gE.bgColor = "#F8F8F8";
+        gE.modules.push(new countingModule_1.countingModule(14, 'counting-module', ['<p class="counting-value"><span class="number">00</span><span class="counting-sufix"> min</span></p>', '<p class="counting-description">Something you want to count</p>'], '#F8F8F8'));
         $('.add-module-modal').modal('hide');
     };
     GridBlock.prototype.addIntervalCountingModule = function (gE) {
-        gE.moduleType = new countingModule_1.countingModule(14, 'counting-module', ['<p class="counting-value"><span class="number">00-00</span></p>', '<p class="counting-description">Something you want to count</p>']);
-        gE.bgColor = "#F8F8F8";
+        gE.modules.push(new countingModule_1.countingModule(14, 'counting-module', ['<p class="counting-value"><span class="number">00-00</span></p>', '<p class="counting-description">Something you want to count</p>'], '#F8F8F8'));
         $('.add-module-modal').modal('hide');
     };
     GridBlock.prototype.addPrefixedCountingModule = function (gE) {
-        gE.moduleType = new countingModule_1.countingModule(14, 'counting-module', ['<p class="counting-value"><span class="counting-prefix">$ <span><span class="number">00</span></p>', '<p class="counting-description">Something you want to count</p>']);
-        gE.bgColor = "#F8F8F8";
+        gE.modules.push(new countingModule_1.countingModule(14, 'counting-module', ['<p class="counting-value"><span class="counting-prefix">$ <span><span class="number">00</span></p>', '<p class="counting-description">Something you want to count</p>'], '#F8F8F8'));
         $('.add-module-modal').modal('hide');
     };
     GridBlock.prototype.closeTextEditor = function (event, gE) {

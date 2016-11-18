@@ -19,31 +19,31 @@ export class TabsModule {
 
     constructor(private _cloneModuleService: cloneModuleService) {}
 
-    cloneModule(gE) {
-        this._cloneModuleService.cloneModule(gE,this.gridElements);
+    cloneModule(gE,module) {
+        this._cloneModuleService.cloneModule(gE,module);
     }
 
-    deleteTabsModule(gE) {
-        gE.moduleType = 0;
+    deleteTabsModule(gE,module) {
+        gE.modules.splice(gE.modules.indexOf(module), 1);
     }
 
-    addTabsItem(gE) {
-        var length = gE.moduleType.items.length;
-        var lastItemId = gE.moduleType.items[length - 1].id;
+    addTabsItem(module) {
+        var length = module.items.length;
+        var lastItemId = module.items[length - 1].id;
         var lastId = 0;
         if(lastItemId.length == 5) {
             lastId = parseInt(lastItemId[4]) + 1;
         } else if(lastItemId.length == 6){
             lastId = parseInt(lastItemId[4] + lastItemId[5]) + 1;
         }
-        gE.moduleType.items.push(new tabsItem('item' + lastId,'New Tab','<p>Nulla condimentum finibus massa, sit amet viverra purus luctus ac. Fusce ut erat sapien new.</p>'));
+        module.items.push(new tabsItem('item' + lastId,'New Tab','<p>Nulla condimentum finibus massa, sit amet viverra purus luctus ac. Fusce ut erat sapien new.</p>'));
     }
 
-    deleteTabsItem(gE,item) {
-        gE.moduleType.items.splice(gE.moduleType.items.indexOf(item), 1);
+    deleteTabsItem(module,item) {
+        module.items.splice(module.items.indexOf(item), 1);
     }
 
-    updateTabsItemContent(item,gE) {
+    updateTabsItemContent(item,module) {
         $(document).off('click','.editable-tabs-item-content').on('click','.editable-tabs-item-content',function(){
             $(this).summernote({
                 toolbar: [
@@ -56,11 +56,11 @@ export class TabsModule {
                     }
                 }
             });
-            $(this).parent().find('.note-editable').css('background',gE.bgColor);
+            $(this).parent().find('.note-editable').css('background',module.bgColor);
         });
     }
 
-    updateTabsItemTitle(item,gE,event:any) {
+    updateTabsItemTitle(item,event:any) {
         item.title = event.target.value;
     }
 

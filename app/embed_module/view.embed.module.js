@@ -15,7 +15,7 @@ var ViewEmbedModule = (function () {
         this.sanitizer = sanitizer;
     }
     ViewEmbedModule.prototype.ngOnInit = function () {
-        this.url = this.sanitizer.bypassSecurityTrustResourceUrl(this.gE.moduleType.content);
+        this.url = this.sanitizer.bypassSecurityTrustResourceUrl(this.module.content);
     };
     return ViewEmbedModule;
 }());

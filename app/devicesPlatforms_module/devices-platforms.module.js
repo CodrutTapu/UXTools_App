@@ -14,16 +14,16 @@ var DevicesPlatformsModule = (function () {
     function DevicesPlatformsModule(_cloneModuleService) {
         this._cloneModuleService = _cloneModuleService;
     }
-    DevicesPlatformsModule.prototype.cloneModule = function (gE) {
-        this._cloneModuleService.cloneModule(gE, this.gridElements);
+    DevicesPlatformsModule.prototype.cloneModule = function (gE, module) {
+        this._cloneModuleService.cloneModule(gE, module);
     };
     DevicesPlatformsModule.prototype.ngOnInit = function () {
         setTimeout(function () {
             $('[data-toggle="tooltip"]').tooltip();
         }, 500);
     };
-    DevicesPlatformsModule.prototype.deleteDevicesPlatformsModule = function (gE) {
-        gE.moduleType = 0;
+    DevicesPlatformsModule.prototype.deleteDevicesPlatformsModule = function (gE, module) {
+        gE.modules.splice(gE.modules.indexOf(module), 1);
     };
     DevicesPlatformsModule.prototype.switchDevicePlatformItemStatus = function (dp) {
         dp.status = !dp.status;

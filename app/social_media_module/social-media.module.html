@@ -10,39 +10,39 @@
     </div>
     <div class="edit-social-links">
         <ul class="edit-social-links-list">
-            <li><a href="{{module.facebookUrl}}" class="facebook"><span class="fa-stack fa-lg">
+            <li><a href="{{module.facebookUrl}}" target="_blank" class="facebook"><span class="fa-stack fa-lg">
                 <i class="fa fa-circle fa-stack-2x"></i>
                 <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-            </span></a><input type="text" class="facebook-link-edit" value="" [(ngModel)]="facebookUrl"></li>
-            <li><a href="{{module.twitterUrl}}" class="twitter"><span class="fa-stack fa-lg">
+            </span></a><input type="text" target="_blank" class="facebook-link-edit" value="" [(ngModel)]="facebookUrl"></li>
+            <li><a href="{{module.twitterUrl}}" target="_blank" class="twitter"><span class="fa-stack fa-lg">
                 <i class="fa fa-circle fa-stack-2x"></i>
                 <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-            </span></a><input type="text" class="twitter-link-edit" value="" [(ngModel)]="twitterUrl"></li>
-            <li><a href="{{module.linkedinUrl}}" class="linkedin"><span class="fa-stack fa-lg">
+            </span></a><input type="text" target="_blank" class="twitter-link-edit" value="" [(ngModel)]="twitterUrl"></li>
+            <li><a href="{{module.linkedinUrl}}" target="_blank" class="linkedin"><span class="fa-stack fa-lg">
                 <i class="fa fa-circle fa-stack-2x"></i>
                 <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-            </span></a><input type="text" class="linkedin-link-edit" value="" [(ngModel)]="linkedinUrl"></li>
-            <li><a href="{{module.externalUrl}}" class="external-link"><span class="fa-stack fa-lg">
+            </span></a><input type="text" target="_blank" class="linkedin-link-edit" value="" [(ngModel)]="linkedinUrl"></li>
+            <li><a href="{{module.externalUrl}}" target="_blank" class="external-link"><span class="fa-stack fa-lg">
                 <i class="fa fa-circle fa-stack-2x"></i>
                 <i class="fa fa-external-link fa-stack-1x fa-inverse"></i>
-            </span></a><input type="text" class="external-link-edit" value="" [(ngModel)]="externalUrl"></li>
+            </span></a><input type="text" target="_blank" class="external-link-edit" value="" [(ngModel)]="externalUrl"></li>
             <li><button type="button" class="btn btn-primary update-social-links" name="update-social-links" (click)="updateSocialLinks(module)">Update</button></li>
         </ul>
     </div>
     <ul class="social-links-list no-pad">
-        <li><a href="{{module.facebookUrl}}" class="facebook"><span class="fa-stack fa-lg">
+        <li><a href="{{module.facebookUrl}}" target="_blank" class="facebook"><span class="fa-stack fa-lg">
             <i class="fa fa-circle fa-stack-2x"></i>
             <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
         </span></a></li>
-        <li><a href="{{module.twitterUrl}}" class="twitter"><span class="fa-stack fa-lg">
+        <li><a href="{{module.twitterUrl}}" target="_blank" class="twitter"><span class="fa-stack fa-lg">
             <i class="fa fa-circle fa-stack-2x"></i>
             <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
         </span></a></li>
-        <li><a href="{{module.linkedinUrl}}" class="linkedin"><span class="fa-stack fa-lg">
+        <li><a href="{{module.linkedinUrl}}" target="_blank" class="linkedin"><span class="fa-stack fa-lg">
             <i class="fa fa-circle fa-stack-2x"></i>
             <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
         </span></a></li>
-        <li><a href="{{module.externalUrl}}" class="external-link"><span class="fa-stack fa-lg">
+        <li><a href="{{module.externalUrl}}" target="_blank" class="external-link"><span class="fa-stack fa-lg">
             <i class="fa fa-circle fa-stack-2x"></i>
             <i class="fa fa-external-link fa-stack-1x fa-inverse"></i>
         </span></a></li>

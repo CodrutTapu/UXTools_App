@@ -17,8 +17,8 @@ export class DevicesPlatformsModule {
 
     constructor(private _cloneModuleService: cloneModuleService) {}
 
-    cloneModule(gE) {
-        this._cloneModuleService.cloneModule(gE,this.gridElements);
+    cloneModule(gE,module) {
+        this._cloneModuleService.cloneModule(gE,module);
     }
 
     ngOnInit() {
@@ -27,8 +27,8 @@ export class DevicesPlatformsModule {
         }, 500);
     }
 
-    deleteDevicesPlatformsModule(gE) {
-        gE.moduleType = 0;
+    deleteDevicesPlatformsModule(gE,module) {
+        gE.modules.splice(gE.modules.indexOf(module), 1);
     }
 
     switchDevicePlatformItemStatus(dp) {

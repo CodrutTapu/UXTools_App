@@ -19,7 +19,6 @@ var TextModule = (function () {
     };
     TextModule.prototype.deleteTextModule = function (gE, module) {
         gE.modules.splice(gE.modules.indexOf(module), 1);
-        console.log(gE.modules.length);
     };
     TextModule.prototype.updateTextModule = function (module) {
         $(document).off('click', '.editable-text-content').on('click', '.editable-text-content', function () {

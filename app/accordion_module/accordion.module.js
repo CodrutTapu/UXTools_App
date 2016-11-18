@@ -15,20 +15,20 @@ var AccordionModule = (function () {
     function AccordionModule(_cloneModuleService) {
         this._cloneModuleService = _cloneModuleService;
     }
-    AccordionModule.prototype.cloneModule = function (gE) {
-        this._cloneModuleService.cloneModule(gE, this.gridElements);
+    AccordionModule.prototype.cloneModule = function (gE, module) {
+        this._cloneModuleService.cloneModule(gE, module);
     };
     AccordionModule.prototype.ngOnInit = function () {
         $('.accordion-module').on('show.bs.collapse', '.collapse', function () {
             $(this).parents().eq(2).find('.collapse.in').collapse('hide');
         });
     };
-    AccordionModule.prototype.deleteAccordionModule = function (gE) {
-        gE.moduleType = 0;
+    AccordionModule.prototype.deleteAccordionModule = function (gE, module) {
+        gE.modules.splice(gE.modules.indexOf(module), 1);
     };
-    AccordionModule.prototype.addAccordionItem = function (gE) {
-        var length = gE.moduleType.items.length;
-        var lastItemId = gE.moduleType.items[length - 1].id;
+    AccordionModule.prototype.addAccordionItem = function (module) {
+        var length = module.items.length;
+        var lastItemId = module.items[length - 1].id;
         var lastId = 0;
         if (lastItemId.length == 5) {
             lastId = parseInt(lastItemId[4]) + 1;
@@ -36,12 +36,12 @@ var AccordionModule = (function () {
         else if (lastItemId.length == 6) {
             lastId = parseInt(lastItemId[4] + lastItemId[5]) + 1;
         }
-        gE.moduleType.items.push(new accordionItem_1.accordionItem('item' + lastId, 'New Item Title', '<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>'));
+        module.items.push(new accordionItem_1.accordionItem('item' + lastId, 'New Item Title', '<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>'));
     };
-    AccordionModule.prototype.deleteAccordionItem = function (gE, item) {
-        gE.moduleType.items.splice(gE.moduleType.items.indexOf(item), 1);
+    AccordionModule.prototype.deleteAccordionItem = function (module, item) {
+        module.items.splice(module.items.indexOf(item), 1);
     };
-    AccordionModule.prototype.updateAccordionTitle = function (gE) {
+    AccordionModule.prototype.updateAccordionTitle = function (module) {
         $(document).off('click', '.editable-accordion-title').on('click', '.editable-accordion-title', function () {
             $(this).summernote({
                 toolbar: [
@@ -50,11 +50,11 @@ var AccordionModule = (function () {
                 disableDragAndDrop: true,
                 callbacks: {
                     onChange: function (contents, $editable) {
-                        gE.moduleType.title = contents;
+                        module.title = contents;
                     }
                 }
             });
-            $(this).parent().find('.note-editable').css('background', gE.bgColor);
+            $(this).parent().find('.note-editable').css('background', module.bgColor);
         });
     };
     AccordionModule.prototype.updateAccordionItemTitle = function (item, event) {

@@ -15,31 +15,31 @@ declare var $: any;
 })
 
 export class EmbedModule {
-    gE;
+    module;
     embedUrl;
     url: SafeResourceUrl;
     gridElements:Array<number>;
 
     constructor(private sanitizer:DomSanitizer, private _cloneModuleService: cloneModuleService ){}
 
-    cloneModule(gE) {
-        this._cloneModuleService.cloneModule(gE,this.gridElements);
+    cloneModule(gE,module) {
+        this._cloneModuleService.cloneModule(gE,module);
     }
 
     ngOnInit(){
-        this.url = this.sanitizer.bypassSecurityTrustResourceUrl(this.gE.moduleType.content);
+        this.url = this.sanitizer.bypassSecurityTrustResourceUrl(this.module.content);
     }
 
-    deleteEmbedModule(gE) {
-        gE.moduleType = 0;
+    deleteEmbedModule(gE,module) {
+        gE.modules.splice(gE.modules.indexOf(module), 1);
     }
 
-    changeEmbedUrl(gE) {
-        gE.moduleType.content = this.embedUrl;
-        this.url = this.sanitizer.bypassSecurityTrustResourceUrl(gE.moduleType.content);
+    changeEmbedUrl(module) {
+        module.content = this.embedUrl;
+        this.url = this.sanitizer.bypassSecurityTrustResourceUrl(module.content);
     }
 
-    updateEmbedTitle(gE) {
+    updateEmbedTitle(module) {
         $(document).off('click','.editable-embed-title').on('click','.editable-embed-title',function(){
             $(this).summernote({
                 toolbar: [
@@ -48,11 +48,10 @@ export class EmbedModule {
                 disableDragAndDrop: true,
                 callbacks: {
                     onChange: function(contents, $editable) {
-                      gE.moduleType.title = contents;
+                      module.title = contents;
                     }
                 }
             });
-            $(this).parent().find('.note-editable').css('background',gE.bgColor);
         });
     }
 

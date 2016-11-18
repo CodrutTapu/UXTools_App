@@ -18,23 +18,23 @@ export class AboutModule {
 
     constructor(private _cloneModuleService: cloneModuleService) {}
 
-    cloneModule(gE) {
-        this._cloneModuleService.cloneModule(gE,this.gridElements);
+    cloneModule(gE,module) {
+        this._cloneModuleService.cloneModule(gE,module);
     }
 
-    deleteAboutModule(gE) {
-        gE.moduleType = 0;
+    deleteAboutModule(gE,module) {
+        gE.modules.splice(gE.modules.indexOf(module), 1);
     }
 
-    addAboutItem(gE) {
-        gE.moduleType.content.push(new aboutItem('<p>new item name</p>','<p>New item value</p>'));
+    addAboutItem(module) {
+        module.content.push(new aboutItem('<p>new item name</p>','<p>New item value</p>'));
     }
 
-    deleteAboutItem(gE,item) {
-        gE.moduleType.content.splice(gE.moduleType.content.indexOf(item), 1);
+    deleteAboutItem(module,item) {
+        module.content.splice(module.content.indexOf(item), 1);
     }
 
-    updateAboutItemName(aI,gE) {
+    updateAboutItemName(aI,module) {
         $(document).off('click','.editable-about-item-name').on('click','.editable-about-item-name',function(){
             $(this).summernote({
                 toolbar: [
@@ -47,11 +47,11 @@ export class AboutModule {
                     }
                 }
             });
-            $(this).parent().find('.note-editable').css('background',gE.bgColor);
+            $(this).parent().find('.note-editable').css('background',module.bgColor);
         });
     }
 
-    updateAboutItemValue(aI,gE) {
+    updateAboutItemValue(aI,module) {
         $(document).off('click','.editable-about-item-value').on('click','.editable-about-item-value',function(){
             $(this).summernote({
                 toolbar: [
@@ -64,7 +64,7 @@ export class AboutModule {
                     }
                 }
             });
-            $(this).parent().find('.note-editable').css('background',gE.bgColor);
+            $(this).parent().find('.note-editable').css('background',module.bgColor);
         });
     }
 

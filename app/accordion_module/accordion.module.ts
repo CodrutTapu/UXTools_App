@@ -19,8 +19,8 @@ export class AccordionModule {
 
     constructor(private _cloneModuleService: cloneModuleService) {}
 
-    cloneModule(gE) {
-        this._cloneModuleService.cloneModule(gE,this.gridElements);
+    cloneModule(gE,module) {
+        this._cloneModuleService.cloneModule(gE,module);
     }
 
     ngOnInit() {
@@ -29,27 +29,27 @@ export class AccordionModule {
         });
     }
 
-    deleteAccordionModule(gE) {
-        gE.moduleType = 0;
+    deleteAccordionModule(gE,module) {
+        gE.modules.splice(gE.modules.indexOf(module), 1);
     }
 
-    addAccordionItem(gE) {
-        var length = gE.moduleType.items.length;
-        var lastItemId = gE.moduleType.items[length - 1].id;
+    addAccordionItem(module) {
+        var length = module.items.length;
+        var lastItemId = module.items[length - 1].id;
         var lastId = 0;
         if(lastItemId.length == 5) {
             lastId = parseInt(lastItemId[4]) + 1;
         } else if(lastItemId.length == 6){
             lastId = parseInt(lastItemId[4] + lastItemId[5]) + 1;
         }
-        gE.moduleType.items.push(new accordionItem('item' + lastId,'New Item Title','<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>'));
+        module.items.push(new accordionItem('item' + lastId,'New Item Title','<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>'));
     }
 
-    deleteAccordionItem(gE,item) {
-        gE.moduleType.items.splice(gE.moduleType.items.indexOf(item), 1);
+    deleteAccordionItem(module,item) {
+        module.items.splice(module.items.indexOf(item), 1);
     }
 
-    updateAccordionTitle(gE) {
+    updateAccordionTitle(module) {
         $(document).off('click','.editable-accordion-title').on('click','.editable-accordion-title',function(){
             $(this).summernote({
                 toolbar: [
@@ -58,11 +58,11 @@ export class AccordionModule {
                 disableDragAndDrop: true,
                 callbacks: {
                     onChange: function(contents, $editable) {
-                      gE.moduleType.title = contents;
+                      module.title = contents;
                     }
                 }
             });
-            $(this).parent().find('.note-editable').css('background',gE.bgColor);
+            $(this).parent().find('.note-editable').css('background',module.bgColor);
         });
     }
 
