@@ -108,7 +108,18 @@ export class GridBlock {
     }
 
     addTagModule(gE) {
-        gE.modules.push(new tagModule(5,'tags-module',[new tagModuleTag(1,'<p>Tag 1</p>','#e3e5e6'),new tagModuleTag(2,'<p>Tag 2</p>','#e3e5e6'),new tagModuleTag(3,'<p>Tag 3</p>','#e3e5e6')],'#F8F8F8'));
+        var i,j;
+        var maxId = 0;
+        for(i=0;i<gE.modules.length;i++) {
+            if(gE.modules[i].id == 5) {
+                for(j=0;j<gE.modules[i].tags.length;j++) {
+                    if(gE.modules[i].tags[j].id > maxId) {
+                        maxId = gE.modules[i].tags[j].id;
+                    }
+                }
+            }
+        }
+        gE.modules.push(new tagModule(5,'tags-module',[new tagModuleTag(maxId+1,'<p>Tag 1</p>','#e3e5e6'),new tagModuleTag(maxId+2,'<p>Tag 2</p>','#e3e5e6'),new tagModuleTag(maxId+3,'<p>Tag 3</p>','#e3e5e6')],'#F8F8F8'));
         $('.add-module-modal').modal('hide');
     }
 
@@ -123,12 +134,41 @@ export class GridBlock {
     }
 
     addPieChartModule(gE) {
-        gE.modules.push(new pieChartModule(8,'pie-chart-module','<h1>Pie Chart</h1>',["Red", "Blue", "Yellow"],[12, 19, 3],'#F8F8F8'));
+        var i,j;
+        var maxId = 0;
+        for(i=0;i<gE.modules.length;i++) {
+            if(gE.modules[i].id == 8) {
+                if(gE.modules[i].pieId > maxId) {
+                    maxId = gE.modules[i].pieId;
+                }
+            }
+        }
+        gE.modules.push(new pieChartModule(8,maxId+1,'pie-chart-module','<h1>Pie Chart</h1>',["Red", "Blue", "Yellow"],[12, 19, 3],'#F8F8F8'));
         $('.add-module-modal').modal('hide');
     }
 
     addAccordionModule(gE) {
-        gE.modules.push(new accordionModule(9,'accordion-module','<h1>Accordion</h1>',[new accordionItem('item1','Item 1','<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>'), new accordionItem('item2','Item 2','<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>'), new accordionItem('item3','Item 3','<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>')],'#F8F8F8'));
+        var i,j;
+        var maxId = 0;
+        for(i=0;i<gE.modules.length;i++) {
+            if(gE.modules[i].id == 9) {
+                for(j=0;j<gE.modules[i].items.length;j++) {
+                    if(gE.modules[i].items[j].id.length == 5) {
+                        if(parseInt(gE.modules[i].items[j].id[4]) > maxId) {
+                            maxId = parseInt(gE.modules[i].items[j].id[4]);
+                        }
+                    } else if(gE.modules[i].items[j].id.length  == 6){
+                        if(parseInt(gE.modules[i].items[j].id[4] + gE.modules[i].items[j].id[5]) > maxId) {
+                            maxId = parseInt(gE.modules[i].items[j].id[4] + gE.modules[i].items[j].id[5]);
+                        }
+                    }
+                }
+            }
+        }
+        var maxId1 = maxId + 1;
+        var maxId2 = maxId + 2;
+        var maxId3 = maxId + 3;
+        gE.modules.push(new accordionModule(9,'accordion-module','<h1>Accordion</h1>',[new accordionItem('item' + maxId1,'Item 1','<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>'), new accordionItem('item' + maxId2,'Item 2','<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>'), new accordionItem('item' + maxId3,'Item 3','<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>')],'#F8F8F8'));
         $('.add-module-modal').modal('hide');
     }
 

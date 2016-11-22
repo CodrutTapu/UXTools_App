@@ -31,8 +31,8 @@
             </div>
         </div>
     </div>
-    <div class="pie-chart-content{{gE.id}}">
+    <div class="pie-chart-content{{module.pieId}}{{gE.id}}">
         <div class="editable-pie-title cEditable" [innerHTML]="module.title" (click)="updatePieTitle(module)"></div>
-        <canvas id="pieChart{{gE.id}}" width="400" height="400"></canvas>
+        <canvas id="pieChart{{module.pieId}}{{gE.id}}" width="400" height="400"></canvas>
     </div>
 </div>

@@ -15,7 +15,6 @@ declare var $: any;
 })
 
 export class TagModule {
-    i:number = 4;
     bgColors:Array<string> = ['#4c7ba0','#ffffff','#ee4039','#f07171','#124666','#737373','#f8b13d','#00b5c8','#E3E5E6','#b05574'];
     customTagBgColor = '#E3E5E6';
     gridElements:Array<number>;
@@ -30,9 +29,19 @@ export class TagModule {
         gE.modules.splice(gE.modules.indexOf(module), 1);
     }
 
-    addTag(module) {
-        module.tags.push(new tagModuleTag(this.i,'<p>New Tag</p>','#e3e5e6'));
-        this.i += 1;
+    addTag(gE,module) {
+        var i,j;
+        var maxId = 0;
+        for(i=0;i<gE.modules.length;i++) {
+            if(gE.modules[i].id == 5) {
+                for(j=0;j<gE.modules[i].tags.length;j++) {
+                    if(gE.modules[i].tags[j].id > maxId) {
+                        maxId = gE.modules[i].tags[j].id;
+                    }
+                }
+            }
+        }
+        module.tags.push(new tagModuleTag(maxId+1,'<p>New Tag</p>','#e3e5e6'));
     }
 
     deleteTag(module,tag) {

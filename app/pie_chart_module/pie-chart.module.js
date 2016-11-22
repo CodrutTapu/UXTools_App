@@ -46,9 +46,9 @@ var PieChartModule = (function () {
     };
     PieChartModule.prototype.createNewPieChart = function (gE, module) {
         var pcModule = $('.pie-chart-module');
-        $('#pieChart' + gE.id).remove();
-        $('.pie-chart-content' + gE.id).append("<canvas id='pieChart" + gE.id + "' width='400' height='400'></canvas>");
-        var ctx = document.getElementById("pieChart" + gE.id);
+        $('#pieChart' + module.pieId + gE.id).remove();
+        $('.pie-chart-content' + module.pieId + gE.id).append("<canvas id='pieChart" + module.pieId + gE.id + "' width='400' height='400'></canvas>");
+        var ctx = document.getElementById("pieChart" + module.pieId + gE.id);
         var pieChart = new Chart(ctx, {
             type: 'pie',
             data: {
@@ -88,7 +88,7 @@ var PieChartModule = (function () {
         pcModule.find('.create-pie-chart-box').stop().hide(200);
     };
     PieChartModule.prototype.ngAfterViewInit = function () {
-        var ctx = document.getElementById("pieChart" + this.gE.id);
+        var ctx = document.getElementById("pieChart" + this.module.pieId + this.gE.id);
         var pieChart = new Chart(ctx, {
             type: 'pie',
             data: {

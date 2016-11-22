@@ -1,7 +1,7 @@
 <div class="tag-module white-brd clearfix hover-brd" [style.background]="module.bgColor"><!-- Tag Module -->
     <div class="module-buttons">
         <ul class="no-pad">
-            <li class="add" (click)="addTag(module)" title="Add Tag"><i class="fa fa-plus fa-lg" aria-hidden="true"></i></li>
+            <li class="add" (click)="addTag(gE,module)" title="Add Tag"><i class="fa fa-plus fa-lg" aria-hidden="true"></i></li>
             <li class="delete" (click)="deleteTagModule(gE,module)" title="Delete Module"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></li>
             <bgColor-module [module]="module"></bgColor-module>
             <li (click)="cloneModule(gE,module)" title="Clone Module"><i class="fa fa-clone" aria-hidden="true"></i></li>

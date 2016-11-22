@@ -17,9 +17,9 @@ var newPersonaComponent = (function () {
     function newPersonaComponent(_httpService, route) {
         this._httpService = _httpService;
         this.getData = [];
-        this.gridElements = [new gridElem_1.gridElem(4, 1, [new textModule_1.textModule(1, 'text-module', '<h1>Text Field 1</h1><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pharetra felis in sem porta feugiat.</p>', '#F8F8F8'), new textModule_1.textModule(1, 'text-module', '<h1>Text Field 4</h1><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pharetra felis in sem porta feugiat.</p>', '#F8F8F8')], '#4c7ba0'),
-            new gridElem_1.gridElem(4, 2, [new textModule_1.textModule(1, 'text-module', '<h1>Text Field 2</h1><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pharetra felis in sem porta feugiat.</p>', '#F8F8F8'), new textModule_1.textModule(1, 'text-module', '<h1>Text Field 5</h1><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pharetra felis in sem porta feugiat.</p>', '#F8F8F8')], '#4c7ba0'),
-            new gridElem_1.gridElem(4, 3, [new textModule_1.textModule(1, 'text-module', '<h1>Text Field 3</h1><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pharetra felis in sem porta feugiat.</p>', '#F8F8F8'), new textModule_1.textModule(1, 'text-module', '<h1>Text Field 6</h1><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pharetra felis in sem porta feugiat.</p>', '#F8F8F8')], '#4c7ba0')];
+        this.gridElements = [new gridElem_1.gridElem(4, 1, [new textModule_1.textModule(1, 'text-module', '<h1>Text Field 1</h1><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pharetra felis in sem porta feugiat.</p>', '#F8F8F8')], '#4c7ba0'),
+            new gridElem_1.gridElem(4, 2, [new textModule_1.textModule(1, 'text-module', '<h1>Text Field 2</h1><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pharetra felis in sem porta feugiat.</p>', '#F8F8F8')], '#4c7ba0'),
+            new gridElem_1.gridElem(4, 3, [new textModule_1.textModule(1, 'text-module', '<h1>Text Field 3</h1><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pharetra felis in sem porta feugiat.</p>', '#F8F8F8')], '#4c7ba0')];
         this.id = 3;
         this.author_id = route.snapshot.params['author_id'];
     }

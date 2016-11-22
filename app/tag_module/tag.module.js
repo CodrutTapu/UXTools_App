@@ -14,7 +14,6 @@ var cloneModule_service_1 = require("../cloneModule_service/cloneModule.service"
 var TagModule = (function () {
     function TagModule(_cloneModuleService) {
         this._cloneModuleService = _cloneModuleService;
-        this.i = 4;
         this.bgColors = ['#4c7ba0', '#ffffff', '#ee4039', '#f07171', '#124666', '#737373', '#f8b13d', '#00b5c8', '#E3E5E6', '#b05574'];
         this.customTagBgColor = '#E3E5E6';
     }
@@ -24,9 +23,19 @@ var TagModule = (function () {
     TagModule.prototype.deleteTagModule = function (gE, module) {
         gE.modules.splice(gE.modules.indexOf(module), 1);
     };
-    TagModule.prototype.addTag = function (module) {
-        module.tags.push(new tagModuleTag_1.tagModuleTag(this.i, '<p>New Tag</p>', '#e3e5e6'));
-        this.i += 1;
+    TagModule.prototype.addTag = function (gE, module) {
+        var i, j;
+        var maxId = 0;
+        for (i = 0; i < gE.modules.length; i++) {
+            if (gE.modules[i].id == 5) {
+                for (j = 0; j < gE.modules[i].tags.length; j++) {
+                    if (gE.modules[i].tags[j].id > maxId) {
+                        maxId = gE.modules[i].tags[j].id;
+                    }
+                }
+            }
+        }
+        module.tags.push(new tagModuleTag_1.tagModuleTag(maxId + 1, '<p>New Tag</p>', '#e3e5e6'));
     };
     TagModule.prototype.deleteTag = function (module, tag) {
         module.tags.splice(module.tags.indexOf(tag), 1);
