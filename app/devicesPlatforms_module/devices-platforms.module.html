@@ -1,7 +1,7 @@
 <div class="devices-platforms-module white-brd hover-brd" [style.background]="module.bgColor"><!-- Devices & Platforms Module -->
     <div class="module-buttons">
         <ul class="no-pad">
-            <li class="add" data-toggle="modal" [attr.data-target]="'#addDevicePlatform' + gE.id" title="Add Item"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></li>
+            <li class="add" data-toggle="modal" [attr.data-target]="'#addDevicePlatform' + gE.id + module.moduleId" title="Add Item"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></li>
             <li class="delete" (click)="deleteDevicesPlatformsModule(gE,module)" title="Delete Module"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></li>
             <bgColor-module [module]="module"></bgColor-module>
             <li (click)="cloneModule(gE,module)" title="Clone Module"><i class="fa fa-clone" aria-hidden="true"></i></li>
@@ -18,7 +18,7 @@
     </div>
 </div>
 
-<div class="devices-platforms-modal modal fade" id="addDevicePlatform{{gE.id}}" tabindex="-1" role="dialog">
+<div class="devices-platforms-modal modal fade" id="addDevicePlatform{{gE.id}}{{module.moduleId}}" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">

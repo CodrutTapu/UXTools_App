@@ -27,16 +27,27 @@ export class TabsModule {
         gE.modules.splice(gE.modules.indexOf(module), 1);
     }
 
-    addTabsItem(module) {
-        var length = module.items.length;
-        var lastItemId = module.items[length - 1].id;
-        var lastId = 0;
-        if(lastItemId.length == 5) {
-            lastId = parseInt(lastItemId[4]) + 1;
-        } else if(lastItemId.length == 6){
-            lastId = parseInt(lastItemId[4] + lastItemId[5]) + 1;
+    addTabsItem(gE,module) {
+        var i,j;
+        var maxId = 0;
+        var new_items = [];
+        for(i=0;i<gE.modules.length;i++) {
+            if(gE.modules[i].id == 10) {
+                for(j=0;j<gE.modules[i].items.length;j++) {
+                    if(gE.modules[i].items[j].id.length == 5) {
+                        if(parseInt(gE.modules[i].items[j].id[4]) > maxId) {
+                            maxId = parseInt(gE.modules[i].items[j].id[4]);
+                        }
+                    } else if(gE.modules[i].items[j].id.length  == 6){
+                        if(parseInt(gE.modules[i].items[j].id[4] + gE.modules[i].items[j].id[5]) > maxId) {
+                            maxId = parseInt(gE.modules[i].items[j].id[4] + gE.modules[i].items[j].id[5]);
+                        }
+                    }
+                }
+            }
         }
-        module.items.push(new tabsItem('item' + lastId,'New Tab','<p>Nulla condimentum finibus massa, sit amet viverra purus luctus ac. Fusce ut erat sapien new.</p>'));
+        maxId++;
+        module.items.push(new tabsItem('item' + maxId,'New Tab','<p>Nulla condimentum finibus massa, sit amet viverra purus luctus ac. Fusce ut erat sapien new.</p>'));
     }
 
     deleteTabsItem(module,item) {

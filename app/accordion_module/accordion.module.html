@@ -1,7 +1,7 @@
 <div class="accordion-module white-brd hover-brd" [style.background]="module.bgColor"><!-- Accordion Module -->
     <div class="module-buttons">
         <ul class="no-pad">
-            <li class="add" (click)="addAccordionItem(module)" title="Add Item"><i class="fa fa-plus fa-lg" aria-hidden="true"></i></li>
+            <li class="add" (click)="addAccordionItem(gE,module)" title="Add Item"><i class="fa fa-plus fa-lg" aria-hidden="true"></i></li>
             <li class="delete" (click)="deleteAccordionModule(gE,module)" title="Delete Module"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></li>
             <bgColor-module [module]="module"></bgColor-module>
             <li (click)="cloneModule(gE,module)" title="Clone Module"><i class="fa fa-clone" aria-hidden="true"></i></li>

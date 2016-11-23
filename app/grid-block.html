@@ -114,7 +114,7 @@
                 <div dnd-sortable-container [dropZones]="['modules-zone']" [sortableData]="gE.modules">
                     <div *ngFor="let module of gE.modules; let j = index" dnd-sortable [sortableIndex]="j">
                         <div [ngSwitch]="module.id">
-                                <text-module *ngSwitchCase="1" [gE]="gE" [gridElements]="gridElements" [module]="module"></text-module>
+                                <text-module *ngSwitchCase="1" [gE]="gE" [gridElements]="gridElements" [module]="module" [openedTextEditors]="openedTextEditors"></text-module>
                                 <image-module *ngSwitchCase="2" [gE]="gE" [gridElements]="gridElements" [module]="module"></image-module>
                                 <bar-graph-module *ngSwitchCase="3" [gE]="gE" [gridElements]="gridElements" [module]="module"></bar-graph-module>
                                 <social-media-module *ngSwitchCase="4" [gE]="gE" [gridElements]="gridElements" [module]="module"></social-media-module>

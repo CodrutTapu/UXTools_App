@@ -33,16 +33,26 @@ export class AccordionModule {
         gE.modules.splice(gE.modules.indexOf(module), 1);
     }
 
-    addAccordionItem(module) {
-        var length = module.items.length;
-        var lastItemId = module.items[length - 1].id;
-        var lastId = 0;
-        if(lastItemId.length == 5) {
-            lastId = parseInt(lastItemId[4]) + 1;
-        } else if(lastItemId.length == 6){
-            lastId = parseInt(lastItemId[4] + lastItemId[5]) + 1;
+    addAccordionItem(gE,module) {
+        var i,j;
+        var maxId = 0;
+        for(i=0;i<gE.modules.length;i++) {
+            if(gE.modules[i].id == 9) {
+                for(j=0;j<gE.modules[i].items.length;j++) {
+                    if(gE.modules[i].items[j].id.length == 5) {
+                        if(parseInt(gE.modules[i].items[j].id[4]) > maxId) {
+                            maxId = parseInt(gE.modules[i].items[j].id[4]);
+                        }
+                    } else if(gE.modules[i].items[j].id.length  == 6){
+                        if(parseInt(gE.modules[i].items[j].id[4] + gE.modules[i].items[j].id[5]) > maxId) {
+                            maxId = parseInt(gE.modules[i].items[j].id[4] + gE.modules[i].items[j].id[5]);
+                        }
+                    }
+                }
+            }
         }
-        module.items.push(new accordionItem('item' + lastId,'New Item Title','<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>'));
+        maxId++;
+        module.items.push(new accordionItem('item' + maxId,'New Item Title','<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>'));
     }
 
     deleteAccordionItem(module,item) {

@@ -32,6 +32,8 @@ var aboutItem_1 = require("./about_module/aboutItem");
 var countingModule_1 = require("./counting_module/countingModule");
 var GridBlock = (function () {
     function GridBlock() {
+        this.gridElements = [];
+        this.openedTextEditors = [];
     }
     GridBlock.prototype.minGridElem = function (gE) {
         if (gE.dim == 2) {
@@ -135,7 +137,28 @@ var GridBlock = (function () {
         $('.add-module-modal').modal('hide');
     };
     GridBlock.prototype.addTabsModule = function (gE) {
-        gE.modules.push(new tabsModule_1.tabsModule(10, 'tabs-module', [new tabsItem_1.tabsItem('item1', 'Tab 1', '<p>Nulla condimentum finibus massa, sit amet viverra purus luctus ac. Fusce ut erat sapien 1.</p>'), new tabsItem_1.tabsItem('item2', 'Tab 2', '<p>Nulla condimentum finibus massa, sit amet viverra purus luctus ac. Fusce ut erat sapien 2.</p>'), new tabsItem_1.tabsItem('item3', 'Tab 3', '<p>Nulla condimentum finibus massa, sit amet viverra purus luctus ac. Fusce ut erat sapien 3.</p>')], '#F8F8F8'));
+        var i, j;
+        var maxId = 0;
+        for (i = 0; i < gE.modules.length; i++) {
+            if (gE.modules[i].id == 10) {
+                for (j = 0; j < gE.modules[i].items.length; j++) {
+                    if (gE.modules[i].items[j].id.length == 5) {
+                        if (parseInt(gE.modules[i].items[j].id[4]) > maxId) {
+                            maxId = parseInt(gE.modules[i].items[j].id[4]);
+                        }
+                    }
+                    else if (gE.modules[i].items[j].id.length == 6) {
+                        if (parseInt(gE.modules[i].items[j].id[4] + gE.modules[i].items[j].id[5]) > maxId) {
+                            maxId = parseInt(gE.modules[i].items[j].id[4] + gE.modules[i].items[j].id[5]);
+                        }
+                    }
+                }
+            }
+        }
+        var maxId1 = maxId + 1;
+        var maxId2 = maxId + 2;
+        var maxId3 = maxId + 3;
+        gE.modules.push(new tabsModule_1.tabsModule(10, 'tabs-module', [new tabsItem_1.tabsItem('item' + maxId1, 'Tab 1', '<p>Nulla condimentum finibus massa, sit amet viverra purus luctus ac. Fusce ut erat sapien 1.</p>'), new tabsItem_1.tabsItem('item' + maxId2, 'Tab 2', '<p>Nulla condimentum finibus massa, sit amet viverra purus luctus ac. Fusce ut erat sapien 2.</p>'), new tabsItem_1.tabsItem('item' + maxId3, 'Tab 3', '<p>Nulla condimentum finibus massa, sit amet viverra purus luctus ac. Fusce ut erat sapien 3.</p>')], '#F8F8F8'));
         $('.add-module-modal').modal('hide');
     };
     GridBlock.prototype.addEmbedModule = function (gE) {
@@ -143,7 +166,16 @@ var GridBlock = (function () {
         $('.add-module-modal').modal('hide');
     };
     GridBlock.prototype.addDevicesPlatformsModule = function (gE) {
-        gE.modules.push(new devicesPlatformsModule_1.devicesPlatformsModule(12, 'devices-platforms-module', [new devicePlatform_1.devicePlatform('<i class="fa fa-mobile" aria-hidden="true"></i>', true, 'Mobile'),
+        var i;
+        var maxId = 0;
+        for (i = 0; i < gE.modules.length; i++) {
+            if (gE.modules[i].id == 12) {
+                if (gE.modules[i].moduleId > maxId) {
+                    maxId = gE.modules[i].moduleId;
+                }
+            }
+        }
+        gE.modules.push(new devicesPlatformsModule_1.devicesPlatformsModule(12, maxId + 1, 'devices-platforms-module', [new devicePlatform_1.devicePlatform('<i class="fa fa-mobile" aria-hidden="true"></i>', true, 'Mobile'),
             new devicePlatform_1.devicePlatform('<i class="fa fa-tablet" aria-hidden="true"></i>', true, 'Tablet'),
             new devicePlatform_1.devicePlatform('<i class="fa fa-laptop" aria-hidden="true"></i>', true, 'Laptop'),
             new devicePlatform_1.devicePlatform('<i class="fa fa-desktop" aria-hidden="true"></i>', false, 'Desktop'),

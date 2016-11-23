@@ -20,8 +20,9 @@ var TextModule = (function () {
     TextModule.prototype.deleteTextModule = function (gE, module) {
         gE.modules.splice(gE.modules.indexOf(module), 1);
     };
-    TextModule.prototype.updateTextModule = function (module) {
+    TextModule.prototype.updateTextModule = function (openedTextEditors, module) {
         $(document).off('click', '.editable-text-content').on('click', '.editable-text-content', function () {
+            openedTextEditors.push('editable-text-content');
             $(this).summernote({
                 toolbar: [
                     ['all', ['style', 'fontname', 'fontsize', 'color', 'bold', 'italic', 'underline', 'strikethrough', 'clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
@@ -43,7 +44,7 @@ TextModule = __decorate([
         selector: 'text-module',
         templateUrl: 'app/text_module/text.module.html',
         styleUrls: ['app/text_module/text.module.css'],
-        inputs: ['gE', 'gridElements', 'module'],
+        inputs: ['gE', 'gridElements', 'module', 'openedTextEditors'],
         providers: [cloneModule_service_1.cloneModuleService]
     }),
     __metadata("design:paramtypes", [cloneModule_service_1.cloneModuleService])

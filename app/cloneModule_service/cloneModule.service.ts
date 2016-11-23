@@ -14,6 +14,7 @@ import { pieChartModule } from '../pie_chart_module/pieChartModule';
 import { accordionModule } from '../accordion_module/accordionModule';
 import { accordionItem } from '../accordion_module/accordionItem';
 import { tabsModule } from '../tabs_module/tabsModule';
+import { tabsItem } from '../tabs_module/tabsItem';
 import { embedModule } from '../embed_module/embedModule';
 import { devicesPlatformsModule } from '../devicesPlatforms_module/devicesPlatformsModule';
 import { devicePlatform } from '../devicesPlatforms_module/devicePlatform';
@@ -116,17 +117,48 @@ export class cloneModuleService {
                 gE.modules.push(new accordionModule(9,'accordion-module',module.title,new_items,module.bgColor));
                 break;
             case 10:
-                gE.modules.push(new tabsModule(10,'tabs-module',module.items,module.bgColor));
+                var i,j;
+                var maxId = 0;
+                var new_items = [];
+                for(i=0;i<gE.modules.length;i++) {
+                    if(gE.modules[i].id == 10) {
+                        for(j=0;j<gE.modules[i].items.length;j++) {
+                            if(gE.modules[i].items[j].id.length == 5) {
+                                if(parseInt(gE.modules[i].items[j].id[4]) > maxId) {
+                                    maxId = parseInt(gE.modules[i].items[j].id[4]);
+                                }
+                            } else if(gE.modules[i].items[j].id.length  == 6){
+                                if(parseInt(gE.modules[i].items[j].id[4] + gE.modules[i].items[j].id[5]) > maxId) {
+                                    maxId = parseInt(gE.modules[i].items[j].id[4] + gE.modules[i].items[j].id[5]);
+                                }
+                            }
+                        }
+                    }
+                }
+                for (i = 0; i < module.items.length; i++) {
+                    maxId = maxId + 1;
+                    new_items[i] = new tabsItem('item' + maxId,'Tab','<p>Nulla condimentum finibus massa, sit amet viverra purus luctus ac. Fusce ut erat sapien 1.</p>')
+                }
+                gE.modules.push(new tabsModule(10,'tabs-module',new_items,module.bgColor));
                 break;
             case 11:
                 gE.modules.push(new embedModule(11,'embed-module',module.title,module.content));
                 break;
             case 12:
                 var new_options = [];
+                var i;
+                var maxId = 0;
+                for(i=0;i<gE.modules.length;i++) {
+                    if(gE.modules[i].id == 12) {
+                        if(gE.modules[i].moduleId > maxId) {
+                            maxId = gE.modules[i].moduleId;
+                        }
+                    }
+                }
                 for (i = 0; i < module.options.length; i++) {
                     new_options[i] = new devicePlatform(module.options[i].content,module.options[i].status,module.options[i].name);
                 }
-                gE.modules.push(new devicesPlatformsModule(12,'devices-platforms-module',new_options,module.bgColor));
+                gE.modules.push(new devicesPlatformsModule(12,maxId+1,'devices-platforms-module',new_options,module.bgColor));
                 break;
             case 13:
                 var new_content = [];
