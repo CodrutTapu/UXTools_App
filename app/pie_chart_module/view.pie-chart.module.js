@@ -13,13 +13,13 @@ var ViewPieChartModule = (function () {
     function ViewPieChartModule() {
     }
     ViewPieChartModule.prototype.ngAfterViewInit = function () {
-        var ctx = document.getElementById("pieChart" + this.gE.id);
+        var ctx = document.getElementById("pieChart" + this.module.pieId + this.gE.id);
         var pieChart = new Chart(ctx, {
             type: 'pie',
             data: {
-                labels: this.gE.moduleType.labels,
+                labels: this.module.labels,
                 datasets: [{
-                        data: this.gE.moduleType.data,
+                        data: this.module.data,
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',

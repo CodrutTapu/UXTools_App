@@ -110,25 +110,23 @@
                     <li class="clear" (click)="clearGridElement(gE)"><i class="fa fa-eraser" aria-hidden="true" title="Clear Grid Element"></i></li>
                 </ul>
             </div>
-            <div class="grid-block-content">
-                <div dnd-sortable-container [dropZones]="['modules-zone']" [sortableData]="gE.modules">
-                    <div *ngFor="let module of gE.modules; let j = index" dnd-sortable [sortableIndex]="j">
-                        <div [ngSwitch]="module.id">
-                                <text-module *ngSwitchCase="1" [gE]="gE" [gridElements]="gridElements" [module]="module" [openedTextEditors]="openedTextEditors"></text-module>
-                                <image-module *ngSwitchCase="2" [gE]="gE" [gridElements]="gridElements" [module]="module"></image-module>
-                                <bar-graph-module *ngSwitchCase="3" [gE]="gE" [gridElements]="gridElements" [module]="module"></bar-graph-module>
-                                <social-media-module *ngSwitchCase="4" [gE]="gE" [gridElements]="gridElements" [module]="module"></social-media-module>
-                                <tag-module *ngSwitchCase="5" [gE]="gE" [gridElements]="gridElements" [module]="module"></tag-module>
-                                <email-module *ngSwitchCase="6" [gE]="gE" [gridElements]="gridElements" [module]="module"></email-module>
-                                <scale-chart-module *ngSwitchCase="7" [gE]="gE" [gridElements]="gridElements" [module]="module"></scale-chart-module>
-                                <pie-chart-module *ngSwitchCase="8" [gE]="gE" [gridElements]="gridElements" [module]="module"></pie-chart-module>
-                                <accordion-module *ngSwitchCase="9" [gE]="gE" [gridElements]="gridElements" [module]="module"></accordion-module>
-                                <tabs-module *ngSwitchCase="10" [gE]="gE" [gridElements]="gridElements" [module]="module"></tabs-module>
-                                <embed-module *ngSwitchCase="11" [gE]="gE" [gridElements]="gridElements" [module]="module"></embed-module>
-                                <devices-platforms-module *ngSwitchCase="12" [gE]="gE" [gridElements]="gridElements" [module]="module"></devices-platforms-module>
-                                <about-module *ngSwitchCase="13" [gE]="gE" [gridElements]="gridElements" [module]="module"></about-module>
-                                <counting-module *ngSwitchCase="14" [gE]="gE" [gridElements]="gridElements" [module]="module"></counting-module>
-                        </div>
+            <div [sortablejs]="gE.modules" [sortablejsOptions]="gE_modules_options" class="grid-block-content">
+                <div *ngFor="let module of gE.modules; let j = index">
+                    <div [ngSwitch]="module.id">
+                            <text-module class="module" *ngSwitchCase="1" [gE]="gE" [gridElements]="gridElements" [module]="module"></text-module>
+                            <image-module *ngSwitchCase="2" [gE]="gE" [gridElements]="gridElements" [module]="module"></image-module>
+                            <bar-graph-module *ngSwitchCase="3" [gE]="gE" [gridElements]="gridElements" [module]="module"></bar-graph-module>
+                            <social-media-module *ngSwitchCase="4" [gE]="gE" [gridElements]="gridElements" [module]="module"></social-media-module>
+                            <tag-module *ngSwitchCase="5" [gE]="gE" [gridElements]="gridElements" [module]="module"></tag-module>
+                            <email-module *ngSwitchCase="6" [gE]="gE" [gridElements]="gridElements" [module]="module"></email-module>
+                            <scale-chart-module *ngSwitchCase="7" [gE]="gE" [gridElements]="gridElements" [module]="module"></scale-chart-module>
+                            <pie-chart-module *ngSwitchCase="8" [gE]="gE" [gridElements]="gridElements" [module]="module"></pie-chart-module>
+                            <accordion-module *ngSwitchCase="9" [gE]="gE" [gridElements]="gridElements" [module]="module"></accordion-module>
+                            <tabs-module *ngSwitchCase="10" [gE]="gE" [gridElements]="gridElements" [module]="module"></tabs-module>
+                            <embed-module *ngSwitchCase="11" [gE]="gE" [gridElements]="gridElements" [module]="module"></embed-module>
+                            <devices-platforms-module *ngSwitchCase="12" [gE]="gE" [gridElements]="gridElements" [module]="module"></devices-platforms-module>
+                            <about-module *ngSwitchCase="13" [gE]="gE" [gridElements]="gridElements" [module]="module"></about-module>
+                            <counting-module *ngSwitchCase="14" [gE]="gE" [gridElements]="gridElements" [module]="module"></counting-module>
                     </div>
                 </div>
             </div>

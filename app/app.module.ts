@@ -5,6 +5,7 @@ import { routing, appRoutingProviders }  from './app.routing';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { FormsModule }   from '@angular/forms';
 import { DndModule } from 'ng2-dnd';
+import { SortablejsModule } from 'angular-sortablejs';
 import { SignInComponent } from './signin.component';
 import { SignUpComponent } from './signup.component';
 import { HomeComponent } from './home.component';
@@ -52,7 +53,8 @@ import { test } from './test';
         routing,
         HttpModule,
         JsonpModule,
-        FormsModule
+        FormsModule,
+        SortablejsModule
     ],
     declarations: [
         AppComponent,
@@ -99,7 +101,7 @@ import { test } from './test';
     providers: [
         appRoutingProviders
     ],
-    bootstrap: [ AppComponent]
+    bootstrap: [ AppComponent ]
 })
 
 export class AppModule { }

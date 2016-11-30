@@ -25,6 +25,8 @@
       'rxjs':                       'npm:rxjs',
       'angular2-in-memory-web-api': 'npm:angular2-in-memory-web-api',
       'ng2-dnd': 'node_modules/ng2-dnd',
+      'angular-sortablejs': 'node_modules/angular-sortablejs',
+      'sortablejs': 'node_modules/sortablejs/Sortable.js',
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -40,6 +42,7 @@
         defaultExtension: 'js'
     },
     'ng2-dnd':  { main: 'index.js',  defaultExtension: 'js' },
+    'angular-sortablejs': { main: 'index.js', defaultExtension: 'js' },
     }
   });
 })(this);

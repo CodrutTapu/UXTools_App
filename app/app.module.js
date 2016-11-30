@@ -15,6 +15,7 @@ var app_routing_1 = require("./app.routing");
 var http_1 = require("@angular/http");
 var forms_1 = require("@angular/forms");
 var ng2_dnd_1 = require("ng2-dnd");
+var angular_sortablejs_1 = require("angular-sortablejs");
 var signin_component_1 = require("./signin.component");
 var signup_component_1 = require("./signup.component");
 var home_component_1 = require("./home.component");
@@ -67,7 +68,8 @@ AppModule = __decorate([
             app_routing_1.routing,
             http_1.HttpModule,
             http_1.JsonpModule,
-            forms_1.FormsModule
+            forms_1.FormsModule,
+            angular_sortablejs_1.SortablejsModule
         ],
         declarations: [
             app_component_1.AppComponent,

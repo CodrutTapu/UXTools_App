@@ -33,7 +33,11 @@ var countingModule_1 = require("./counting_module/countingModule");
 var GridBlock = (function () {
     function GridBlock() {
         this.gridElements = [];
-        this.openedTextEditors = [];
+        this.gE_modules_options = {
+            group: 'gE_modules',
+            handle: '.move',
+            animation: 150
+        };
     }
     GridBlock.prototype.minGridElem = function (gE) {
         if (gE.dim == 2) {
@@ -287,7 +291,7 @@ GridBlock = __decorate([
         selector: 'grid-block',
         templateUrl: 'app/grid-block.html',
         styleUrls: ['app/grid-block.css'],
-        inputs: ['gridElements', 'currentUser'],
+        inputs: ['gridElements', 'currentUser']
     }),
     __metadata("design:paramtypes", [])
 ], GridBlock);

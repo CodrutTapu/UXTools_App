@@ -10,14 +10,15 @@ declare var toastr:any;
     selector: 'text-module',
     templateUrl: 'app/text_module/text.module.html',
     styleUrls:  ['app/text_module/text.module.css'],
-    inputs: ['gE','gridElements','module','openedTextEditors'],
+    inputs: ['gE','gridElements','module'],
     providers: [cloneModuleService]
 })
 
 export class TextModule {
-    gridElements:Array<number>;
+    test:any;
 
     constructor(private _cloneModuleService: cloneModuleService) {}
+
 
     cloneModule(gE,module) {
         this._cloneModuleService.cloneModule(gE,module);
@@ -29,7 +30,6 @@ export class TextModule {
 
     updateTextModule(openedTextEditors,module) {
         $(document).off('click','.editable-text-content').on('click','.editable-text-content',function(){
-            openedTextEditors.push('editable-text-content');
             $(this).summernote({
                 toolbar: [
                     ['all', ['style','fontname', 'fontsize', 'color', 'bold', 'italic', 'underline', 'strikethrough','clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]

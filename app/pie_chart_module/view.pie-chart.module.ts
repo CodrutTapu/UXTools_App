@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import {AppComponent} from '../app.component';
-import {GridBlock} from '../gridBlock.component';
-import {bgColorModule} from '../bgColor_component/bgColor.module';
+import { AppComponent } from '../app.component';
+import { GridBlock } from '../gridBlock.component';
+import { bgColorModule } from '../bgColor_component/bgColor.module';
 declare var $: any;
 declare var Chart:any;
 
@@ -14,14 +14,15 @@ declare var Chart:any;
 
 export class ViewPieChartModule {
     gE;
+    module;
     ngAfterViewInit() {
-        var ctx = document.getElementById("pieChart" + this.gE.id);
+        var ctx = document.getElementById("pieChart" + this.module.pieId + this.gE.id);
         var pieChart = new Chart(ctx, {
             type: 'pie',
             data: {
-                labels: this.gE.moduleType.labels,
+                labels: this.module.labels,
                 datasets: [{
-                    data: this.gE.moduleType.data,
+                    data: this.module.data,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',

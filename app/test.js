@@ -15,6 +15,12 @@ var test = (function () {
         this.listTeamTwo = ['Scale Chart Module', 'About Module'];
         this.listTeamThree = ['Counting Module', 'Something Else', 'Else'];
         this.gridElements = [this.listTeamOne, this.listTeamTwo, this.listTeamThree];
+        this.options = {
+            group: 'test'
+        };
+        this.options1 = {
+            group: 'test1'
+        };
     }
     return test;
 }());

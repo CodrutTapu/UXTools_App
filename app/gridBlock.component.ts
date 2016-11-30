@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { SortablejsOptions } from 'angular-sortablejs';
 import { TextModule } from './text_module/text.module';
 import { textModule } from './text_module/textModule';
 import { ViewTextModule } from './text_module/view.text.module'
@@ -55,12 +56,17 @@ declare var $: any;
     selector: 'grid-block',
     templateUrl: 'app/grid-block.html',
     styleUrls: ['app/grid-block.css'],
-    inputs: ['gridElements','currentUser'],
+    inputs: ['gridElements','currentUser']
 })
 
 export class GridBlock {
     gridElements:Array<number> = [];
-    openedTextEditors:Array<string> = [];
+
+    gE_modules_options: SortablejsOptions = {
+        group: 'gE_modules',
+        handle: '.move',
+        animation: 150
+    };
 
     minGridElem(gE) {
         if(gE.dim == 2){

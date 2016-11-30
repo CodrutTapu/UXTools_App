@@ -51,9 +51,9 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 .module-buttons ul {
     list-style-type: none;
     margin-left: -12px;
-    display: none;
     width: 160px;
     text-align: left;
+    display: none;
 }
 .module-buttons ul li {
     display: inline;
@@ -308,3 +308,5 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     cursor: pointer;
     background: #f5f5f5;
 }
+
+​
