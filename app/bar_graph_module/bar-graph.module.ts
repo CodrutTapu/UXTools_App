@@ -42,9 +42,12 @@ export class BarGraphModule {
    updateBarGraphTitle(module) {
        $(document).off('click','.editable-barGrpah-title').on('click','.editable-barGrpah-title',function(){
            $(this).summernote({
-               toolbar: [
-                   ['all', ['style','fontname', 'fontsize', 'color', 'bold', 'italic', 'underline', 'strikethrough','clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
-               ],
+               airMode: true,
+               popover: {
+                   air: [
+                       ['all', ['style','fontname', 'fontsize', 'color', 'bold', 'italic', 'underline', 'strikethrough','clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
+                   ]
+               },
                disableDragAndDrop: true,
                callbacks: {
                    onChange: function(contents, $editable) {
@@ -59,9 +62,12 @@ export class BarGraphModule {
    updateBarLabel(bar,module) {
        $(document).off('click','.editable-bar-label').on('click','.editable-bar-label',function(){
            $(this).summernote({
-               toolbar: [
-                   ['all', ['style','fontname', 'fontsize', 'color', 'bold', 'italic', 'underline', 'strikethrough','clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
-               ],
+               airMode: true,
+               popover: {
+                   air: [
+                       ['all', ['style','fontname', 'fontsize', 'color', 'bold', 'italic', 'underline', 'strikethrough','clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
+                   ]
+               },
                disableDragAndDrop: true,
                callbacks: {
                    onChange: function(contents, $editable) {

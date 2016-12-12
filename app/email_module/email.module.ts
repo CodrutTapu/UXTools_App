@@ -34,9 +34,12 @@ export class EmailModule {
     updateEmailContent(module) {
         $(document).off('click','.editable-email-content').on('click','.editable-email-content',function(){
             $(this).summernote({
-                toolbar: [
-                    ['all', ['style','fontname', 'fontsize', 'color', 'bold', 'italic', 'underline', 'strikethrough','clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
-                ],
+                airMode: true,
+                popover: {
+                    air: [
+                        ['all', ['style','fontname', 'fontsize', 'color', 'bold', 'italic', 'underline', 'strikethrough','clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
+                    ]
+                },
                 disableDragAndDrop: true,
                 callbacks: {
                     onChange: function(contents, $editable) {

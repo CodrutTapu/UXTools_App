@@ -4,8 +4,8 @@
             <colorScheme-module [gridElements]="gridElements"></colorScheme-module>
         </ul>
     </div>
-    <div class="row sortable" dnd-sortable-container [sortableData]="gridElements" (click)="closeTextEditor($event)">
-        <div *ngFor="let gE of gridElements; let i = index" class="grid-block col-md-{{gE.dim}}" id="{{gE.id}}" (click)="closeTextEditor($event,gE)">
+    <div class="row sortable" dnd-sortable-container [sortableData]="gridElements">
+        <div *ngFor="let gE of gridElements; let i = index" class="grid-block col-md-{{gE.dim}}" id="{{gE.id}}">
             <div class="grid-block-control" dnd-sortable [sortableIndex]="i">
                 <ul>
                     <li class="minus" (click)="minGridElem(gE)" title="Plus"><span class="glyphicon glyphicon-chevron-left"></span></li>

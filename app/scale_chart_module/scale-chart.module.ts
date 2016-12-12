@@ -42,9 +42,12 @@ export class ScaleChartModule {
     updateScaleTitle(module) {
         $(document).off('click','.editable-scale-title').on('click','.editable-scale-title',function(){
             $(this).summernote({
-                toolbar: [
-                    ['all', ['style','fontname', 'fontsize', 'color', 'bold', 'italic', 'underline', 'strikethrough','clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
-                ],
+                airMode: true,
+                popover: {
+                    air: [
+                        ['all', ['style','fontname', 'fontsize', 'color', 'bold', 'italic', 'underline', 'strikethrough','clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
+                    ]
+                },
                 disableDragAndDrop: true,
                 callbacks: {
                     onChange: function(contents, $editable) {
@@ -59,9 +62,12 @@ export class ScaleChartModule {
     updateScaleSideA(scale,module) {
         $(document).off('click','.editable-sideA').on('click','.editable-sideA',function(){
             $(this).summernote({
-                toolbar: [
-                    ['all', ['style','fontname', 'fontsize', 'color', 'bold', 'italic', 'underline', 'strikethrough','clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
-                ],
+                airMode: true,
+                popover: {
+                    air: [
+                        ['all', ['style','fontname', 'fontsize', 'color', 'bold', 'italic', 'underline', 'strikethrough','clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
+                    ]
+                },
                 disableDragAndDrop: true,
                 callbacks: {
                     onChange: function(contents, $editable) {
@@ -76,9 +82,12 @@ export class ScaleChartModule {
     updateScaleSideB(scale,module) {
         $(document).off('click','.editable-sideB').on('click','.editable-sideB',function(){
             $(this).summernote({
-                toolbar: [
-                    ['all', ['style','fontname', 'fontsize', 'color', 'bold', 'italic', 'underline', 'strikethrough','clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
-                ],
+                airMode: true,
+                popover: {
+                    air: [
+                        ['all', ['style','fontname', 'fontsize', 'color', 'bold', 'italic', 'underline', 'strikethrough','clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
+                    ]
+                },
                 disableDragAndDrop: true,
                 callbacks: {
                     onChange: function(contents, $editable) {

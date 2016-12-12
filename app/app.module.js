@@ -54,7 +54,6 @@ var counting_module_1 = require("./counting_module/counting.module");
 var view_counting_module_1 = require("./counting_module/view.counting.module");
 var colorScheme_module_1 = require("./colorScheme_component/colorScheme.module");
 var bgColor_module_1 = require("./bgColor_component/bgColor.module");
-var test_1 = require("./test");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -75,7 +74,6 @@ AppModule = __decorate([
             app_component_1.AppComponent,
             signin_component_1.SignInComponent,
             signup_component_1.SignUpComponent,
-            test_1.test,
             home_component_1.HomeComponent,
             dashboard_component_1.DashboardComponent,
             persona_component_1.PersonaComponent,

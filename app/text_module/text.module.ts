@@ -15,10 +15,8 @@ declare var toastr:any;
 })
 
 export class TextModule {
-    test:any;
 
     constructor(private _cloneModuleService: cloneModuleService) {}
-
 
     cloneModule(gE,module) {
         this._cloneModuleService.cloneModule(gE,module);
@@ -31,18 +29,20 @@ export class TextModule {
     updateTextModule(openedTextEditors,module) {
         $(document).off('click','.editable-text-content').on('click','.editable-text-content',function(){
             $(this).summernote({
-                toolbar: [
-                    ['all', ['style','fontname', 'fontsize', 'color', 'bold', 'italic', 'underline', 'strikethrough','clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
-                ],
+                airMode: true,
+                popover: {
+                    air: [
+                        ['all', ['style','fontname', 'fontsize', 'color', 'bold', 'italic', 'underline', 'strikethrough','clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
+                    ]
+                },
                 disableDragAndDrop: true,
                 callbacks: {
                     onChange: function(contents, $editable) {
-                      module.content = contents;
+                       module.content = contents;
                     }
                 }
             });
             $(this).parent().find('.note-editable').css('background',module.bgColor);
         });
     }
-
 }

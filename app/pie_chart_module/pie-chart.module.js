@@ -128,9 +128,12 @@ var PieChartModule = (function () {
     PieChartModule.prototype.updatePieTitle = function (module) {
         $(document).off('click', '.editable-pie-title').on('click', '.editable-pie-title', function () {
             $(this).summernote({
-                toolbar: [
-                    ['all', ['style', 'fontname', 'fontsize', 'color', 'bold', 'italic', 'underline', 'strikethrough', 'clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
-                ],
+                airMode: true,
+                popover: {
+                    air: [
+                        ['all', ['style', 'fontname', 'fontsize', 'color', 'bold', 'italic', 'underline', 'strikethrough', 'clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
+                    ]
+                },
                 disableDragAndDrop: true,
                 callbacks: {
                     onChange: function (contents, $editable) {

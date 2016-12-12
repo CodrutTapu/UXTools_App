@@ -42,9 +42,12 @@ export class EmbedModule {
     updateEmbedTitle(module) {
         $(document).off('click','.editable-embed-title').on('click','.editable-embed-title',function(){
             $(this).summernote({
-                toolbar: [
-                    ['all', ['style','fontname', 'fontsize', 'color', 'bold', 'italic', 'underline', 'strikethrough','clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
-                ],
+                airMode: true,
+                popover: {
+                    air: [
+                        ['all', ['style','fontname', 'fontsize', 'color', 'bold', 'italic', 'underline', 'strikethrough','clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
+                    ]
+                },
                 disableDragAndDrop: true,
                 callbacks: {
                     onChange: function(contents, $editable) {

@@ -33,9 +33,12 @@ var ScaleChartModule = (function () {
     ScaleChartModule.prototype.updateScaleTitle = function (module) {
         $(document).off('click', '.editable-scale-title').on('click', '.editable-scale-title', function () {
             $(this).summernote({
-                toolbar: [
-                    ['all', ['style', 'fontname', 'fontsize', 'color', 'bold', 'italic', 'underline', 'strikethrough', 'clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
-                ],
+                airMode: true,
+                popover: {
+                    air: [
+                        ['all', ['style', 'fontname', 'fontsize', 'color', 'bold', 'italic', 'underline', 'strikethrough', 'clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
+                    ]
+                },
                 disableDragAndDrop: true,
                 callbacks: {
                     onChange: function (contents, $editable) {
@@ -49,9 +52,12 @@ var ScaleChartModule = (function () {
     ScaleChartModule.prototype.updateScaleSideA = function (scale, module) {
         $(document).off('click', '.editable-sideA').on('click', '.editable-sideA', function () {
             $(this).summernote({
-                toolbar: [
-                    ['all', ['style', 'fontname', 'fontsize', 'color', 'bold', 'italic', 'underline', 'strikethrough', 'clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
-                ],
+                airMode: true,
+                popover: {
+                    air: [
+                        ['all', ['style', 'fontname', 'fontsize', 'color', 'bold', 'italic', 'underline', 'strikethrough', 'clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
+                    ]
+                },
                 disableDragAndDrop: true,
                 callbacks: {
                     onChange: function (contents, $editable) {
@@ -65,9 +71,12 @@ var ScaleChartModule = (function () {
     ScaleChartModule.prototype.updateScaleSideB = function (scale, module) {
         $(document).off('click', '.editable-sideB').on('click', '.editable-sideB', function () {
             $(this).summernote({
-                toolbar: [
-                    ['all', ['style', 'fontname', 'fontsize', 'color', 'bold', 'italic', 'underline', 'strikethrough', 'clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
-                ],
+                airMode: true,
+                popover: {
+                    air: [
+                        ['all', ['style', 'fontname', 'fontsize', 'color', 'bold', 'italic', 'underline', 'strikethrough', 'clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
+                    ]
+                },
                 disableDragAndDrop: true,
                 callbacks: {
                     onChange: function (contents, $editable) {

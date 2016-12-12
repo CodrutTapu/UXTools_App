@@ -44,7 +44,6 @@ import { CountingModule } from './counting_module/counting.module';
 import { ViewCountingModule } from './counting_module/view.counting.module';
 import { colorSchemeModule } from './colorScheme_component/colorScheme.module';
 import { bgColorModule } from './bgColor_component/bgColor.module';
-import { test } from './test';
 
 @NgModule({
     imports: [
@@ -60,7 +59,6 @@ import { test } from './test';
         AppComponent,
         SignInComponent,
         SignUpComponent,
-        test,
         HomeComponent,
         DashboardComponent,
         PersonaComponent,

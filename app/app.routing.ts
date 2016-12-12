@@ -17,7 +17,6 @@ const appRoutes: Routes = [
     { path: 'edit/:author_id/:project_type/:project_id/:project_name', component: PersonaComponent },
     { path: 'view/:author_id/:project_type/:project_id/:project_name', component: ViewPersonaComponent },
     { path: 'new/persona/:author_id', component: newPersonaComponent },
-    { path: 'test', component: test },
     { path: '', component: HomeComponent }
 ];
 

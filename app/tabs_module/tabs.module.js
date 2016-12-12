@@ -50,9 +50,12 @@ var TabsModule = (function () {
     TabsModule.prototype.updateTabsItemContent = function (item, module) {
         $(document).off('click', '.editable-tabs-item-content').on('click', '.editable-tabs-item-content', function () {
             $(this).summernote({
-                toolbar: [
-                    ['all', ['fontname', 'color', 'bold', 'italic', 'underline', 'strikethrough', 'clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
-                ],
+                airMode: true,
+                popover: {
+                    air: [
+                        ['all', ['style', 'fontname', 'fontsize', 'color', 'bold', 'italic', 'underline', 'strikethrough', 'clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
+                    ]
+                },
                 disableDragAndDrop: true,
                 callbacks: {
                     onChange: function (contents, $editable) {
